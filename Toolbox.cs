@@ -10,6 +10,7 @@ namespace DiagramDesigner
         // the WrapPanel used for this Toolbox
         public Size ItemSize
         {
+
             get { return itemSize; }
             set { itemSize = value; }
         }
