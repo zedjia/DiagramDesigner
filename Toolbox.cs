@@ -16,6 +16,7 @@ namespace DiagramDesigner
         }
         private Size itemSize = new Size(50, 50);
 
+
         // Creates or identifies the element that is used to display the given item.        
         protected override DependencyObject GetContainerForItemOverride()
         {
