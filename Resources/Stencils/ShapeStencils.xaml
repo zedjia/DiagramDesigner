@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:DiagramDesigner"
+                    xmlns:cs="clr-namespace:DiagramDesigner.CustomControls"
                     xmlns:c="clr-namespace:DiagramDesigner.Controls">
 
   <RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
@@ -58,4 +59,16 @@
 
     </ItemsControl.Items>
   </s:Toolbox>
+
+    <s:Toolbox x:Key="Label_Diag" ItemSize="100,30">
+        
+        <cs:CustomControl1 IsHitTestVisible="false"></cs:CustomControl1>
+
+    </s:Toolbox>
+    
+    <s:Toolbox x:Key="Grid_Diag" ItemSize="100,30">
+
+        <cs:CustomControl2 IsHitTestVisible="false"></cs:CustomControl2>
+
+    </s:Toolbox>
 </ResourceDictionary>

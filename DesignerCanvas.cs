@@ -15,6 +15,8 @@ namespace DiagramDesigner
     {
         private Point? rubberbandSelectionStartPoint = null;
 
+        public string RealatedPorpertyCardName { get; set; }
+
         private SelectionService selectionService;
         internal SelectionService SelectionService
         {

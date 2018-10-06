@@ -1,4 +1,6 @@
-﻿<Window xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"   x:Class="WpfApplication1.Window2"
+﻿<Window xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
+        xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"   
+        x:Class="WpfApplication1.Window2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,11 +21,10 @@
                 <system:String>--no-sub-autodetect-file</system:String>
             </x:Array>
         </dd:DesignerCanvas.Resources>
-        <dxprg:PropertyGridControl  Width="400" Height="600" SelectedObject="{Binding ElementName= DataGrid,UpdateSourceTrigger=PropertyChanged}"/>
         <dd:DesignerItem Width="100" Height="100" x:Name="DesignerItem" >
             <Rectangle Fill="Aqua" Margin="5">
-              <dd:DesignerItem.ConnectorDecoratorTemplate>
-                  <ControlTemplate>
+                <dd:DesignerItem.ConnectorDecoratorTemplate>
+                    <ControlTemplate>
                         <c:RelativePositionPanel Margin="-4">
                             <dd:Connector x:Name="Top" Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
                             <dd:Connector x:Name="Left" Orientation="Left" c:RelativePositionPanel.RelativePosition="0.1,0.5"/>
@@ -31,13 +32,10 @@
                             <dd:Connector x:Name="Bottom" Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
                         </c:RelativePositionPanel>
                     </ControlTemplate>
-              </dd:DesignerItem.ConnectorDecoratorTemplate>  
-              
+                </dd:DesignerItem.ConnectorDecoratorTemplate>
+
             </Rectangle>
         </dd:DesignerItem>
-        <dd:DesignerItem  Canvas.Left="200" Width="80" Height="100"  >
-            <local:Water WaterRepeatBehacior="Forever" x:Name="Water"></local:Water>
-       </dd:DesignerItem>
         <dd:DesignerItem Canvas.Left="200" Canvas.Top="800">
             
 
@@ -46,15 +44,10 @@
        </ListBox>
         </dd:DesignerItem>
         <dd:DesignerItem Canvas.Left="400" Canvas.Top="800">
-        <dxg:GridControl x:Name="DataGrid" >
-            <dxg:GridColumn FieldName="name"></dxg:GridColumn>
-            <dxg:GridColumn FieldName="Length"></dxg:GridColumn>
+            <dxg:GridControl x:Name="DataGrid" >
+                <dxg:GridColumn FieldName="name"></dxg:GridColumn>
+                <dxg:GridColumn FieldName="Length"></dxg:GridColumn>
             </dxg:GridControl>
         </dd:DesignerItem>
-        <!--      <DataGrid  Canvas.Left="400" Canvas.Top="800"-->
-<!---->
-<!---->
-<!--             x:Name="DataGrid" ItemsSource="{Binding Source={StaticResource VlcOptions},UpdateSourceTrigger=PropertyChanged}"></DataGrid>-->
-<!--        -->
     </dd:DesignerCanvas>
 </Window>

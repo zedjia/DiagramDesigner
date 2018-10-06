@@ -1,0 +1,29 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiagramDesigner"
+        xmlns:cs="clr-namespace:DiagramDesigner.CustomControls"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
+        x:Class="DiagramDesigner.Window3"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <local:DesignerCanvas>
+        <dxprg:PropertyGridControl x:Name="PropertyGridControl" Width="400" Height="600" SelectedObject="{Binding ElementName= test,UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!--<local:DesignerItem Canvas.Left="500" Canvas.Top="300">
+            <dxg:GridControl x:Name="DataGrid" IsHitTestVisible="False">
+                <dxg:GridColumn FieldName="name"></dxg:GridColumn>
+                <dxg:GridColumn FieldName="Length"></dxg:GridColumn>
+            </dxg:GridControl>
+        </local:DesignerItem>-->
+
+        <!--<local:DesignerItem Canvas.Left="500" Canvas.Top="300">-->
+        <cs:CustomControl1 x:Name="test" Height="30" Width="100" Canvas.Left="500" Canvas.Top="300"></cs:CustomControl1>
+        <!--</local:DesignerItem>-->
+
+    </local:DesignerCanvas>
+</Window>
