@@ -74,17 +74,17 @@ namespace DiagramDesigner.CustomControls
             DependencyProperty.Register("TextColor", typeof(SolidColorBrush), typeof(Button_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("文字大小")]
-        public int TextSize
+        public double TextSize
         {
-            get { return (int)GetValue(TextSizeProperty); }
+            get { return (double)GetValue(TextSizeProperty); }
             set { SetValue(TextSizeProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for TextSize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextSizeProperty =
-            DependencyProperty.Register("TextSize", typeof(int), typeof(Button_Diag), new PropertyMetadata(12));
+            DependencyProperty.Register("TextSize", typeof(double), typeof(Button_Diag), new PropertyMetadata(12.0));
 
-
+        [DisplayName("背景颜色")]
         public SolidColorBrush BackColor
         {
             get { return (SolidColorBrush)GetValue(BackColorProperty); }
@@ -94,6 +94,28 @@ namespace DiagramDesigner.CustomControls
         // Using a DependencyProperty as the backing store for BackColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BackColorProperty =
             DependencyProperty.Register("BackColor", typeof(SolidColorBrush), typeof(Button_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBFBFB"))));
+
+        [DisplayName("边框颜色")]
+        public SolidColorBrush BorderColor
+        {
+            get { return (SolidColorBrush)GetValue(BorderColorProperty); }
+            set { SetValue(BorderColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BorderColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BorderColorProperty =
+            DependencyProperty.Register("BorderColor", typeof(SolidColorBrush), typeof(Button_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBFBFB"))));
+
+        [DisplayName("边框圆角")]
+        public CornerRadius CornerSize
+        {
+            get { return (CornerRadius)GetValue(CornerSizeProperty); }
+            set { SetValue(CornerSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CornerSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CornerSizeProperty =
+            DependencyProperty.Register("CornerSize", typeof(CornerRadius), typeof(Button_Diag), new PropertyMetadata(null));
 
 
     }

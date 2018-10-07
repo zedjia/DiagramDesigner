@@ -278,9 +278,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Button_Diag}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
+                    <Border Background="{TemplateBinding BackColor}"
+                            CornerRadius="{TemplateBinding CornerSize}"
+                            BorderBrush="{TemplateBinding BorderColor}"
                             BorderThickness="{TemplateBinding BorderThickness}">
+                        <Label Content="{TemplateBinding Text}" FontSize="{TemplateBinding TextSize}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{TemplateBinding TextColor}"></Label>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
