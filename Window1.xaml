@@ -26,7 +26,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <ContentControl Content="{StaticResource MyToolbar}"/>
@@ -61,16 +60,12 @@
                         <!--<s:DesignerItem x:Name="DesignerItem">-->
 
                         <!--</s:DesignerItem>-->
-                        
+
                     </s:DesignerCanvas>
                 </ScrollViewer>
             </GroupBox>
             <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="2" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top" Height="633" Width="285"/>
         </Grid>
-        <DockPanel Grid.Row="2"  >
-            <Button Content="Button" Height="100" VerticalAlignment="Top" Width="75"/>
 
-        </DockPanel>
-        
     </Grid>
 </Window>
