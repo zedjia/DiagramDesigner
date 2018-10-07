@@ -26,6 +26,5 @@
         <!--<local:DesignerItem Canvas.Left="500" Canvas.Top="300">-->
         <!--<cs:CustomControl1 x:Name="test" Height="30" Width="100" Canvas.Left="500" Canvas.Top="300"></cs:CustomControl1>-->
         <!--</local:DesignerItem>-->
-
     </Grid>
 </Window>
