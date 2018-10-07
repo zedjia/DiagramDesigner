@@ -81,4 +81,8 @@
     <s:Toolbox x:Key="TextBox_Diag" ItemSize="100,50">
         <cs:TextBox_Diag IsHitTestVisible="false"></cs:TextBox_Diag>
     </s:Toolbox>
+
+    <s:Toolbox x:Key="Button_Diag" ItemSize="100,50">
+        <cs:Button_Diag IsHitTestVisible="false"></cs:Button_Diag>
+    </s:Toolbox>
 </ResourceDictionary>

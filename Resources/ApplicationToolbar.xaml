@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="clr-namespace:DiagramDesigner.Commands"
+                    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                     xmlns:s="clr-namespace:DiagramDesigner">
 
     <ResourceDictionary.MergedDictionaries>
@@ -349,6 +351,57 @@
                     </Button>
                 </StackPanel>
             </Grid>
+        </GroupBox>
+
+        <!--数据源-->
+        <GroupBox Header="DataSource" Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3">
+            <GroupBox.DataContext>
+                <c:DataSourceCommand></c:DataSourceCommand>
+            </GroupBox.DataContext>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <Button Margin="1" Padding="2" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{Binding OpenSqlConfigWD}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/nav-data-source.png" Width="16"/>
+                            <TextBlock Margin="3,0,3,0" Text="SQL Server" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+                <Button Margin="1" Padding="2" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{Binding OpenOracleConfigWD}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/nav-data-source.png" Width="16"/>
+                            <TextBlock Margin="3,0,3,0" Text="Oracle" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+                <Button Margin="1" Padding="2" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{Binding OpenMySqlConfigWD}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/nav-data-source.png" Width="16"/>
+                            <TextBlock Margin="3,0,3,0" Text="MySql" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
         </GroupBox>
     </ToolBar>
 </ResourceDictionary>

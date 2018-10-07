@@ -45,6 +45,7 @@
                 <Expander Header="Grids" Content="{StaticResource Grid_Diag}" IsExpanded="False"/>
                 <Expander Header="Charts" Content="{StaticResource Chart_Diag}" IsExpanded="False"/>
                 <Expander Header="TextBoxs" Content="{StaticResource TextBox_Diag}" IsExpanded="False"/>
+                <Expander Header="Buttons" Content="{StaticResource Button_Diag}" IsExpanded="False"/>
             </StackPanel>
             <!-- GridSplitter -->
             <GridSplitter Focusable="False" Width="2" Background="LightGray"

@@ -1,0 +1,16 @@
+﻿<Window x:Class="DiagramDesigner.Windows.DataSourceWD.SqlConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiagramDesigner.Windows.DataSourceWD"
+        mc:Ignorable="d"
+        Title="SQL Server数据源配置" Height="200" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="链接字符串:"></Label>
+            <TextBox Width="230"></TextBox>
+        </StackPanel>
+        <Button Content="保存" VerticalAlignment="Bottom" Width="60" Height="20"></Button>
+    </Grid>
+</Window>
