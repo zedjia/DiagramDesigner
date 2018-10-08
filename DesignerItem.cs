@@ -172,18 +172,8 @@ namespace DiagramDesigner
                                     card.SelectedObject = aa.Content;
                                 }
                             }
-                            //if (child is T)
-                            //{
-                            //    childList.Add((T)child);
-                            //}
-                            //childList.AddRange(GetChildObjects<T>(child));
                         }
-
-                        DesignerItem designerItem = this as DesignerItem;
-                        //var child = designerItem.GetVisualChild(0);
-                        //card.SelectedObject = child;
                     }
-                    //}
                 }
                 
 
@@ -192,31 +182,6 @@ namespace DiagramDesigner
 
             e.Handled = false;
         }
-
-        /// <summary>
-        /// 获得指定元素的所有子元素
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        //public List<FrameworkElement> GetChildObjects(DependencyObject obj)
-        //{
-        //    DependencyObject child = null;
-        //    List<FrameworkElement> childList = new List<FrameworkElement>();
-
-        //    for (int i = 0; i <= VisualTreeHelper.GetChildrenCount(obj) - 1; i++)
-        //    {
-        //        child = VisualTreeHelper.GetChild(obj, i);
-
-        //        if (child is T)
-        //        {
-        //            childList.Add((T)child);
-        //        }
-        //        childList.AddRange(GetChildObjects<T>(child));
-        //    }
-        //    return childList;
-        //}
-
 
         void DesignerItem_Loaded(object sender, RoutedEventArgs e)
         {

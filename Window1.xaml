@@ -3,13 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:s="clr-namespace:DiagramDesigner"
         xmlns:c="clr-namespace:DiagramDesigner.Controls" 
-    xmlns:cs="clr-namespace:DiagramDesigner.CustomControls"
+        xmlns:cs="clr-namespace:DiagramDesigner.CustomControls"
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
         x:Class="DiagramDesigner.Window1"
         WindowStartupLocation="CenterScreen"
         Title="Diagram Designer"
         Height="850" Width="1300">
-
+    <!--<Window.DataContext>
+        <cs:SingleChart_Diag></cs:SingleChart_Diag>
+    </Window.DataContext>-->
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">
             <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
@@ -33,10 +35,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="265"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
             <!-- Toolbox -->
-            <StackPanel Grid.Column="0" Margin="0,0,5,0">
+            <StackPanel Grid.Column="0" Margin="0,0,3,0">
                 <!--<Expander Header="Flow Chart" Content="{StaticResource FlowChartStencils}" IsExpanded="True"/>
                 <Expander Header="Shapes" Content="{StaticResource ShapeStencils}" IsExpanded="True"/>-->
                 <Expander Header="Labels" Content="{StaticResource Label_Diag}" IsExpanded="False"/>
@@ -44,25 +45,35 @@
                 <Expander Header="Charts" Content="{StaticResource Chart_Diag}" IsExpanded="False"/>
                 <Expander Header="TextBoxs" Content="{StaticResource TextBox_Diag}" IsExpanded="False"/>
                 <Expander Header="Buttons" Content="{StaticResource Button_Diag}" IsExpanded="False"/>
+                <Expander Header="Images" Content="{StaticResource Image_Diag}" IsExpanded="False"/>
             </StackPanel>
             <!-- GridSplitter -->
             <GridSplitter Focusable="False" Width="2" Background="LightGray"
                     VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
-            <!-- Designer -->
-            <GroupBox Header="Diagram" Grid.Column="1" Margin="3,0,0,0">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Designer -->
+                <GroupBox Header="Diagram" Grid.Column="0" Margin="3,0,3,0">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-                    <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
                             Background="{StaticResource WindowBackgroundBrush}"
                             Margin="10" FocusVisualStyle="{x:Null}"
                             ContextMenu="{StaticResource DesignerCanvasContextMenu}">
-                        <!--<s:DesignerItem x:Name="DesignerItem">-->
-                            
-                        <!--</s:DesignerItem>-->
-                    </s:DesignerCanvas>
-                </ScrollViewer>
-            </GroupBox>
-            <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="2" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top" Height="633" Width="285"/>
+                            <!--<s:DesignerItem x:Name="DesignerItem">-->
+
+                            <!--</s:DesignerItem>-->
+                        </s:DesignerCanvas>
+                    </ScrollViewer>
+                </GroupBox>
+                <GridSplitter Focusable="False" Width="2" Background="LightGray"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
+                <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2 0 0 0"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
