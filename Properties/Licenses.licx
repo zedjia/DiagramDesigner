@@ -1,3 +1,5 @@
 DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=6.2.0.0, Culture=neutral, PublicKeyToken=87f9927a37ac6066
 DevExpress.Xpf.Grid.GridControl, DevExpress.Xpf.Grid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.PropertyGrid.PropertyGridControl, DevExpress.Xpf.PropertyGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.LayoutControl.DockLayoutControl, DevExpress.Xpf.LayoutControl.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Ribbon.RibbonControl, DevExpress.Xpf.Ribbon.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
