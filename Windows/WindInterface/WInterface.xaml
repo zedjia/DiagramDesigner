@@ -1,0 +1,47 @@
+﻿<Window x:Class="DiagramDesigner.Windows.WindInterface.WInterface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
+        mc:Ignorable="d"
+        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <ContentControl Content="{StaticResource ApiToolbar}"/>
+            
+            <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="序号" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--上面可加上选择框-->
+                                <Label ></Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding }"/>
+                    <DataGridTextColumn Header="接口地址" Width="280" Binding="{Binding }"/>
+                    <DataGridTemplateColumn Header="操作" Width="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--操作控件-->
+                                <Button Content="测试"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <!--暂时只做Get请求，参数可写在ur中-->
+        <!--<StackPanel Grid.Row="1">
+            <Border></Border>
+            <Label Content="请输入请求参数" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
+            <TextBox Width="500" Height="240" HorizontalAlignment="Left" Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>
+        </StackPanel>-->
+    </Grid>
+</Window>

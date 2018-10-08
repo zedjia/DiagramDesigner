@@ -9,7 +9,7 @@
         x:Class="DiagramDesigner.Window1"
         WindowStartupLocation="CenterScreen"
         Title="Diagram Designer"
-        Height="850" Width="1300">
+        Height="850" Width="1300" x:Name="mainWindow">
 
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">

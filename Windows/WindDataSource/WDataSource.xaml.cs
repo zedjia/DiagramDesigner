@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DiagramDesigner
+namespace DiagramDesigner.Windows.WindDataSource
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// WDataSource.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WDataSource : Window
     {
-        public MainWindow()
+        public WDataSource()
         {
             InitializeComponent();
         }
