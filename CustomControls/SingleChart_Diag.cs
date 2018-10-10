@@ -139,18 +139,6 @@ namespace DiagramDesigner.CustomControls
             All = 255
         }
 
-
-
-        public List<Data> Datas
-        {
-            get { return (List<Data>)GetValue(DatasProperty); }
-            set { SetValue(DatasProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Datas.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty DatasProperty =
-            DependencyProperty.Register("Datas", typeof(List<Data>), typeof(SingleChart_Diag), new PropertyMetadata(datas));
-
         static List<Data> datas = new List<Data>()
         {
             new Data(){ Argument="2016",Value="16" },
@@ -158,10 +146,23 @@ namespace DiagramDesigner.CustomControls
             new Data(){ Argument="2018",Value="23" }
         };
 
+
+        public List<Data> Datas
+        {
+            get { return (List<Data>)GetValue(DatasProperty); }
+            set { SetValue(DatasProperty, value); }
+        }
+        
+        // Using a DependencyProperty as the backing store for Datas.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DatasProperty =
+            DependencyProperty.Register("Datas", typeof(List<Data>), typeof(SingleChart_Diag), new PropertyMetadata(datas));
+
+        
         public class Data : CollectionDefinition
         {
             public string Argument { get; set; }
             public string Value { get; set; }
+            public List<string> xsss { get; set; }
         }
     }
 }

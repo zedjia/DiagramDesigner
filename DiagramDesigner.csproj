@@ -113,15 +113,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\CustomControl1.cs" />
+    <Compile Include="Controls\CustomControl2.cs" />
+    <Compile Include="Controls\Label_Dragable.xaml.cs">
+      <DependentUpon>Label_Dragable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Label_HT.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
+    <Compile Include="CustomControls\DataGrid_Diag.cs" />
     <Compile Include="CustomControls\Image_Diag.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
     <Compile Include="CustomControls\SingleChart_Diag.cs" />
     <Compile Include="CustomControls\SingleLineChart_Diag.cs" />
     <Compile Include="CustomControls\TextBox_Diag.cs" />
     <Compile Include="Commands\DataSourceCommand.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataSourceModel.cs" />
+    <Compile Include="Models\FontProperty.cs" />
+    <Compile Include="UserControls\Label_Diag.xaml.cs">
+      <DependentUpon>Label_Diag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CommonViewModel.cs" />
     <Compile Include="Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
     </Compile>
@@ -135,6 +153,14 @@
       <DependentUpon>SqlConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SuspensionWD\DsSuspensionWD.cs" />
+    <Page Include="Controls\Label_Dragable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\ApplicationToolbar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -215,6 +241,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Label_Diag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -282,7 +312,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="packages\CommonServiceLocator.2.0.4\.signature.p7s" />
+    <None Include="packages\CommonServiceLocator.2.0.4\CommonServiceLocator.2.0.4.nupkg" />
+    <None Include="packages\Prism.Core.7.1.0.279-pre\.signature.p7s" />
+    <None Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.pri" />
+    <None Include="packages\Prism.Core.7.1.0.279-pre\Prism.Core.7.1.0.279-pre.nupkg" />
+    <None Include="packages\Prism.Wpf.7.1.0.279-pre\.signature.p7s" />
+    <None Include="packages\Prism.Wpf.7.1.0.279-pre\Prism.Wpf.7.1.0.279-pre.nupkg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -326,14 +364,38 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\nav-data-source.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Pictures\微信.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net40\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net47\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netcoreapp1.0\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netcoreapp2.0\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard1.0\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.xml" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.xml" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard2.0\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard2.0\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard2.0\Prism.xml" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.xml" />
+    <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.dll" />
+    <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.pdb" />
+    <Resource Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.xml" />
+    <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\System.Windows.Interactivity.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

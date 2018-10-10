@@ -5,6 +5,7 @@
                     xmlns:ssw="clr-namespace:DiagramDesigner.Windows.SuspensionWD"
                     xmlns:dxcore="http://schemas.devexpress.com/winfx/2008/xaml/core"
                     xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+                    xmlns:vm="clr-namespace:DiagramDesigner.ViewModel"
                     xmlns:local="clr-namespace:DiagramDesigner.CustomControls">
 
 
@@ -284,8 +285,9 @@
                     <Border Background="{TemplateBinding BackColor}"
                             CornerRadius="{TemplateBinding CornerSize}"
                             BorderBrush="{TemplateBinding BorderColor}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <Label Content="{TemplateBinding Text}" FontSize="{TemplateBinding TextSize}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{TemplateBinding TextColor}"></Label>
+                            BorderThickness="{TemplateBinding BorderSize}">
+                        <Label Content="{TemplateBinding Text}" FontSize="{TemplateBinding TextSize}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" Foreground="{TemplateBinding TextColor}">
+                        </Label>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -330,6 +332,16 @@
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Image Source="{TemplateBinding ImageUrl}"></Image>
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:DataGrid_Diag}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DataGrid_Diag}">
+                    <DataGrid ItemsSource="{TemplateBinding TableSource}"></DataGrid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
