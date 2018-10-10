@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
 using Microsoft.Win32;
+using DiagramDesigner.Windows.WindDataSource;
+using DiagramDesigner.Windows.WindInterface;
 
 namespace DiagramDesigner
 {
@@ -32,7 +34,10 @@ namespace DiagramDesigner
         public static RoutedCommand DistributeHorizontal = new RoutedCommand();
         public static RoutedCommand DistributeVertical = new RoutedCommand();
         public static RoutedCommand SelectAll = new RoutedCommand();
-
+        //DataSource Config
+        public static RoutedCommand DataSourceConfig = new RoutedCommand();
+        //Interface List And Oprtation
+        public static RoutedCommand InsertfaceHandle = new RoutedCommand();
         public DesignerCanvas()
         {
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.New, New_Executed));
@@ -59,7 +64,10 @@ namespace DiagramDesigner
             this.CommandBindings.Add(new CommandBinding(DesignerCanvas.DistributeVertical, DistributeVertical_Executed, Distribute_Enabled));
             this.CommandBindings.Add(new CommandBinding(DesignerCanvas.SelectAll, SelectAll_Executed));
             SelectAll.InputGestures.Add(new KeyGesture(Key.A, ModifierKeys.Control));
-
+            //DataSource Config
+            this.CommandBindings.Add(new CommandBinding(DesignerCanvas.DataSourceConfig, DataSourceConfig_Executed));
+            //Interface List And Oprtation
+            this.CommandBindings.Add(new CommandBinding(DesignerCanvas.InsertfaceHandle, InsertfaceHandle_Executed));
             this.AllowDrop = true;
             Clipboard.Clear();
         }
@@ -483,7 +491,7 @@ namespace DiagramDesigner
                     Canvas.SetZIndex(item, selectionSorted.Count + i++);
                 }
             }
-        }        
+        }
 
         #endregion
 
@@ -997,6 +1005,35 @@ namespace DiagramDesigner
             return (root1.ID == root2.ID);
         }
 
+        #endregion
+
+        #region DataSourceConfig  下方的代码可优化
+        /// <summary>
+        /// 配置数据源
+        /// </summary>
+        private void DataSourceConfig_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            var datasource = new WDataSource();
+            Window1 mainWindow = FindName("mainWindow") as Window1;
+            datasource.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            datasource.Owner = mainWindow;
+            datasource.ShowDialog();
+            //datasource.Owner = window;
+        }
+
+        /// <summary>
+        /// 接口处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void InsertfaceHandle_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            var interfe = new WInterface();
+            Window1 mainWindow = FindName("mainWindow") as Window1;
+            interfe.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            interfe.Owner = mainWindow;
+            interfe.ShowDialog();
+        }
         #endregion
     }
 }
