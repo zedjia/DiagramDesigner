@@ -50,5 +50,10 @@ namespace DiagramDesigner.Commands
                 });
             }
         }
+
+        public void Test()
+        {
+            Console.WriteLine("测试菜单");
+        }
     }
 }

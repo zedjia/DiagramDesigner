@@ -59,70 +59,21 @@
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Charts.v17.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Data.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Mvvm.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Mvvm.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Printing.v17.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.TreeMap.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.TreeMap.v17.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Charts.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Charts.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Core.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Docking.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Docking.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Grid.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Grid.v17.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Layout.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Layout.v17.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.LayoutControl.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.LayoutControl.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Printing.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Printing.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.PropertyGrid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.PropertyGrid.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Ribbon.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.Ribbon.v17.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.TreeMap.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\DevExpress.Xpf.TreeMap.v17.2.dll</HintPath>
-    </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Charts.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Docking.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Printing.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Prism, Version=7.1.0.279, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -162,18 +113,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\CustomControl1.cs" />
+    <Compile Include="Controls\CustomControl2.cs" />
+    <Compile Include="Controls\Label_Dragable.xaml.cs">
+      <DependentUpon>Label_Dragable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Label_HT.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
+    <Compile Include="CustomControls\DataGrid_Diag.cs" />
     <Compile Include="CustomControls\Image_Diag.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
     <Compile Include="CustomControls\SingleChart_Diag.cs" />
     <Compile Include="CustomControls\SingleLineChart_Diag.cs" />
     <Compile Include="CustomControls\TextBox_Diag.cs" />
     <Compile Include="Commands\DataSourceCommand.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataSourceModel.cs" />
+    <Compile Include="Models\FontProperty.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CommonViewModel.cs" />
     <Compile Include="Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
     </Compile>
@@ -187,12 +153,14 @@
       <DependentUpon>SqlConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SuspensionWD\DsSuspensionWD.cs" />
-    <Compile Include="Windows\WindDataSource\WDataSource.xaml.cs">
-      <DependentUpon>WDataSource.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WindInterface\WInterface.xaml.cs">
-      <DependentUpon>WInterface.xaml</DependentUpon>
-    </Compile>
+    <Page Include="Controls\Label_Dragable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\ApplicationToolbar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -307,14 +275,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindDataSource\WDataSource.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\WindInterface\WInterface.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
@@ -352,7 +312,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="packages\CommonServiceLocator.2.0.4\.signature.p7s" />
+    <None Include="packages\CommonServiceLocator.2.0.4\CommonServiceLocator.2.0.4.nupkg" />
+    <None Include="packages\Prism.Core.7.1.0.279-pre\.signature.p7s" />
+    <None Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.pri" />
+    <None Include="packages\Prism.Core.7.1.0.279-pre\Prism.Core.7.1.0.279-pre.nupkg" />
+    <None Include="packages\Prism.Wpf.7.1.0.279-pre\.signature.p7s" />
+    <None Include="packages\Prism.Wpf.7.1.0.279-pre\Prism.Wpf.7.1.0.279-pre.nupkg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -396,9 +364,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tools\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\nav-data-source.png" />
   </ItemGroup>
@@ -406,14 +372,30 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\ApiDelete.png" />
-    <Resource Include="Resources\Images\ApiEdit.png" />
-    <Resource Include="Resources\Images\ApiNew.png" />
-    <Resource Include="Resources\Images\ApiTest.png" />
-    <Resource Include="Resources\Images\DataSource.ico" />
-    <Resource Include="Resources\Images\DataSource.png" />
-    <Resource Include="Resources\Images\Interface.ico" />
-    <Resource Include="Resources\Images\Interface.png" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net40\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\net47\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netcoreapp1.0\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netcoreapp2.0\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard1.0\CommonServiceLocator.dll" />
+    <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.xml" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.xml" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard2.0\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard2.0\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard2.0\Prism.xml" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.dll" />
+    <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.pdb" />
+    <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.xml" />
+    <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.dll" />
+    <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.pdb" />
+    <Resource Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.xml" />
+    <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\System.Windows.Interactivity.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

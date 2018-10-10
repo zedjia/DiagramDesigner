@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiagramDesigner.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -60,7 +61,20 @@ namespace DiagramDesigner.CustomControls
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(Button_Diag), new PropertyMetadata("Button_Diag"));
+            DependencyProperty.Register("Text", typeof(string), typeof(Button_Diag), new PropertyMetadata("文字"));
+
+        [DisplayName("字体")]
+        public FontFamily TextFontFamily
+        {
+            get { return (FontFamily)GetValue(TextFontFamilyProperty); }
+            set { SetValue(TextFontFamilyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextFontFamily.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextFontFamilyProperty =
+            DependencyProperty.Register("TextFontFamily", typeof(FontFamily), typeof(Button_Diag), new PropertyMetadata(new FontFamily("微软雅黑")));
+
+
 
         [DisplayName("文字颜色")]
         public SolidColorBrush TextColor
@@ -80,9 +94,32 @@ namespace DiagramDesigner.CustomControls
             set { SetValue(TextSizeProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for TextSize.  This enables animation, styling, binding, etc...
+        //Using a DependencyProperty as the backing store for TextSize.This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextSizeProperty =
             DependencyProperty.Register("TextSize", typeof(double), typeof(Button_Diag), new PropertyMetadata(12.0));
+
+        [DisplayName("文字纵向位置")]
+        public VerticalAlignment TextVerticalAlignment
+        {
+            get { return (VerticalAlignment)GetValue(TextVerticalAlignmentProperty); }
+            set { SetValue(TextVerticalAlignmentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextVerticalAlignment.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextVerticalAlignmentProperty =
+            DependencyProperty.Register("TextVerticalAlignment", typeof(VerticalAlignment), typeof(Button_Diag), new PropertyMetadata(VerticalAlignment.Center));
+
+
+        [DisplayName("文字横向位置")]
+        public HorizontalAlignment TextHorizontalAlignment
+        {
+            get { return (HorizontalAlignment)GetValue(TextHorizontalAlignmentProperty); }
+            set { SetValue(TextHorizontalAlignmentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextHorizontalAlignment.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextHorizontalAlignmentProperty =
+            DependencyProperty.Register("TextHorizontalAlignment", typeof(HorizontalAlignment), typeof(Button_Diag), new PropertyMetadata(HorizontalAlignment.Center));
 
         [DisplayName("背景颜色")]
         public SolidColorBrush BackColor
@@ -116,7 +153,16 @@ namespace DiagramDesigner.CustomControls
         // Using a DependencyProperty as the backing store for CornerSize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CornerSizeProperty =
             DependencyProperty.Register("CornerSize", typeof(CornerRadius), typeof(Button_Diag), new PropertyMetadata(null));
+        
+        [DisplayName("边框粗细")]
+        public Thickness BorderSize
+        {
+            get { return (Thickness)GetValue(BorderSizeProperty); }
+            set { SetValue(BorderSizeProperty, value); }
+        }
 
-
+        // Using a DependencyProperty as the backing store for BorderThickness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BorderSizeProperty =
+            DependencyProperty.Register("BorderSize", typeof(Thickness), typeof(Button_Diag), new PropertyMetadata(null));
     }
 }
