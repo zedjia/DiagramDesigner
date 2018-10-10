@@ -90,4 +90,7 @@
     <s:Toolbox x:Key="Image_Diag" ItemSize="100,50">
         <cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>
     </s:Toolbox>
+    <s:Toolbox x:Key="Table_Diag" ItemSize="100,50">
+        <cs:DataGrid_Diag IsHitTestVisible="false" ToolTip="DataGrid"></cs:DataGrid_Diag>
+    </s:Toolbox>
 </ResourceDictionary>

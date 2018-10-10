@@ -48,7 +48,7 @@
                         </Grid.RowDefinitions>
                         <!--<Label Content="{TemplateBinding Title}"></Label>-->
                         <!--柱状图-->
-                        <dxc:ChartControl Grid.Row="1" x:Name="chart" BorderBrush="Transparent" Foreground="Red" BorderThickness="0">
+                        <dxc:ChartControl Grid.Row="1" x:Name="chart" BorderBrush="Transparent" Foreground="Red" BorderThickness="0" DataSource="{TemplateBinding ChartSource}">
                             <dxc:ChartControl.Legend>
                                 <dxc:Legend x:Name="legend"/>
                             </dxc:ChartControl.Legend>
@@ -69,11 +69,11 @@
                                             <dxc:AxisLabel FontSize="18"/>
                                         </dxc:AxisX2D.Label>
                                         <dxc:AxisX2D.CustomLabels>
-                                            <dxc:CustomAxisLabel Content="2013" Value="2013"/>
+                                            <!--<dxc:CustomAxisLabel Content="2013" Value="2013"/>
                                             <dxc:CustomAxisLabel Content="2014" Value="2014"/>
                                             <dxc:CustomAxisLabel Content="2015" Value="2015"/>
                                             <dxc:CustomAxisLabel Content="2016" Value="2016"/>
-                                            <dxc:CustomAxisLabel Content="2017" Value="2017"/>
+                                            <dxc:CustomAxisLabel Content="2017" Value="2017"/>-->
                                         </dxc:AxisX2D.CustomLabels>
                                     </dxc:AxisX2D>
                                 </dxc:XYDiagram2D.AxisX>
@@ -98,9 +98,11 @@
                                     </dxc:AxisY2D>
                                 </dxc:XYDiagram2D.AxisY>
 
-                                <dxc:BarSideBySideSeries2D x:Name="realValueChart" 
+                                <dxc:BarSideBySideSeries2D x:Name="realValueChart" Height="350" 
                                            DisplayName="{TemplateBinding DisplayName}"
                                            CrosshairLabelPattern="{}{S} : {V}"
+                                           ArgumentDataMember="{TemplateBinding X}"
+                                           ValueDataMember="{TemplateBinding Y}"
                                            FontSize="30" BarWidth="0.2" Brush="{TemplateBinding ChartColor}">
                                     <dxc:BarSideBySideSeries2D.Model>
                                         <dxc:BorderlessSimpleBar2DModel/>
@@ -113,11 +115,11 @@
                                     dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
                                     </dxc:BarSideBySideSeries2D.Label>
                                     <dxc:BarSideBySideSeries2D.Points>
-                                        <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
+                                        <!--<dxc:SeriesPoint Argument="Illinois" Value="423.721" />
                                         <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
                                         <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
                                         <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
-                                        <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
+                                        <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />-->
                                     </dxc:BarSideBySideSeries2D.Points>
                                 </dxc:BarSideBySideSeries2D>
                             </dxc:XYDiagram2D>

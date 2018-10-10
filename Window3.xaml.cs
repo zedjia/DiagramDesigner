@@ -41,6 +41,7 @@ namespace DiagramDesigner
             dc = tblDatas.Columns.Add("Version", Type.GetType("System.String"));
             dc = tblDatas.Columns.Add("Description", Type.GetType("System.String"));
 
+
             DataRow newRow;
             newRow = tblDatas.NewRow();
             newRow["Product"] = "大话西游";
@@ -54,7 +55,13 @@ namespace DiagramDesigner
             newRow["Description"] = "比大话更幼稚";
             tblDatas.Rows.Add(newRow);
 
-            this.DataGrid.TableSource = tblDatas.DefaultView;
+            //这里绑定的是每一个系列的datatable，也就是说必须先把数据源过滤了再来绑定
+            SingleChart.ChartSource = tblDatas;
+            //这个属性必须和绑定的datatable中的列名一致
+            SingleChart.X = tblDatas.Columns[1].ColumnName;
+            //可以指定多个纵坐标，这里只有一个，也必须和绑定的datatable中一致
+            SingleChart.Y = tblDatas.Columns[2].ColumnName;
+            SingleChart.DisplayName = "版本";
         }
     }
 }

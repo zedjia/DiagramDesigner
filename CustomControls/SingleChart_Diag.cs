@@ -138,31 +138,38 @@ namespace DiagramDesigner.CustomControls
             MarketDepth = 4,
             All = 255
         }
-
-        static List<Data> datas = new List<Data>()
+        [DisplayName("X值")]
+        public string X
         {
-            new Data(){ Argument="2016",Value="16" },
-            new Data(){ Argument="2017",Value="32" },
-            new Data(){ Argument="2018",Value="23" }
-        };
-
-
-        public List<Data> Datas
-        {
-            get { return (List<Data>)GetValue(DatasProperty); }
-            set { SetValue(DatasProperty, value); }
+            get { return (string)GetValue(XProperty); }
+            set { SetValue(XProperty, value); }
         }
-        
-        // Using a DependencyProperty as the backing store for Datas.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty DatasProperty =
-            DependencyProperty.Register("Datas", typeof(List<Data>), typeof(SingleChart_Diag), new PropertyMetadata(datas));
 
-        
-        public class Data : CollectionDefinition
+        // Using a DependencyProperty as the backing store for Argument.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty XProperty =
+            DependencyProperty.Register("X", typeof(string), typeof(SingleChart_Diag), new PropertyMetadata(""));
+
+        [DisplayName("Y值")]
+        public string Y
         {
-            public string Argument { get; set; }
-            public string Value { get; set; }
-            public List<string> xsss { get; set; }
+            get { return (string)GetValue(YProperty); }
+            set { SetValue(YProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for Values.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty YProperty =
+            DependencyProperty.Register("Y", typeof(string), typeof(SingleChart_Diag), new PropertyMetadata(""));
+
+        [DisplayName("数据源")]
+        public object ChartSource
+        {
+            get { return (object)GetValue(ChartSourceProperty); }
+            set { SetValue(ChartSourceProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartSourceProperty =
+            DependencyProperty.Register("ChartSource", typeof(object), typeof(SingleChart_Diag), new PropertyMetadata(null));
+        
     }
 }

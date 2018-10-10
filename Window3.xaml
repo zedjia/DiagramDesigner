@@ -23,8 +23,8 @@
     <Grid>
         <!--<dxprg:PropertyGridControl x:Name="PropertyGridCard" SelectedObject="{Binding CommonProperty}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2 0 0 0">
         </dxprg:PropertyGridControl>-->
-        <cs:DataGrid_Diag x:Name="DataGrid">
+        <cs:SingleChart_Diag x:Name="SingleChart">
             
-        </cs:DataGrid_Diag>
+        </cs:SingleChart_Diag>
     </Grid>
 </Window>
