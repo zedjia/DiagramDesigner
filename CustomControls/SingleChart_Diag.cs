@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpf.Charts;
+using DevExpress.Xpf.PropertyGrid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -117,6 +118,50 @@ namespace DiagramDesigner.CustomControls
         public static readonly DependencyProperty TitleSizeProperty =
             DependencyProperty.Register("TitleSize", typeof(double), typeof(SingleChart_Diag), new PropertyMetadata(15.0));
 
+        [DisplayName("枚举测试")]
+        public FlagEnumDataType Types
+        {
+            get { return (FlagEnumDataType)GetValue(TypesProperty); }
+            set { SetValue(TypesProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for DataList.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TypesProperty =
+            DependencyProperty.Register("Types", typeof(FlagEnumDataType), typeof(SingleChart_Diag), new PropertyMetadata(FlagEnumDataType.None));
+
+        [Flags]
+        public enum FlagEnumDataType : byte
+        {
+            None = 0,
+            Trade = 1,
+            Quote = 2,
+            MarketDepth = 4,
+            All = 255
+        }
+
+
+
+        public List<Data> Datas
+        {
+            get { return (List<Data>)GetValue(DatasProperty); }
+            set { SetValue(DatasProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Datas.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DatasProperty =
+            DependencyProperty.Register("Datas", typeof(List<Data>), typeof(SingleChart_Diag), new PropertyMetadata(datas));
+
+        static List<Data> datas = new List<Data>()
+        {
+            new Data(){ Argument="2016",Value="16" },
+            new Data(){ Argument="2017",Value="32" },
+            new Data(){ Argument="2018",Value="23" }
+        };
+
+        public class Data : CollectionDefinition
+        {
+            public string Argument { get; set; }
+            public string Value { get; set; }
+        }
     }
 }

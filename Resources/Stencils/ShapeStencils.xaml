@@ -85,4 +85,8 @@
     <s:Toolbox x:Key="Button_Diag" ItemSize="100,50">
         <cs:Button_Diag IsHitTestVisible="false"></cs:Button_Diag>
     </s:Toolbox>
+
+    <s:Toolbox x:Key="Image_Diag" ItemSize="100,50">
+        <cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>
+    </s:Toolbox>
 </ResourceDictionary>
