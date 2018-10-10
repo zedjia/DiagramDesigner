@@ -119,11 +119,17 @@
       <DependentUpon>Label_Dragable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Label_HT.cs" />
+    <Compile Include="CustomControls\Buttons\BottomTxtImageBtn.cs" />
+    <Compile Include="CustomControls\Buttons\CenterTxtImageBtn.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
     <Compile Include="CustomControls\DataGrid_Diag.cs" />
     <Compile Include="CustomControls\Image_Diag.cs" />
+    <Compile Include="CustomControls\Labels\ImageLabel.cs" />
+    <Compile Include="CustomControls\Labels\ImageOneLineLabel.cs" />
+    <Compile Include="CustomControls\Labels\Label1.cs" />
+    <Compile Include="CustomControls\Labels\LabelCommon.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
     <Compile Include="CustomControls\SingleChart_Diag.cs" />
     <Compile Include="CustomControls\SingleLineChart_Diag.cs" />
@@ -131,9 +137,6 @@
     <Compile Include="Commands\DataSourceCommand.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataSourceModel.cs" />
     <Compile Include="Models\FontProperty.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
@@ -153,11 +156,13 @@
       <DependentUpon>SqlConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SuspensionWD\DsSuspensionWD.cs" />
+    <Compile Include="Windows\WindDataSource\WDataSource.xaml.cs">
+      <DependentUpon>WDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindInterface\WInterface.xaml.cs">
+      <DependentUpon>WInterface.xaml</DependentUpon>
+    </Compile>
     <Page Include="Controls\Label_Dragable.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -275,6 +280,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\WindDataSource\WDataSource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindInterface\WInterface.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
@@ -364,7 +377,15 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CustomControls\Charts\" />
+    <Folder Include="CustomControls\DataGrids\" />
+    <Folder Include="CustomControls\DataLists\" />
+    <Folder Include="CustomControls\Graphs\" />
+    <Folder Include="CustomControls\Images\" />
+    <Folder Include="CustomControls\Splits\" />
+    <Folder Include="CustomControls\TextBoxs\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\nav-data-source.png" />
   </ItemGroup>
@@ -382,6 +403,7 @@
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
+    <Resource Include="Resources\Pictures\box.png" />
     <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.xml" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.pdb" />

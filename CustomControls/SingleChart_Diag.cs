@@ -79,7 +79,7 @@ namespace DiagramDesigner.CustomControls
 
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartColorProperty =
-            DependencyProperty.Register("ChartColor", typeof(SolidColorBrush), typeof(SingleChart_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#09B0B8"))));
+            DependencyProperty.Register("ChartColor", typeof(SolidColorBrush), typeof(SingleChart_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
         /// <summary>
         /// 图例文字
         /// </summary>

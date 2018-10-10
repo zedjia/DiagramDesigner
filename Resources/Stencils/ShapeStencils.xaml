@@ -3,6 +3,8 @@
                     xmlns:s="clr-namespace:DiagramDesigner"
                     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
                     xmlns:cs="clr-namespace:DiagramDesigner.CustomControls"
+                    xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
+                    xmlns:lbl="clr-namespace:DiagramDesigner.CustomControls.Labels"
                     xmlns:c="clr-namespace:DiagramDesigner.Controls">
 
   <RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
@@ -62,9 +64,10 @@
   </s:Toolbox>
 
     <s:Toolbox x:Key="Label_Diag" ItemSize="100,30">
-        
-        <cs:CustomControl1 IsHitTestVisible="false"></cs:CustomControl1>
-
+        <lbl:LabelCommon IsHitTestVisible="False"></lbl:LabelCommon>
+        <lbl:Label1 IsHitTestVisible="False"></lbl:Label1>
+        <lbl:ImageLabel IsHitTestVisible="False"></lbl:ImageLabel>
+        <lbl:ImageOneLineLabel IsHitTestVisible="False"></lbl:ImageOneLineLabel>
     </s:Toolbox>
     
     <s:Toolbox x:Key="Grid_Diag" ItemSize="100,30">
@@ -85,6 +88,8 @@
 
     <s:Toolbox x:Key="Button_Diag" ItemSize="100,50">
         <cs:Button_Diag IsHitTestVisible="false"></cs:Button_Diag>
+        <btn:BottomTxtImageBtn IsHitTestVisible="false"></btn:BottomTxtImageBtn>
+        <btn:CenterTxtImageBtn IsHitTestVisible="False"></btn:CenterTxtImageBtn>
     </s:Toolbox>
 
     <s:Toolbox x:Key="Image_Diag" ItemSize="100,50">
