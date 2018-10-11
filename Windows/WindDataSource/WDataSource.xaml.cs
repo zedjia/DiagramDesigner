@@ -19,14 +19,15 @@ namespace DiagramDesigner.Windows.WindDataSource
     /// </summary>
     public partial class WDataSource : Window
     {
-        private DataSourceConnModel dataSourceModel { get; set; }
+        public DataSourceConnModel dataSourceModel { get; set; }
 
         public WDataSource()
         {
             InitializeComponent();
-            dataSourceModel = new DataSourceConnModel();
+            dataSourceModel = new DataSourceConnModel(){DBAlias = "test",DBConnUrl = "aaa"};
+            this.DataContext = dataSourceModel;
 
-            
+
 
         }
 
@@ -37,10 +38,16 @@ namespace DiagramDesigner.Windows.WindDataSource
     }
 
 
+    public enum DataSourceType
+    {
+        Database,
+        Interface
+    }
 
     public class DataSourceConnModel
     {
         public Guid Id { get; set; }
+        public DataSourceType Type { get; set; }
         public string DBType { get; set; }
         public string DBAlias { get; set; }
         public string DBConnUrl { get; set; }
