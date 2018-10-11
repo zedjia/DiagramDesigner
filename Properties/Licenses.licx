@@ -2,3 +2,7 @@ DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=6.2.0.0, Cultur
 DevExpress.Xpf.Grid.GridControl, DevExpress.Xpf.Grid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.PropertyGrid.PropertyGridControl, DevExpress.Xpf.PropertyGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.Charts.ChartControl, DevExpress.Xpf.Charts.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Grid.GridControl, DevExpress.Xpf.Grid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.PropertyGrid.PropertyGridControl, DevExpress.Xpf.PropertyGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Charts.ChartControl, DevExpress.Xpf.Charts.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Docking.DockLayoutManager, DevExpress.Xpf.Docking.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a

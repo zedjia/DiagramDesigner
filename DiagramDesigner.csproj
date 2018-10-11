@@ -66,21 +66,18 @@
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="Dapper.Contrib, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Dapper.Contrib.1.50.5\lib\net451\Dapper.Contrib.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Charts.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Core.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Docking.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Layout.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Printing.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.PropertyGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Charts.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Docking.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Printing.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Prism, Version=7.1.0.279, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll</HintPath>
@@ -354,11 +351,19 @@
     <None Include="packages.config" />
     <None Include="packages\CommonServiceLocator.2.0.4\.signature.p7s" />
     <None Include="packages\CommonServiceLocator.2.0.4\CommonServiceLocator.2.0.4.nupkg" />
+    <None Include="packages\Fody.3.2.9\.signature.p7s" />
+    <None Include="packages\Fody.3.2.9\build\Fody.targets" />
+    <None Include="packages\Fody.3.2.9\Fody.3.2.9.nupkg" />
     <None Include="packages\Prism.Core.7.1.0.279-pre\.signature.p7s" />
     <None Include="packages\Prism.Core.7.1.0.279-pre\lib\uap10.0.15063\Prism.pri" />
     <None Include="packages\Prism.Core.7.1.0.279-pre\Prism.Core.7.1.0.279-pre.nupkg" />
     <None Include="packages\Prism.Wpf.7.1.0.279-pre\.signature.p7s" />
     <None Include="packages\Prism.Wpf.7.1.0.279-pre\Prism.Wpf.7.1.0.279-pre.nupkg" />
+    <None Include="packages\PropertyChanged.Fody.2.5.13\.signature.p7s" />
+    <None Include="packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props" />
+    <None Include="packages\PropertyChanged.Fody.2.5.13\PropertyChanged.Fody.2.5.13.nupkg" />
+    <None Include="packages\Stylet.1.1.21\lib\net45\Stylet.pdb.srcsrv" />
+    <None Include="packages\Stylet.1.1.21\Stylet.1.1.21.nupkg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -415,6 +420,20 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages\PropertyChanged.Fody.2.5.13\lib\net452\PropertyChanged.dll" />
+    <Content Include="packages\Stylet.1.1.21\lib\net45\Stylet.dll" />
+    <Content Include="packages\Stylet.1.1.21\lib\net45\Stylet.pdb" />
+    <Content Include="packages\WPG.dll" />
+    <Content Include="packages\WPG.pdb" />
+    <Resource Include="packages\Stylet.1.1.21\lib\net45\Stylet.xml" />
+    <Resource Include="packages\Stylet.1.1.21\readme.txt" />
+    <Resource Include="packages\PropertyChanged.Fody.2.5.13\lib\net452\PropertyChanged.xml" />
+    <Content Include="packages\PropertyChanged.Fody.2.5.13\lib\netstandard1.0\PropertyChanged.dll" />
+    <Resource Include="packages\PropertyChanged.Fody.2.5.13\lib\netstandard1.0\PropertyChanged.xml" />
+    <Content Include="packages\PropertyChanged.Fody.2.5.13\netclassicweaver\PropertyChanged.Fody.dll" />
+    <Content Include="packages\PropertyChanged.Fody.2.5.13\netclassicweaver\PropertyChanged.Fody.pdb" />
+    <Content Include="packages\PropertyChanged.Fody.2.5.13\netstandardweaver\PropertyChanged.Fody.dll" />
+    <Content Include="packages\PropertyChanged.Fody.2.5.13\netstandardweaver\PropertyChanged.Fody.pdb" />
     <Resource Include="FodyWeavers.xml" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\net40\CommonServiceLocator.dll" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll" />
@@ -424,6 +443,38 @@
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netcoreapp2.0\CommonServiceLocator.dll" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard1.0\CommonServiceLocator.dll" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Fody.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Fody.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\FodyCommon.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\FodyCommon.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\FodyHelpers.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\FodyHelpers.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\FodyIsolated.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\FodyIsolated.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.Mdb.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.Mdb.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.Pdb.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.Pdb.pdb" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.Rocks.dll" />
+    <Content Include="packages\Fody.3.2.9\netclassictask\Mono.Cecil.Rocks.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Fody.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Fody.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\FodyCommon.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\FodyCommon.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\FodyHelpers.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\FodyHelpers.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\FodyIsolated.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\FodyIsolated.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.Mdb.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.Mdb.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.Pdb.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.Pdb.pdb" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.Rocks.dll" />
+    <Content Include="packages\Fody.3.2.9\netstandardtask\Mono.Cecil.Rocks.pdb" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
     <Resource Include="Resources\Images\ApiSave.png" />
