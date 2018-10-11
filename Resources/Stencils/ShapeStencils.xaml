@@ -99,7 +99,7 @@
     </s:Toolbox>
 
     <s:Toolbox x:Key="Image_Diag">
-        <!--<cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>-->
+        <cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>
         <img:ImageCommon IsHitTestVisible="False"></img:ImageCommon>
     </s:Toolbox>
     <s:Toolbox x:Key="Table_Diag" ScrollViewer.VerticalScrollBarVisibility="Visible">

@@ -623,15 +623,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type img:ImageCommon}">
-                    <Viewbox>
-                        <Grid Height="300" Width="100">
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Image Source="{TemplateBinding ImageUrl}" Stretch="Fill"></Image>
-                        </Grid>
-                    </Viewbox>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Height="{TemplateBinding Height}" 
+                            Width="{TemplateBinding Width}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Image Source="{TemplateBinding ImageUrl}"></Image>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
