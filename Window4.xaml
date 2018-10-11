@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiagramDesigner"
-        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" x:Class="DiagramDesigner.Window4"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="DiagramDesigner.Window4"
         mc:Ignorable="d"
         Title="Window4" Height="450" Width="800">
     <StackPanel>
@@ -13,14 +13,14 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid  >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
                         <Canvas Grid.Row="0">
 
                             <Label Content="SQL:" Canvas.Left="78" Canvas.Top="18"/>
-                            <TextBox Width="390" Canvas.Left="123" Canvas.Top="18" Height="47" TextWrapping="Wrap" ></TextBox>
+                            <TextBox Width="390" Canvas.Left="123" Canvas.Top="18" Height="47" TextWrapping="Wrap" />
                             <Button Content="执行Sql" Canvas.Left="573" Canvas.Top="18"  Width="66"/>
                             <Button Content="保存" Canvas.Left="573" Canvas.Top="53" Width="66"/>
                         </Canvas>
@@ -30,16 +30,13 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="My Sql">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-
-                </ScrollViewer>
+                <ScrollViewer VerticalScrollBarVisibility="Auto"/>
             </TabItem>
             <TabItem Header="品牌">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-
-                </ScrollViewer>
+                <ScrollViewer VerticalScrollBarVisibility="Auto"/>
             </TabItem>
         </TabControl>
+        
     </StackPanel>
 
 </Window>

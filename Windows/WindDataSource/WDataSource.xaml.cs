@@ -19,9 +19,31 @@ namespace DiagramDesigner.Windows.WindDataSource
     /// </summary>
     public partial class WDataSource : Window
     {
+        private DataSourceConnModel dataSourceModel { get; set; }
+
         public WDataSource()
         {
             InitializeComponent();
+            dataSourceModel = new DataSourceConnModel();
+
+            
+
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+
+
+    public class DataSourceConnModel
+    {
+        public Guid Id { get; set; }
+        public string DBType { get; set; }
+        public string DBAlias { get; set; }
+        public string DBConnUrl { get; set; }
+        public bool ConnStatus { get; set; }
     }
 }

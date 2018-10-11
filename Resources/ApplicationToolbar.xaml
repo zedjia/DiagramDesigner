@@ -423,7 +423,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/DataSource.png" Width="32"/>
-                                <TextBlock Margin="3" Text="DataSource" VerticalAlignment="Center"  Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="数据源" VerticalAlignment="Center"  Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -440,7 +440,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Interface.png" Width="32"/>
-                                <TextBlock Margin="3" Text="Interface" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="数据接口" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
