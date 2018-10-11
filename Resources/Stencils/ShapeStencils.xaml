@@ -7,6 +7,7 @@
                     xmlns:lbl="clr-namespace:DiagramDesigner.CustomControls.Labels"
                     xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
                     xmlns:img="clr-namespace:DiagramDesigner.CustomControls.Images"
+                    xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
                     xmlns:c="clr-namespace:DiagramDesigner.Controls">
 
   <!--<RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
@@ -102,7 +103,10 @@
         <cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>
         <img:ImageCommon IsHitTestVisible="False"></img:ImageCommon>
     </s:Toolbox>
-    <s:Toolbox x:Key="Table_Diag" ScrollViewer.VerticalScrollBarVisibility="Visible">
+    <s:Toolbox x:Key="Table_Diag">
         <cs:DataGrid_Diag IsHitTestVisible="false" ToolTip="DataGrid"></cs:DataGrid_Diag>
+    </s:Toolbox>
+    <s:Toolbox x:Key="List_Diag">
+        <list:RadioButtonList IsHitTestVisible="False"></list:RadioButtonList>
     </s:Toolbox>
 </ResourceDictionary>

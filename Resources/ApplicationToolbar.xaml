@@ -405,8 +405,26 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
+                <Button Margin="3" Width="32" Style="{StaticResource ToolBarButtonBaseStyle}"
+                        HorizontalContentAlignment="Center"
+                        CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="Images/ApiTest.png" Width="16"/>
+                            <TextBlock Grid.Row="1" Text="测试" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
                 <Button Margin="3" Width="32" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
                         CommandTarget="{Binding ElementName=MyDesigner}">
@@ -422,7 +440,7 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
-            <StackPanel Grid.Column="1">
+            <StackPanel Grid.Column="2">
                 <Button Margin="3" Width="32" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
                         CommandTarget="{Binding ElementName=MyDesigner}">
@@ -432,8 +450,24 @@
                                 <RowDefinition Height="4*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
-                            <Image Source="Images/ApiTest.png" Width="16"/>
-                            <TextBlock Grid.Row="1" Text="测试" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                            <Image Source="Images/ApiSave.png" Width="16"/>
+                            <TextBlock Grid.Row="1" Text="保存" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Column="3">
+                <Button Margin="3" Width="32" Style="{StaticResource ToolBarButtonBaseStyle}"
+                        HorizontalContentAlignment="Center"
+                        CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="Images/ApiDelete.png" Width="16"/>
+                            <TextBlock Grid.Row="1" Text="删除" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
                         </Grid>
                     </Button.Content>
                 </Button>

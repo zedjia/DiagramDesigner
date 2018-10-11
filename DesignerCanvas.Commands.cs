@@ -1013,8 +1013,8 @@ namespace DiagramDesigner
         /// </summary>
         private void DataSourceConfig_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            var datasource = new WDataSource();
-            Window1 mainWindow = FindName("mainWindow") as Window1;
+            var datasource = new DataSourceView();
+            MainView mainWindow = FindName("mainWindow") as MainView;
             datasource.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             datasource.Owner = mainWindow;
             datasource.ShowDialog();
@@ -1029,7 +1029,7 @@ namespace DiagramDesigner
         private void InsertfaceHandle_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             var interfe = new WInterface();
-            Window1 mainWindow = FindName("mainWindow") as Window1;
+            MainView mainWindow = FindName("mainWindow") as MainView;
             interfe.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             interfe.Owner = mainWindow;
             interfe.ShowDialog();

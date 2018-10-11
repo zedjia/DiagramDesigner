@@ -10,6 +10,7 @@
                     xmlns:lbl="clr-namespace:DiagramDesigner.CustomControls.Labels"
                     xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
                     xmlns:img="clr-namespace:DiagramDesigner.CustomControls.Images"
+                    xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
                     xmlns:local="clr-namespace:DiagramDesigner.CustomControls">
 
     <!--测试控件-->
@@ -479,11 +480,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type lbl:LabelCommon}">
-                    <Border Background="{TemplateBinding Background}"
+                    <Viewbox>
+                        <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <Label Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" FontWeight="{TemplateBinding TextWeight}"></Label>
-                    </Border>
+                            <Label Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" FontWeight="{TemplateBinding TextWeight}"></Label>
+                        </Border>
+                    </Viewbox>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -643,6 +646,23 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type list:RadioButtonList}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type list:RadioButtonList}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Grid.Column="0" IsChecked="{TemplateBinding IsSelected}"/>
+                        <ContentPresenter Grid.Column="1" Margin="2,0,0,0"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

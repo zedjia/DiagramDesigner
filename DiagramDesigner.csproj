@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props" Condition="Exists('packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -35,6 +36,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,6 +83,12 @@
     <Reference Include="Prism.Wpf, Version=7.1.0.279, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>packages\Prism.Wpf.7.1.0.279-pre\lib\net45\Prism.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="PropertyChanged, Version=2.5.13.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>packages\PropertyChanged.Fody.2.5.13\lib\net452\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="Stylet, Version=1.1.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Stylet.1.1.21\lib\net45\Stylet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -113,6 +122,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controls\CustomControl1.cs" />
     <Compile Include="Controls\CustomControl2.cs" />
     <Compile Include="Controls\Label_Dragable.xaml.cs">
@@ -135,6 +145,7 @@
     <Compile Include="CustomControls\Labels\ImageOneLineLabel.cs" />
     <Compile Include="CustomControls\Labels\Label1.cs" />
     <Compile Include="CustomControls\Labels\LabelCommon.cs" />
+    <Compile Include="CustomControls\Lists\RadioButtonList.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
     <Compile Include="CustomControls\SingleChart_Diag.cs" />
     <Compile Include="CustomControls\SingleLineChart_Diag.cs" />
@@ -142,6 +153,8 @@
     <Compile Include="Commands\DataSourceCommand.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Models\CommonModel.cs" />
     <Compile Include="Models\DataSourceModel.cs" />
     <Compile Include="Models\FontProperty.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
@@ -161,9 +174,10 @@
       <DependentUpon>SqlConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SuspensionWD\DsSuspensionWD.cs" />
-    <Compile Include="Windows\WindDataSource\WDataSource.xaml.cs">
-      <DependentUpon>WDataSource.xaml</DependentUpon>
+    <Compile Include="Windows\WindDataSource\DataSourceView.xaml.cs">
+      <DependentUpon>DataSourceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WindDataSource\DataSourceViewModel.cs" />
     <Compile Include="Windows\WindInterface\WInterface.xaml.cs">
       <DependentUpon>WInterface.xaml</DependentUpon>
     </Compile>
@@ -255,7 +269,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -265,8 +279,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Window3.xaml">
@@ -285,7 +299,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindDataSource\WDataSource.xaml">
+    <Page Include="Windows\WindDataSource\DataSourceView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -384,7 +398,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomControls\DataGrids\" />
-    <Folder Include="CustomControls\DataLists\" />
     <Folder Include="CustomControls\Graphs\" />
     <Folder Include="CustomControls\Splits\" />
     <Folder Include="CustomControls\TextBoxs\" />
@@ -396,6 +409,7 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\net40\CommonServiceLocator.dll" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll" />
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll" />
@@ -406,6 +420,7 @@
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
+    <Resource Include="Resources\Images\ApiSave.png" />
     <Resource Include="Resources\Pictures\直方框.png" />
     <Resource Include="Resources\Images\ApiDelete.png" />
     <Resource Include="Resources\Images\ApiEdit.png" />
@@ -432,6 +447,14 @@
     <Content Include="packages\Prism.Wpf.7.1.0.279-pre\lib\net45\System.Windows.Interactivity.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Fody.3.2.9\build\Fody.targets" Condition="Exists('packages\Fody.3.2.9\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Fody.3.2.9\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.3.2.9\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

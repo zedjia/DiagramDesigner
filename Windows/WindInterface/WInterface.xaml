@@ -8,12 +8,21 @@
         Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="1.2*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
+            <Label Content="别       名："></Label>
+            <TextBox Width="100"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
+            <Label Content="接口地址："></Label>
+            <TextBox Width="600"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
             <ContentControl Content="{StaticResource ApiToolbar}"/>
-            
             <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="序号" Width="60">
@@ -26,11 +35,16 @@
                     </DataGridTemplateColumn>
                     <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding }"/>
                     <DataGridTextColumn Header="接口地址" Width="280" Binding="{Binding }"/>
-                    <DataGridTemplateColumn Header="操作" Width="80">
+                    <DataGridTemplateColumn Header="删除" Width="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <!--操作控件-->
-                                <Button Content="测试"></Button>
+                                <Button>
+                                    <Button.Content>
+                                        <Border Width="32" Height="32" CornerRadius="16" Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Path Data="M0 0L22 0" Stroke="WhiteSmoke" StrokeThickness="4" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
+                                        </Border>
+                                    </Button.Content>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
