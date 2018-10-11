@@ -16,15 +16,27 @@
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
         x:Class="DiagramDesigner.Window3"
         mc:Ignorable="d"
-        Title="Window3" Height="450" Width="800" Background="Transparent">
-    <Window.DataContext>
-        <vm:CommonViewModel></vm:CommonViewModel>
-    </Window.DataContext>
+        Title="SplineAreaChart" Height="600" Width="700">
     <Grid>
-        <!--<dxprg:PropertyGridControl x:Name="PropertyGridCard" SelectedObject="{Binding CommonProperty}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2 0 0 0">
-        </dxprg:PropertyGridControl>-->
-        <cs:SingleChart_Diag x:Name="SingleChart">
-            
-        </cs:SingleChart_Diag>
+        <Grid Height="100" Width="300">
+            <!--<Grid.Background>
+                <ImageBrush ImageSource="Resources/Pictures/直方框.png"></ImageBrush>
+            </Grid.Background>-->
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.RowSpan="2" Source="Resources/Pictures/直方框.png" Stretch="Fill"></Image>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
+                <Label Content="19" FontSize="24" Foreground="#31FC00"></Label>
+                <Label Content="辆/分" Margin="5 10 0 0"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
+                <Label Content="20" FontSize="24" VerticalAlignment="Top" Foreground="#00A8FF"></Label>
+                <Label Content="辆/分" Margin="5 10 0 0"></Label>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

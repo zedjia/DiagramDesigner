@@ -5,9 +5,11 @@
                     xmlns:cs="clr-namespace:DiagramDesigner.CustomControls"
                     xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
                     xmlns:lbl="clr-namespace:DiagramDesigner.CustomControls.Labels"
+                    xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
+                    xmlns:img="clr-namespace:DiagramDesigner.CustomControls.Images"
                     xmlns:c="clr-namespace:DiagramDesigner.Controls">
 
-  <RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
+  <!--<RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
     <GradientStop Color="White" Offset="0"/>
     <GradientStop Color="Orange" Offset="0.9"/>
   </RadialGradientBrush>
@@ -61,41 +63,46 @@
       </Path>
 
     </ItemsControl.Items>
-  </s:Toolbox>
+  </s:Toolbox>-->
+    <!--<Style TargetType="s:Toolbox">
+        <Setter Property="ItemSize" Value="150,50"></Setter>
+    </Style>-->
 
-    <s:Toolbox x:Key="Label_Diag" ItemSize="100,30">
+    <s:Toolbox x:Key="Label_Diag">
         <lbl:LabelCommon IsHitTestVisible="False"></lbl:LabelCommon>
         <lbl:Label1 IsHitTestVisible="False"></lbl:Label1>
         <lbl:ImageLabel IsHitTestVisible="False"></lbl:ImageLabel>
         <lbl:ImageOneLineLabel IsHitTestVisible="False"></lbl:ImageOneLineLabel>
-    </s:Toolbox>
-    
-    <s:Toolbox x:Key="Grid_Diag" ItemSize="100,30">
-
-        <cs:CustomControl2 IsHitTestVisible="false"></cs:CustomControl2>
-
+        <lbl:BackTwoLineLabel IsHitTestVisible="False"></lbl:BackTwoLineLabel>
     </s:Toolbox>
 
-    <s:Toolbox x:Key="Chart_Diag" ItemSize="100,50">
+    <s:Toolbox x:Key="Grid_Diag">
+        <!--<cs:CustomControl2 IsHitTestVisible="false"></cs:CustomControl2>-->
+    </s:Toolbox>
+
+    <s:Toolbox x:Key="Chart_Diag">
         <cs:SingleChart_Diag IsHitTestVisible="false"></cs:SingleChart_Diag>
         <cs:PieChart_Diag IsHitTestVisible="false"></cs:PieChart_Diag>
         <cs:SingleLineChart_Diag IsHitTestVisible="false"></cs:SingleLineChart_Diag>
+        <chart:StackedSplineAreaChart IsHitTestVisible="False"></chart:StackedSplineAreaChart>
     </s:Toolbox>
 
-    <s:Toolbox x:Key="TextBox_Diag" ItemSize="100,50">
+    <s:Toolbox x:Key="TextBox_Diag">
         <cs:TextBox_Diag IsHitTestVisible="false"></cs:TextBox_Diag>
     </s:Toolbox>
 
-    <s:Toolbox x:Key="Button_Diag" ItemSize="100,50">
+    <s:Toolbox x:Key="Button_Diag">
+        <btn:CommonButton IsHitTestVisible="False"></btn:CommonButton>
         <cs:Button_Diag IsHitTestVisible="false"></cs:Button_Diag>
         <btn:BottomTxtImageBtn IsHitTestVisible="false"></btn:BottomTxtImageBtn>
         <btn:CenterTxtImageBtn IsHitTestVisible="False"></btn:CenterTxtImageBtn>
     </s:Toolbox>
 
-    <s:Toolbox x:Key="Image_Diag" ItemSize="100,50">
+    <s:Toolbox x:Key="Image_Diag">
         <cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>
+        <img:ImageCommon IsHitTestVisible="False"></img:ImageCommon>
     </s:Toolbox>
-    <s:Toolbox x:Key="Table_Diag" ItemSize="100,50">
+    <s:Toolbox x:Key="Table_Diag" ScrollViewer.VerticalScrollBarVisibility="Visible">
         <cs:DataGrid_Diag IsHitTestVisible="false" ToolTip="DataGrid"></cs:DataGrid_Diag>
     </s:Toolbox>
 </ResourceDictionary>

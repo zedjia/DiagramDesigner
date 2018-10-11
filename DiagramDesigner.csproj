@@ -127,11 +127,15 @@
     <Compile Include="Controls\Label_HT.cs" />
     <Compile Include="CustomControls\Buttons\BottomTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CenterTxtImageBtn.cs" />
+    <Compile Include="CustomControls\Buttons\CommonButton.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
+    <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
     <Compile Include="CustomControls\DataGrid_Diag.cs" />
+    <Compile Include="CustomControls\Images\ImageCommon.cs" />
     <Compile Include="CustomControls\Image_Diag.cs" />
+    <Compile Include="CustomControls\Labels\BackTwoLineLabel.cs" />
     <Compile Include="CustomControls\Labels\ImageLabel.cs" />
     <Compile Include="CustomControls\Labels\ImageOneLineLabel.cs" />
     <Compile Include="CustomControls\Labels\Label1.cs" />
@@ -151,9 +155,6 @@
     <Compile Include="ViewModel\CommonViewModel.cs" />
     <Compile Include="Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window4.xaml.cs">
-      <DependentUpon>Window4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DataSourceWD\MySqlConfigWD.xaml.cs">
       <DependentUpon>MySqlConfigWD.xaml</DependentUpon>
@@ -277,10 +278,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window4.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Windows\DataSourceWD\MySqlConfigWD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -354,75 +351,29 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\AlignObjectsBottom.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\AlignObjectsCenteredHorizontal.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\AlignObjectsCenteredVertical.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\AlignObjectsLeft.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\AlignObjectsRight.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\AlignObjectsTop.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\BringForward.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\BringToFront.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Copy.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Cut.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Delete.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\DistributeObjectsHorizontal.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\DistributeObjectsVertical.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\GenericDocument.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Group.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\OpenFolder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\PasteBig.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Paste.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Print.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Save.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\SendBackward.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\SendToBack.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Ungroup.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="Resources\Images\AlignObjectsBottom.png" />
+    <Resource Include="Resources\Images\AlignObjectsCenteredHorizontal.png" />
+    <Resource Include="Resources\Images\AlignObjectsCenteredVertical.png" />
+    <Resource Include="Resources\Images\AlignObjectsLeft.png" />
+    <Resource Include="Resources\Images\AlignObjectsRight.png" />
+    <Resource Include="Resources\Images\AlignObjectsTop.png" />
+    <Resource Include="Resources\Images\BringForward.png" />
+    <Resource Include="Resources\Images\BringToFront.png" />
+    <Resource Include="Resources\Images\Copy.png" />
+    <Resource Include="Resources\Images\Cut.png" />
+    <Resource Include="Resources\Images\Delete.png" />
+    <Resource Include="Resources\Images\DistributeObjectsHorizontal.png" />
+    <Resource Include="Resources\Images\DistributeObjectsVertical.png" />
+    <Resource Include="Resources\Images\GenericDocument.png" />
+    <Resource Include="Resources\Images\Group.png" />
+    <Resource Include="Resources\Images\OpenFolder.png" />
+    <Resource Include="Resources\Images\PasteBig.png" />
+    <Resource Include="Resources\Images\Paste.png" />
+    <Resource Include="Resources\Images\Print.png" />
+    <Resource Include="Resources\Images\Save.png" />
+    <Resource Include="Resources\Images\SendBackward.png" />
+    <Resource Include="Resources\Images\SendToBack.png" />
+    <Resource Include="Resources\Images\Ungroup.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -437,18 +388,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomControls\Charts\" />
     <Folder Include="CustomControls\DataGrids\" />
     <Folder Include="CustomControls\DataLists\" />
     <Folder Include="CustomControls\Graphs\" />
-    <Folder Include="CustomControls\Images\" />
     <Folder Include="CustomControls\Splits\" />
     <Folder Include="CustomControls\TextBoxs\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\nav-data-source.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="Resources\Images\nav-data-source.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Pictures\微信.png" />
@@ -464,30 +411,15 @@
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
-    <Content Include="Resources\Images\ApiDelete.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\ApiEdit.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\ApiNew.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\ApiTest.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\DataSource.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\DataSource.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Interface.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Images\Interface.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="Resources\Pictures\直方框.png" />
+    <Resource Include="Resources\Images\ApiDelete.png" />
+    <Resource Include="Resources\Images\ApiEdit.png" />
+    <Resource Include="Resources\Images\ApiNew.png" />
+    <Resource Include="Resources\Images\ApiTest.png" />
+    <Resource Include="Resources\Images\DataSource.ico" />
+    <Resource Include="Resources\Images\DataSource.png" />
+    <Resource Include="Resources\Images\Interface.ico" />
+    <Resource Include="Resources\Images\Interface.png" />
     <Resource Include="Resources\Pictures\box.png" />
     <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.xml" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.dll" />

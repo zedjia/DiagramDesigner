@@ -8,6 +8,8 @@
                     xmlns:vm="clr-namespace:DiagramDesigner.ViewModel"
                     xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
                     xmlns:lbl="clr-namespace:DiagramDesigner.CustomControls.Labels"
+                    xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
+                    xmlns:img="clr-namespace:DiagramDesigner.CustomControls.Images"
                     xmlns:local="clr-namespace:DiagramDesigner.CustomControls">
 
     <!--测试控件-->
@@ -73,10 +75,10 @@
                                             </dxc:AxisX2D.Label>
                                             <dxc:AxisX2D.CustomLabels>
                                                 <dxc:CustomAxisLabel Content="2013" Value="2013"/>
-                                            <dxc:CustomAxisLabel Content="2014" Value="2014"/>
-                                            <dxc:CustomAxisLabel Content="2015" Value="2015"/>
-                                            <dxc:CustomAxisLabel Content="2016" Value="2016"/>
-                                            <dxc:CustomAxisLabel Content="2017" Value="2017"/>
+                                                <dxc:CustomAxisLabel Content="2014" Value="2014"/>
+                                                <dxc:CustomAxisLabel Content="2015" Value="2015"/>
+                                                <dxc:CustomAxisLabel Content="2016" Value="2016"/>
+                                                <dxc:CustomAxisLabel Content="2017" Value="2017"/>
                                             </dxc:AxisX2D.CustomLabels>
                                         </dxc:AxisX2D>
                                     </dxc:XYDiagram2D.AxisX>
@@ -117,10 +119,10 @@
                                         </dxc:BarSideBySideSeries2D.Label>
                                         <dxc:BarSideBySideSeries2D.Points>
                                             <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
-                                        <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
-                                        <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
-                                        <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
-                                        <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
+                                            <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
+                                            <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
+                                            <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
+                                            <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
                                         </dxc:BarSideBySideSeries2D.Points>
                                     </dxc:BarSideBySideSeries2D>
                                 </dxc:XYDiagram2D>
@@ -207,7 +209,7 @@
                         </Canvas>-->
                         </Grid>
                     </Viewbox>
-                    
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -461,10 +463,10 @@
                             <Grid.Background>
                                 <ImageBrush ImageSource="../Resources/Pictures/box.png"></ImageBrush>
                             </Grid.Background>
-                            <TextBlock Foreground="White" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">
-                                    交通
+                            <TextBlock x:Name="TextBlock" Foreground="White" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">
+                                    <Label Foreground="{Binding Path=Foreground,ElementName=TextBlock}">交通</Label>
                                     <LineBreak></LineBreak>
-                                    体系
+                                    <Label Foreground="{Binding Path=Foreground,ElementName=TextBlock}">体系</Label>
                             </TextBlock>
                         </Grid>
                     </Viewbox>
@@ -481,6 +483,152 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Label Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" FontWeight="{TemplateBinding TextWeight}"></Label>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type chart:StackedSplineAreaChart}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type chart:StackedSplineAreaChart}">
+                    <Viewbox>
+                        <dxc:ChartControl>
+                            <dxc:ChartControl.Diagram>
+                                <dxc:XYDiagram2D>
+                                    <dxc:XYDiagram2D.Series>
+                                        <dxc:SplineAreaStackedSeries2D DisplayName="1998" LineTension="0.8"
+                                                       Transparency="0.4">
+                                            <!--<dxc:SplineAreaStackedSeries2D.Brush>
+                                                <LinearGradientBrush>
+                                                    <LinearGradientBrush.GradientStops>
+                                                        <GradientStop Offset="0" Color="red"></GradientStop>
+                                                        <GradientStop Offset="0.5" Color="blue"></GradientStop>
+                                                        <GradientStop Offset="1" Color="Yellow"></GradientStop>
+                                                    </LinearGradientBrush.GradientStops>
+                                                </LinearGradientBrush>
+                                            </dxc:SplineAreaStackedSeries2D.Brush>-->
+                                            <dxc:SplineAreaStackedSeries2D.Points>
+                                                <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
+                                                <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
+                                                <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
+                                                <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
+                                                <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
+                                            </dxc:SplineAreaStackedSeries2D.Points>
+                                            <dxc:SplineAreaStackedSeries2D.Label>
+                                                <dxc:SeriesLabel Visible="True"  dxc:MarkerSeries2D.Angle="40" />
+                                            </dxc:SplineAreaStackedSeries2D.Label>
+                                        </dxc:SplineAreaStackedSeries2D>
+                                        <dxc:SplineAreaStackedSeries2D DisplayName="2001" LineTension="0.8"
+                                                       Transparency="0.4">
+                                            <dxc:SplineAreaStackedSeries2D.Points>
+                                                <dxc:SeriesPoint Argument="Illinois" Value="476.851" />
+                                                <dxc:SeriesPoint Argument="Indiana" Value="195.769" />
+                                                <dxc:SeriesPoint Argument="Michigan" Value="335.793" />
+                                                <dxc:SeriesPoint Argument="Ohio" Value="374.771" />
+                                                <dxc:SeriesPoint Argument="Wisconsin" Value="182.373" />
+                                            </dxc:SplineAreaStackedSeries2D.Points>
+                                            <dxc:SplineAreaStackedSeries2D.Label>
+                                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
+                                            </dxc:SplineAreaStackedSeries2D.Label>
+                                        </dxc:SplineAreaStackedSeries2D>
+                                        <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
+                                                       Transparency="0.4">
+                                            <dxc:SplineAreaStackedSeries2D.Points>
+                                                <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
+                                                <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
+                                                <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
+                                                <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
+                                                <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
+                                            </dxc:SplineAreaStackedSeries2D.Points>
+                                            <dxc:SplineAreaStackedSeries2D.Label>
+                                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
+                                            </dxc:SplineAreaStackedSeries2D.Label>
+                                        </dxc:SplineAreaStackedSeries2D>
+                                    </dxc:XYDiagram2D.Series>
+                                    <dxc:XYDiagram2D.AxisX>
+                                        <dxc:AxisX2D>
+                                            <dxc:AxisX2D.WholeRange>
+                                                <dxc:Range SideMarginsValue="0" />
+                                            </dxc:AxisX2D.WholeRange>
+                                        </dxc:AxisX2D>
+                                    </dxc:XYDiagram2D.AxisX>
+                                    <dxc:XYDiagram2D.AxisY>
+                                        <dxc:AxisY2D>
+                                            <dxc:AxisY2D.Title>
+                                                <dxc:AxisTitle Content="Millions of Dollars" />
+                                            </dxc:AxisY2D.Title>
+                                        </dxc:AxisY2D>
+                                    </dxc:XYDiagram2D.AxisY>
+                                </dxc:XYDiagram2D>
+                            </dxc:ChartControl.Diagram>
+                            <dxc:ChartControl.Legend>
+                                <dxc:Legend HorizontalPosition="Right" />
+                            </dxc:ChartControl.Legend>
+                            <dxc:ChartControl.Titles>
+                                <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
+                                </dxc:Title>
+                            </dxc:ChartControl.Titles>
+                        </dxc:ChartControl>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type btn:CommonButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type btn:CommonButton}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Label Content="{TemplateBinding Text}" Foreground="{TemplateBinding TextColor}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="{TemplateBinding TextSize}" FontFamily="{TemplateBinding TextFontFamily}"></Label>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type lbl:BackTwoLineLabel}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type lbl:BackTwoLineLabel}">
+                    <Viewbox>
+                        <Grid Height="100" Width="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.RowSpan="2" Source="{TemplateBinding ImageUrl}" Stretch="Fill"></Image>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
+                                <Label Content="19" FontSize="24" Foreground="#31FC00"></Label>
+                                <Label Content="辆/分" Margin="5 10 0 0"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
+                                <Label Content="20" FontSize="24" VerticalAlignment="Top" Foreground="#00A8FF"></Label>
+                                <Label Content="辆/分" Margin="5 10 0 0"></Label>
+                            </StackPanel>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type img:ImageCommon}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type img:ImageCommon}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Height="{TemplateBinding Height}" 
+                            Width="{TemplateBinding Width}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Image Source="{TemplateBinding ImageUrl}"></Image>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

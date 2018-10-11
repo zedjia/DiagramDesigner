@@ -8,13 +8,25 @@ namespace DiagramDesigner
     {
         // Defines the ItemHeight and ItemWidth properties of
         // the WrapPanel used for this Toolbox
+        //public Size ItemSize
+        //{
+
+        //    get { return itemSize; }
+        //    set { itemSize = value; }
+        //}
+        //private Size itemSize = new Size(50, 50);
+
+
         public Size ItemSize
         {
-
-            get { return itemSize; }
-            set { itemSize = value; }
+            get { return (Size)GetValue(ItemSizeProperty); }
+            set { SetValue(ItemSizeProperty, value); }
         }
-        private Size itemSize = new Size(50, 50);
+
+        // Using a DependencyProperty as the backing store for ItemSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemSizeProperty =
+            DependencyProperty.Register("ItemSize", typeof(Size), typeof(Toolbox), new PropertyMetadata(new Size(50, 50)));
+
 
 
         // Creates or identifies the element that is used to display the given item.        
