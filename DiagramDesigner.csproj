@@ -121,11 +121,15 @@
     <Compile Include="Controls\Label_HT.cs" />
     <Compile Include="CustomControls\Buttons\BottomTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CenterTxtImageBtn.cs" />
+    <Compile Include="CustomControls\Buttons\CommonButton.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
+    <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
     <Compile Include="CustomControls\DataGrid_Diag.cs" />
+    <Compile Include="CustomControls\Images\ImageCommon.cs" />
     <Compile Include="CustomControls\Image_Diag.cs" />
+    <Compile Include="CustomControls\Labels\BackTwoLineLabel.cs" />
     <Compile Include="CustomControls\Labels\ImageLabel.cs" />
     <Compile Include="CustomControls\Labels\ImageOneLineLabel.cs" />
     <Compile Include="CustomControls\Labels\Label1.cs" />
@@ -378,11 +382,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomControls\Charts\" />
     <Folder Include="CustomControls\DataGrids\" />
     <Folder Include="CustomControls\DataLists\" />
     <Folder Include="CustomControls\Graphs\" />
-    <Folder Include="CustomControls\Images\" />
     <Folder Include="CustomControls\Splits\" />
     <Folder Include="CustomControls\TextBoxs\" />
   </ItemGroup>
@@ -403,6 +405,15 @@
     <Content Include="packages\CommonServiceLocator.2.0.4\lib\netstandard2.0\CommonServiceLocator.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.pdb" />
+    <Resource Include="Resources\Pictures\直方框.png" />
+    <Resource Include="Resources\Images\ApiDelete.png" />
+    <Resource Include="Resources\Images\ApiEdit.png" />
+    <Resource Include="Resources\Images\ApiNew.png" />
+    <Resource Include="Resources\Images\ApiTest.png" />
+    <Resource Include="Resources\Images\DataSource.ico" />
+    <Resource Include="Resources\Images\DataSource.png" />
+    <Resource Include="Resources\Images\Interface.ico" />
+    <Resource Include="Resources\Images\Interface.png" />
     <Resource Include="Resources\Pictures\box.png" />
     <Resource Include="packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.xml" />
     <Content Include="packages\Prism.Core.7.1.0.279-pre\lib\netstandard1.0\Prism.dll" />
