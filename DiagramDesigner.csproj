@@ -129,6 +129,7 @@
     <Compile Include="CustomControls\Buttons\CenterTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CommonButton.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
+    <Compile Include="CustomControls\Charts\CircleNumberChart.cs" />
     <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
