@@ -27,7 +27,7 @@
                         <ColumnDefinition Width="1.2*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Content="数据库别名:"></Label>
-                    <TextBox Grid.Column="1" x:Name="TxtAlias" Width="220" HorizontalAlignment="Left" Margin="10 0" Text="{Binding Path=DataSourceModel.DBAlias,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Grid.Column="1" x:Name="TxtAlias" Width="220" HorizontalAlignment="Left" Margin="10 0" Text="{Binding Path=DataSourceModel.DBAlias}"></TextBox>
                 </Grid>
             </Border>
         </StackPanel>
@@ -81,13 +81,13 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="1" Content="新增" HorizontalAlignment="Left" Width="60"   Command="{Binding AddConfigCmd}"></Button>
                     <Button Grid.Column="1" Content="保存" HorizontalAlignment="Center" Width="60"  Command="{Binding SaveConfigCmd}"></Button>
-                    <Button Grid.Column="1" Content="删除" HorizontalAlignment="Right" Width="60"  Command="{Binding DeleteConfigCmd}"></Button>
+                    <Button Grid.Column="1" Content="删除" HorizontalAlignment="Right" Width="60"  Command="{Binding DeleteConfigCmd}"  CommandParameter="{Binding ElementName=DataGrid}"></Button>
                 </Grid>
             </Border>
         </StackPanel>
         <StackPanel Grid.Row="4">
             <Label Content="已配置列表" Width="220" HorizontalAlignment="Left" Margin="8 5" FontSize="16"></Label>
-            <DataGrid Name="DataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels,Mode=TwoWay}" CanUserAddRows="False" Height="200">
+            <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" Height="200">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
@@ -96,24 +96,24 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding DBType}"/>
-                    <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding DBAlias}"/>
-                    <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding DBConnUrl}"/>
+                    <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding Path=DBType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding Path=DBAlias, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding Path=DBConnUrl, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                     <!--<DataGridTemplateColumn Header="删除" Width="40">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Label x:Name="Lbl" Background="Transparent">
+                                <Button x:Name="Lbl" Background="Transparent" Command="{Binding DeleteConfigCmd}">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseDown">
                                             <i:InvokeCommandAction Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=Lbl}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    <Label.Content>
+                                    <Button.Content>
                                         <Border Width="20" Height="20" CornerRadius="16" BorderThickness="0" Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center">
                                             <Path Data="M0 0L22 0" Stroke="WhiteSmoke" StrokeThickness="4" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
                                         </Border>
-                                    </Label.Content>
-                                </Label>
+                                    </Button.Content>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>-->

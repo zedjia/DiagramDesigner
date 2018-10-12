@@ -4,6 +4,8 @@ using PropertyChanged;
 using Stylet;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +14,14 @@ using System.Windows.Input;
 
 namespace DiagramDesigner.Windows.WindDataSource
 {
-    public class DataSourceViewModel : Screen
+    public class DataSourceViewModel: CommonModel
     {
         public DataSourceModel DataSourceModel { get; set; } = new DataSourceModel();
-        public List<DataSourceModel> dataSourceModels { get; set; }
+        public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
 
         public DataSourceViewModel()
         {
-            dataSourceModels = new List<DataSourceModel>()
+            dataSourceModels = new ObservableCollection<DataSourceModel>()
             {
                 new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="127.0.0.1"},
                 new DataSourceModel(){ DBType="Oracle",DBAlias="test",DBConnUrl="127.0.0.1"},
@@ -93,19 +95,20 @@ namespace DiagramDesigner.Windows.WindDataSource
 
         }
         /// <summary>
-        /// 保存
+        /// 删除
         /// </summary>
         public ICommand DeleteConfigCmd
         {
             get
             {
-                return new DelegateCommand(DeleteConfig);
+                return new DelegateCommand<DataGrid>(DeleteConfig);
             }
         }
 
-        void DeleteConfig()
+        void DeleteConfig(DataGrid dataGrid)
         {
-            this.dataSourceModels.RemoveAt(0);
+            DataSourceModel dataSourceModel = dataGrid.SelectedItem as DataSourceModel;
+            this.dataSourceModels.Remove(dataSourceModel);
         }
     }
     [AddINotifyPropertyChangedInterface]
