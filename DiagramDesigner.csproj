@@ -79,6 +79,7 @@
     <Reference Include="DevExpress.Xpf.Printing.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.PropertyGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Prism, Version=7.1.0.279, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>packages\Prism.Core.7.1.0.279-pre\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -132,6 +133,7 @@
       <DependentUpon>Label_Dragable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Label_HT.cs" />
+    <Compile Include="Converters\ConverterManager.cs" />
     <Compile Include="CustomControls\Buttons\BottomTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CenterTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CommonButton.cs" />

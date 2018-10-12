@@ -87,7 +87,7 @@
         </StackPanel>
         <StackPanel Grid.Row="4">
             <Label Content="已配置列表" Width="220" HorizontalAlignment="Left" Margin="8 5" FontSize="16"></Label>
-            <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" Height="200">
+            <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Height="200">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
@@ -96,9 +96,9 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding Path=DBType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding Path=DBAlias, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding Path=DBConnUrl, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding Path=DBType}"/>
+                    <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding Path=DBAlias}"/>
+                    <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding Path=DBConnUrl}"/>
                     <!--<DataGridTemplateColumn Header="删除" Width="40">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

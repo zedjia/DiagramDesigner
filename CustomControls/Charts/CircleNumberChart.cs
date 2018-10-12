@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,5 +51,84 @@ namespace DiagramDesigner.CustomControls.Charts
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CircleNumberChart), new FrameworkPropertyMetadata(typeof(CircleNumberChart)));
         }
+
+        [DisplayName("数字")]
+        public string Number
+        {
+            get { return (string)GetValue(NumberProperty); }
+            set { SetValue(NumberProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Number.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NumberProperty =
+            DependencyProperty.Register("Number", typeof(string), typeof(CircleNumberChart), new PropertyMetadata("0"));
+
+        [DisplayName("单位")]
+        public string Unit
+        {
+            get { return (string)GetValue(UnitProperty); }
+            set { SetValue(UnitProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Unit.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UnitProperty =
+            DependencyProperty.Register("Unit", typeof(string), typeof(CircleNumberChart), new PropertyMetadata("单位"));
+
+        [DisplayName("名称")]
+        public string TypeName
+        {
+            get { return (string)GetValue(TypeNameProperty); }
+            set { SetValue(TypeNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TypeName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TypeNameProperty =
+            DependencyProperty.Register("TypeName", typeof(string), typeof(CircleNumberChart), new PropertyMetadata("名称"));
+
+        [DisplayName("底图颜色")]
+        public Brush BackColor
+        {
+            get { return (Brush)GetValue(BackColorProperty); }
+            set { SetValue(BackColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BackColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BackColorProperty =
+            DependencyProperty.Register("BackColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B2B2B2"))));
+
+        [DisplayName("目标颜色")]
+        public Brush ForeColor
+        {
+            get { return (Brush)GetValue(ForeColorProperty); }
+            set { SetValue(ForeColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ForeColorProperty =
+            DependencyProperty.Register("ForeColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0090FF"))));
+
+        [DisplayName("线条大小")]
+        public double LineThickness
+        {
+            get { return (double)GetValue(LineThicknessProperty); }
+            set { SetValue(LineThicknessProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for LineThickness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LineThicknessProperty =
+            DependencyProperty.Register("LineThickness", typeof(double), typeof(CircleNumberChart), new PropertyMetadata(5.0));
+
+        [DisplayName("绘制角度")]
+        public double DrawAngle
+        {
+            get { return (double)GetValue(DrawAngleProperty); }
+            set { SetValue(DrawAngleProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DrawAngle.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DrawAngleProperty =
+            DependencyProperty.Register("DrawAngle", typeof(double), typeof(CircleNumberChart), new PropertyMetadata(0.5));
+
+
     }
 }

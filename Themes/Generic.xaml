@@ -4,14 +4,25 @@
                     xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
                     xmlns:ssw="clr-namespace:DiagramDesigner.Windows.SuspensionWD"
                     xmlns:dxcore="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                     xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+                    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
                     xmlns:vm="clr-namespace:DiagramDesigner.ViewModel"
                     xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
                     xmlns:lbl="clr-namespace:DiagramDesigner.CustomControls.Labels"
                     xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
                     xmlns:img="clr-namespace:DiagramDesigner.CustomControls.Images"
                     xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
+                    xmlns:cvt="clr-namespace:DiagramDesigner.Converters"
                     xmlns:local="clr-namespace:DiagramDesigner.CustomControls">
+
+    <Storyboard x:Key="Storyboard">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="EndAngle" Storyboard.TargetName="TargetCircle">
+            <EasingDoubleKeyFrame KeyTime="0:0:4" Value="360"></EasingDoubleKeyFrame>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+    <!--转换器-->
+    <cvt:PercentToAngleConverter x:Key="PercentToAngleConverter"></cvt:PercentToAngleConverter>
 
     <!--测试控件-->
     <Style TargetType="{x:Type local:CustomControl1}">
@@ -642,27 +653,41 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:CircleNumberChart}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type list:RadioButtonList}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type list:RadioButtonList}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <RadioButton Grid.Column="0" IsChecked="{TemplateBinding IsSelected}"/>
-                        <ContentPresenter Grid.Column="1" Margin="2,0,0,0"/>
-                    </Grid>
+                    <Viewbox VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Grid>
+                            <!--底图圆形-->
+                            <ed:Arc x:Name="BackCircle" ArcThickness="{TemplateBinding LineThickness}" ArcThicknessUnit="Pixel" EndAngle="360" Height="120" Width="120" StartAngle="0" Fill="{TemplateBinding BackColor}">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-120"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <!--需要绘制的图形-->
+                            <ed:Arc x:Name="TargetCircle" ArcThickness="{TemplateBinding LineThickness}" ArcThicknessUnit="Pixel" EndAngle="{TemplateBinding DrawAngle, Converter={StaticResource PercentToAngleConverter}}" Height="120" Width="120" Margin="0" Stretch="None" StartAngle="0" Fill="{TemplateBinding ForeColor}">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-120"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <!--数据-->
+                            <Label Content="{TemplateBinding Number}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{TemplateBinding Unit}" FontSize="16" Margin="0 100 0 0" HorizontalAlignment="Center"></Label>
+                            <Label Content="{TemplateBinding TypeName}" FontSize="20"  HorizontalAlignment="Center" Margin="0 150 0 0"></Label>
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <!--<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource Storyboard}"></BeginStoryboard>
+                        </EventTrigger>-->
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -114,15 +114,15 @@ namespace DiagramDesigner.CustomControls.Buttons
 
 
         [DisplayName("文字颜色")]
-        public SolidColorBrush TextColor
+        public Brush TextColor
         {
-            get { return (SolidColorBrush)GetValue(TextColorProperty); }
+            get { return (Brush)GetValue(TextColorProperty); }
             set { SetValue(TextColorProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(SolidColorBrush), typeof(BottomTxtImageBtn), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(BottomTxtImageBtn), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("文字大小")]
         public double TextSize

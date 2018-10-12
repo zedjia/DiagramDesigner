@@ -86,6 +86,7 @@
         <cs:PieChart_Diag IsHitTestVisible="false"></cs:PieChart_Diag>
         <cs:SingleLineChart_Diag IsHitTestVisible="false"></cs:SingleLineChart_Diag>
         <chart:StackedSplineAreaChart IsHitTestVisible="False"></chart:StackedSplineAreaChart>
+        <chart:CircleNumberChart IsHitTestVisible="False"></chart:CircleNumberChart>
     </s:Toolbox>
 
     <s:Toolbox x:Key="TextBox_Diag">

@@ -77,15 +77,15 @@ namespace DiagramDesigner.CustomControls.Labels
 
 
         [DisplayName("文字颜色")]
-        public SolidColorBrush TextColor
+        public Brush TextColor
         {
-            get { return (SolidColorBrush)GetValue(TextColorProperty); }
+            get { return (Brush)GetValue(TextColorProperty); }
             set { SetValue(TextColorProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(SolidColorBrush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("文字大小")]
         public double TextSize
@@ -219,15 +219,15 @@ namespace DiagramDesigner.CustomControls.Labels
 
 
         [DisplayName("单位颜色")]
-        public SolidColorBrush UnitColor
+        public Brush UnitColor
         {
-            get { return (SolidColorBrush)GetValue(UnitColorProperty); }
+            get { return (Brush)GetValue(UnitColorProperty); }
             set { SetValue(UnitColorProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UnitColorProperty =
-            DependencyProperty.Register("UnitColor", typeof(SolidColorBrush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("单位大小")]
         public double UnitSize

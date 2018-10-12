@@ -11,54 +11,31 @@
         xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
         xmlns:ssw="clr-namespace:DiagramDesigner.Windows.SuspensionWD"    
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-    xmlns:model="clr-namespace:DiagramDesigner.Models"
-    xmlns:vm="clr-namespace:DiagramDesigner.ViewModel"
-    xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
+        xmlns:model="clr-namespace:DiagramDesigner.Models"
+        xmlns:vm="clr-namespace:DiagramDesigner.ViewModel"
+        xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
+        xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
         x:Class="DiagramDesigner.Window3"
         mc:Ignorable="d"
         Title="SplineAreaChart" Height="600" Width="700">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Storyboard x:Key="Storyboard">
+                <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="EndAngle" Storyboard.TargetName="TargetCircle">
+                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-360"></EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>-->
+                <DoubleAnimation Storyboard.TargetName="TargetCircle" Storyboard.TargetProperty="EndAngle" To="360" Duration="0:0:1"></DoubleAnimation>
+            </Storyboard>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard}"></BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
-        <!--<dxcore:RadioButtonList Width="200" Height="50" FlowDirection="LeftToRight" ScrollViewer.CanContentScroll="False">
-            <RadioButton>Oracle</RadioButton>
-            <RadioButton>Oracle</RadioButton>
-            <RadioButton>Oracle</RadioButton>
-        </dxcore:RadioButtonList>-->
-        <ListBox Width="200">
-            <ListBox.Template>
-                <ControlTemplate TargetType="{x:Type ListBox}">
-                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ScrollViewer.CanContentScroll="True"/>
-                    </ScrollViewer>
-                </ControlTemplate>
-            </ListBox.Template>
-            <ListBox.Items>
-                <RadioButton>Oracle</RadioButton>
-                <RadioButton>Oracle</RadioButton>
-                <RadioButton>Oracle</RadioButton>
-                <RadioButton>Oracle</RadioButton>
-                <RadioButton>Oracle</RadioButton>
-            </ListBox.Items>
-        </ListBox>
-        <!--<Grid Height="100" Width="300">
-            --><!--<Grid.Background>
-                <ImageBrush ImageSource="Resources/Pictures/直方框.png"></ImageBrush>
-            </Grid.Background>--><!--
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Image Grid.RowSpan="2" Source="Resources/Pictures/直方框.png" Stretch="Fill"></Image>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
-                <Label Content="19" FontSize="24" Foreground="#31FC00"></Label>
-                <Label Content="辆/分" Margin="5 10 0 0"></Label>
-            </StackPanel>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
-                <Label Content="20" FontSize="24" VerticalAlignment="Top" Foreground="#00A8FF"></Label>
-                <Label Content="辆/分" Margin="5 10 0 0"></Label>
-            </StackPanel>
-        </Grid>-->
+        <chart:CircleNumberChart></chart:CircleNumberChart>
     </Grid>
 </Window>
