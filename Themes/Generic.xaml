@@ -379,10 +379,14 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type btn:BottomTxtImageBtn}">
                     <Viewbox>
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{TemplateBinding ImageUrl}" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}"></Image>
-                            <Label Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" Margin="0 -20 0 0"></Label>
-                        </StackPanel>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{TemplateBinding ImageUrl}" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}"></Image>
+                            <Label Grid.Row="1" Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" Margin="0 -20 0 0"></Label>
+                        </Grid>
                     </Viewbox>
                 </ControlTemplate>
             </Setter.Value>

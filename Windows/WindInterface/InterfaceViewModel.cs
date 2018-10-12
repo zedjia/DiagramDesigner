@@ -87,7 +87,7 @@ namespace DiagramDesigner.Windows.WindInterface
         void DeleteConfig(DataGrid dataGrid)
         {
             InterfaceModel interfaceModel = dataGrid.SelectedItem as InterfaceModel;
-            this.InterfaceModels.Remove(interfaceModel);
+            this.InterfaceModels.RemoveAt(0);
         }
     }
 

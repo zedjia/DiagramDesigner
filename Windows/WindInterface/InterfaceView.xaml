@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
+        xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
         mc:Ignorable="d"
         Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
     <Window.DataContext>
@@ -25,8 +26,14 @@
             <TextBox Width="600" Text="{Binding InterfaceModel.IFUrl}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <ContentControl Content="{StaticResource ApiToolbar}"/>
-            <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding InterfaceModels}">
+            <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiTest.png" Text="测试链接" ImageHeight="30" ImageWidth="30" Margin="0 0 0 -10" Command="{Binding TestConnectionCmd}"></btn:BottomTxtImageBtn>
+                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiNew.png" Text="新增" ImageHeight="30" ImageWidth="30" Margin="10 0 0 -10" Command="{Binding AddConfigCmd}"></btn:BottomTxtImageBtn>
+                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiSave.png" Text="保存" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding SaveConfigCmd}"></btn:BottomTxtImageBtn>
+                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiDelete.png" Text="删除" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=dataGrid1}"></btn:BottomTxtImageBtn>
+            </StackPanel>
+            <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
