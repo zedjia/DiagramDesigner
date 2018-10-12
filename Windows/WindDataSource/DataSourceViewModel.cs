@@ -104,13 +104,12 @@ namespace DiagramDesigner.Windows.WindDataSource
         {
             get
             {
-                return new DelegateCommand<DataGrid>(DeleteConfig);
+                return new DelegateCommand<DataSourceModel>(DeleteConfig);
             }
         }
 
-        void DeleteConfig(DataGrid dataGrid)
+        void DeleteConfig(DataSourceModel dataSourceModel)
         {
-            DataSourceModel dataSourceModel = dataGrid.SelectedItem as DataSourceModel;
             this.dataSourceModels.Remove(dataSourceModel);
         }
     }

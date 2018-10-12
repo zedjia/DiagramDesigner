@@ -83,7 +83,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="1" Content="新增" HorizontalAlignment="Left" Width="60"   Command="{Binding AddConfigCmd}"></Button>
                     <Button Grid.Column="1" Content="保存" HorizontalAlignment="Center" Width="60"  Command="{Binding SaveConfigCmd}"></Button>
-                    <Button Grid.Column="1" Content="删除" HorizontalAlignment="Right" Width="60"  Command="{Binding DeleteConfigCmd}"  CommandParameter="{Binding ElementName=DataGrid}"></Button>
+                    <!--<Button Grid.Column="1" Content="删除" HorizontalAlignment="Right" Width="60"  Command="{Binding DeleteConfigCmd}"  CommandParameter="{Binding ElementName=DataGrid}"></Button>-->
                 </Grid>
             </Border>
         </StackPanel>
@@ -101,24 +101,38 @@
                     <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding Path=DBType}"/>
                     <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding Path=DBAlias}"/>
                     <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding Path=DBConnUrl}"/>
-                    <!--<DataGridTemplateColumn Header="删除" Width="40">
+                    <DataGridTemplateColumn Header="编辑" Width="40">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Lbl" Background="Transparent" Command="{Binding DeleteConfigCmd}">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="MouseDown">
-                                            <i:InvokeCommandAction Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=Lbl}" />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                    <Button.Content>
+                                <Button x:Name="Lbl" Width="30" Height="25" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="../../Resources/Images/ApiEdit.png"></ImageBrush>
+                                    </Button.Background>
+                                    <!--<Button.Content>
                                         <Border Width="20" Height="20" CornerRadius="16" BorderThickness="0" Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center">
                                             <Path Data="M0 0L22 0" Stroke="WhiteSmoke" StrokeThickness="4" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
                                         </Border>
-                                    </Button.Content>
+                                    </Button.Content>-->
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="删除" Width="40">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Lbl" Width="30" Height="25" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="../../Resources/Images/ApiDelete.png"></ImageBrush>
+                                    </Button.Background>
+                                    <!--<Button.Content>
+                                        <Border Width="20" Height="20" CornerRadius="16" BorderThickness="0" Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Path Data="M0 0L22 0" Stroke="WhiteSmoke" StrokeThickness="4" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
+                                        </Border>
+                                    </Button.Content>-->
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
