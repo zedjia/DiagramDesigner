@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace DiagramDesigner.Windows.WindDataSource
 {
-    public class DataSourceViewModel: CommonModel
+    public class DataSourceViewModel
     {
         public DataSourceModel DataSourceModel { get; set; } = new DataSourceModel();
         public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
@@ -119,13 +119,5 @@ namespace DiagramDesigner.Windows.WindDataSource
         public string DBAlias { get; set; } = "test";
         public string DBConnUrl { get; set; } = "127.0.0.1";
         public bool ConnStatus { get; set; }
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //private void OnPropertyChanged(string propertyName)
-        //{
-        //    if (this.PropertyChanged != null)
-        //        this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //}
     }
 }

@@ -162,6 +162,7 @@
     <Compile Include="Models\CommonModel.cs" />
     <Compile Include="Models\DataSourceModel.cs" />
     <Compile Include="Models\FontProperty.cs" />
+    <Compile Include="Models\InterfaceModel.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>
     </Compile>
@@ -183,9 +184,10 @@
       <DependentUpon>DataSourceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WindDataSource\DataSourceViewModel.cs" />
-    <Compile Include="Windows\WindInterface\WInterface.xaml.cs">
-      <DependentUpon>WInterface.xaml</DependentUpon>
+    <Compile Include="Windows\WindInterface\InterfaceView.xaml.cs">
+      <DependentUpon>InterfaceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WindInterface\InterfaceViewModel.cs" />
     <Page Include="Controls\Label_Dragable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -308,7 +310,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\WindInterface\WInterface.xaml">
+    <Page Include="Windows\WindInterface\InterfaceView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

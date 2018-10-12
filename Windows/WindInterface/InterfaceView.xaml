@@ -1,4 +1,4 @@
-﻿<Window x:Class="DiagramDesigner.Windows.WindInterface.WInterface"
+﻿<Window x:Class="DiagramDesigner.Windows.WindInterface.InterfaceView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
         mc:Ignorable="d"
         Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
+    <Window.DataContext>
+        <local:InterfaceViewModel></local:InterfaceViewModel>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -15,15 +18,15 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
             <Label Content="别       名："></Label>
-            <TextBox Width="100"></TextBox>
+            <TextBox Width="100" Text="{Binding InterfaceModel.IFAlias}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
             <Label Content="接口地址："></Label>
-            <TextBox Width="600"></TextBox>
+            <TextBox Width="600" Text="{Binding InterfaceModel.IFUrl}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2">
             <ContentControl Content="{StaticResource ApiToolbar}"/>
-            <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
@@ -33,9 +36,9 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding }"/>
-                    <DataGridTextColumn Header="接口地址" Width="280" Binding="{Binding }"/>
-                    <DataGridTemplateColumn Header="删除" Width="80">
+                    <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding IFAlias}"/>
+                    <DataGridTextColumn Header="接口地址" Width="*" Binding="{Binding IFUrl}"/>
+                    <!--<DataGridTemplateColumn Header="删除" Width="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button>
@@ -47,7 +50,7 @@
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

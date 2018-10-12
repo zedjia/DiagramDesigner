@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace DiagramDesigner.Windows.WindInterface
 {
     /// <summary>
-    /// WInterface.xaml 的交互逻辑
+    /// InterfaceView.xaml 的交互逻辑
     /// </summary>
-    public partial class WInterface : Window
+    public partial class InterfaceView : Window
     {
-        public WInterface()
+        public InterfaceView()
         {
             InitializeComponent();
         }

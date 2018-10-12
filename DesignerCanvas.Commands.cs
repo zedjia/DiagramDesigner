@@ -1028,7 +1028,7 @@ namespace DiagramDesigner
         /// <param name="e"></param>
         private void InsertfaceHandle_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            var interfe = new WInterface();
+            var interfe = new InterfaceView();
             MainView mainWindow = FindName("mainWindow") as MainView;
             interfe.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             interfe.Owner = mainWindow;
