@@ -17,25 +17,40 @@
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
         xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:ds="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         x:Class="DiagramDesigner.Window3"
         mc:Ignorable="d"
         Title="SplineAreaChart" Height="600" Width="700">
-    <Window.Resources>
-        <ResourceDictionary>
-            <Storyboard x:Key="Storyboard">
-                <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="EndAngle" Storyboard.TargetName="TargetCircle">
-                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-360"></EasingDoubleKeyFrame>
-                </DoubleAnimationUsingKeyFrames>-->
-                <DoubleAnimation Storyboard.TargetName="TargetCircle" Storyboard.TargetProperty="EndAngle" To="360" Duration="0:0:1"></DoubleAnimation>
-            </Storyboard>
-        </ResourceDictionary>
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource Storyboard}"></BeginStoryboard>
-        </EventTrigger>
-    </Window.Triggers>
+    <Window.DataContext>
+        <ds:DataSourceViewModel></ds:DataSourceViewModel>
+    </Window.DataContext>
     <Grid>
-        <chart:CircleNumberChart></chart:CircleNumberChart>
+        <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Height="200">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="序号" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label></Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding Path=DBType}"/>
+                <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding Path=DBAlias}"/>
+                <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding Path=DBConnUrl}"/>
+                <DataGridTemplateColumn Header="删除" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Lbl" Background="Transparent" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}">
+                                <Button.Content>
+                                    <Border Width="20" Height="20" CornerRadius="16" BorderThickness="0" Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Path Data="M0 0L22 0" Stroke="WhiteSmoke" StrokeThickness="4" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
+                                    </Border>
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
