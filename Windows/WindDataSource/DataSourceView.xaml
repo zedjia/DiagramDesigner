@@ -8,12 +8,12 @@
         mc:Ignorable="d"
         Title="数据源配置" Height="580" Width="680" Top="360" Left="600" ResizeMode="NoResize" x:Name="wDataSource" Icon="../../Resources/Images/DataSource.ico">
     <Window.DataContext>
-        <local:DataSourceViewModel />
+        <local:DataSourceViewBindingModel />
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
-            <RowDefinition Height="110"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -64,10 +64,12 @@
                         <ColumnDefinition Width="80"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="100" ></ColumnDefinition>
+                        <ColumnDefinition Width="100" ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Content="连接字符串:"></Label>
-                    <TextBox Grid.Column="1" Width="420" HorizontalAlignment="Left" Margin="10 0" Text="{Binding DataSourceModel.DBConnUrl}"></TextBox>
-                    <Button x:Name="ConnButton" Grid.Column="2" Content="测试连接" HorizontalAlignment="Left" Margin="0 0 30 0" Command="{Binding TestConnectionCmd}"></Button>
+                    <TextBox Grid.Column="1" Width="340" HorizontalAlignment="Left" Margin="10 0" Text="{Binding DataSourceModel.DBConnUrl}"></TextBox>
+                    <Label x:Name="TestResultlbl" Grid.Column="2" Content="{Binding Path=TestResult}"></Label>
+                    <Button x:Name="ConnButton" Grid.Column="3" Content="测试连接" HorizontalAlignment="Left" Margin="0 0 20 0" Command="{Binding TestConnectionCmd}"></Button>
                 </Grid>
             </Border>
         </StackPanel>

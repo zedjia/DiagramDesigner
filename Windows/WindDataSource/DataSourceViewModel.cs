@@ -14,16 +14,16 @@ using System.Windows.Input;
 
 namespace DiagramDesigner.Windows.WindDataSource
 {
-    public class DataSourceViewModel
+    public class DataSourceViewBindingModel
     {
         public DataSourceModel DataSourceModel { get; set; } = new DataSourceModel();
         public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
 
-        public DataSourceViewModel()
+        public DataSourceViewBindingModel()
         {
             dataSourceModels = new ObservableCollection<DataSourceModel>()
             {
-                new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="127.0.0.1"},
+                new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
                 new DataSourceModel(){ DBType="Oracle",DBAlias="test",DBConnUrl="127.0.0.1"},
                 new DataSourceModel(){ DBType="Access",DBAlias="test",DBConnUrl="127.0.0.1"},
                 new DataSourceModel(){ DBType="DB2",DBAlias="test",DBConnUrl="127.0.0.1"},
@@ -32,6 +32,9 @@ namespace DiagramDesigner.Windows.WindDataSource
                 new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
             };
         }
+
+        public string TestResult { get; set; }
+
         /// <summary>
         /// 数据源类型选择
         /// </summary>
