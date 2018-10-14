@@ -7,27 +7,35 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="DiagramDesigner.Window4"
         mc:Ignorable="d"
         Title="Window4" Height="450" Width="800">
-    <StackPanel>
-        <TabControl x:Name="tabControl" Margin="5"  VerticalAlignment="Top"  TabStripPlacement="Left" VerticalContentAlignment="Center" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Height="200" x:Name="tabControl" Margin="5"  VerticalAlignment="Top"  TabStripPlacement="Left" VerticalContentAlignment="Center" >
             <TabItem Header="SQL Server" Width="100" >
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid  >
+                    <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Grid.Row="0" >
+                            <ListBox  />
+                        </StackPanel>
+                        <Canvas Grid.Row="0" Grid.Column="1">
+                            <Label Content="别名:" Canvas.Left="13" Canvas.Top="7"/>
+                            <TextBox Width="390" Canvas.Left="58" Canvas.Top="7" Height="20" TextWrapping="Wrap" />
 
-                        <Canvas Grid.Row="0">
-
-                            <Label Content="SQL:" Canvas.Left="78" Canvas.Top="18"/>
-                            <TextBox Width="390" Canvas.Left="123" Canvas.Top="18" Height="47" TextWrapping="Wrap" />
-                            <Button Content="执行Sql" Canvas.Left="573" Canvas.Top="18"  Width="66"/>
-                            <Button Content="保存" Canvas.Left="573" Canvas.Top="53" Width="66"/>
+                            <Label Content="SQL:" Canvas.Left="13" Canvas.Top="33"/>
+                            <TextBox Width="390" Canvas.Left="58" Canvas.Top="33" Height="47" TextWrapping="Wrap" />
+                            <Button Content="执行Sql" Canvas.Left="473" Canvas.Top="33"  Width="66"/>
+                            <Button Content="保存" Canvas.Left="473" Canvas.Top="68" Width="66"/>
                         </Canvas>
-
                     </Grid>
 
-                </ScrollViewer>
             </TabItem>
             <TabItem Header="My Sql">
                 <ScrollViewer VerticalScrollBarVisibility="Auto"/>
@@ -36,7 +44,8 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto"/>
             </TabItem>
         </TabControl>
-        
-    </StackPanel>
+        <DataGrid Grid.Row="1"/>
+
+    </Grid>
 
 </Window>

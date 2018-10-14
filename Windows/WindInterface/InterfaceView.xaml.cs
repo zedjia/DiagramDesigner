@@ -22,6 +22,20 @@ namespace DiagramDesigner.Windows.WindInterface
         public InterfaceView()
         {
             InitializeComponent();
+            this.Closing += InterfaceView_Closing;
         }
+
+        private void InterfaceView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            InterfaceViewModel Context = this.DataContext as InterfaceViewModel;
+            bool result = false;
+            if (Context != null) result = Context.CloseForm();
+            if (!result)
+            {
+                MessageBox.Show("数据配置保存失败,请重新尝试或者联系管理员", "提示");
+                e.Cancel = true;
+            }
+        }
+        
     }
 }

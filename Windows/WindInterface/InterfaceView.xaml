@@ -14,24 +14,31 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
             <Label Content="别       名："></Label>
-            <TextBox Width="100" Text="{Binding InterfaceModel.IFAlias}"></TextBox>
+            <TextBox Width="100" Text="{Binding SelectedInterfaceModel.IFAlias}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
             <Label Content="接口地址："></Label>
-            <TextBox Width="600" Text="{Binding InterfaceModel.IFUrl}"></TextBox>
+            <TextBox Width="500" Text="{Binding SelectedInterfaceModel.IFUrl}"></TextBox>
+            <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
         </StackPanel>
+        <!--暂时只做Get请求，参数可写在ur中-->
         <StackPanel Grid.Row="2">
+            <Border></Border>
+            <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
+            <TextBox Width="650" Height="55"  Text="{Binding TestResult}" HorizontalAlignment="Left" Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
             <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
             <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
-                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiTest.png" Text="测试链接" ImageHeight="30" ImageWidth="30" Margin="0 0 0 -10" Command="{Binding TestConnectionCmd}"></btn:BottomTxtImageBtn>
+                <!--<btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiTest.png" Text="测试链接" ImageHeight="30" ImageWidth="30" Margin="0 0 0 -10" Command="{Binding TestConnectionCmd}"></btn:BottomTxtImageBtn>-->
                 <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiNew.png" Text="新增" ImageHeight="30" ImageWidth="30" Margin="10 0 0 -10" Command="{Binding AddConfigCmd}"></btn:BottomTxtImageBtn>
                 <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiSave.png" Text="保存" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding SaveConfigCmd}"></btn:BottomTxtImageBtn>
-                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiDelete.png" Text="删除" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=dataGrid1}"></btn:BottomTxtImageBtn>
+                <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiDelete.png" Text="删除" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=SelectedInterfaceModel}"></btn:BottomTxtImageBtn>
             </StackPanel>
             <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
@@ -61,11 +68,6 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <!--暂时只做Get请求，参数可写在ur中-->
-        <!--<StackPanel Grid.Row="1">
-            <Border></Border>
-            <Label Content="请输入请求参数" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
-            <TextBox Width="500" Height="240" HorizontalAlignment="Left" Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>
-        </StackPanel>-->
+        
     </Grid>
 </Window>
