@@ -58,67 +58,43 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SingleChart_Diag}">
                     <Viewbox>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <!--<RowDefinition></RowDefinition>-->
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <!--<Label Content="{TemplateBinding Title}"></Label>-->
+                        <Grid Background="Transparent" Width="500">
                             <!--柱状图-->
-                            <dxc:ChartControl Grid.Row="1" x:Name="chart" BorderBrush="Transparent" Foreground="Red" BorderThickness="0" DataSource="{TemplateBinding ChartSource}">
-                                <dxc:ChartControl.Legend>
-                                    <dxc:Legend x:Name="legend"/>
-                                </dxc:ChartControl.Legend>
-
+                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
                                 <dxc:ChartControl.Palette>
-                                    <dxc:Office2013Palette></dxc:Office2013Palette>
+                                    <dxc:DXChartsPalette></dxc:DXChartsPalette>
                                 </dxc:ChartControl.Palette>
-                                <dxc:ChartControl.Titles>
-                                    <dxc:Title x:Name="title" Content="{TemplateBinding Title}" Foreground="{TemplateBinding TitleColor}" HorizontalAlignment="Left" FontSize="15"/>
-                                </dxc:ChartControl.Titles>
-                                <dxc:XYDiagram2D x:Name="xyDiagram2D" BarDistance="0.1">
-                                    <dxc:XYDiagram2D.DefaultPane>
-                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"/>
-                                    </dxc:XYDiagram2D.DefaultPane>
+
+                                <dxc:XYDiagram2D BarDistance="0.05">
+
                                     <dxc:XYDiagram2D.AxisX>
-                                        <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Brush="#0066AE" Thickness="0" Logarithmic="False" TickmarksCrossAxis="False" Foreground="#add2ea">
+                                        <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
                                             <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
                                             </dxc:AxisX2D.Label>
-                                            <dxc:AxisX2D.CustomLabels>
-                                                <dxc:CustomAxisLabel Content="2013" Value="2013"/>
-                                                <dxc:CustomAxisLabel Content="2014" Value="2014"/>
-                                                <dxc:CustomAxisLabel Content="2015" Value="2015"/>
-                                                <dxc:CustomAxisLabel Content="2016" Value="2016"/>
-                                                <dxc:CustomAxisLabel Content="2017" Value="2017"/>
-                                            </dxc:AxisX2D.CustomLabels>
                                         </dxc:AxisX2D>
                                     </dxc:XYDiagram2D.AxisX>
 
                                     <dxc:XYDiagram2D.AxisY>
-                                        <dxc:AxisY2D x:Name="axisY2D" TickmarksMinorVisible="False" Brush="#0066AE" Thickness="1" GridLinesVisible="True" GridLinesBrush="#115789"
+                                        <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
+                                            <dxc:AxisY2D.Label>
+                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            </dxc:AxisY2D.Label>
                                             <!--<dxc:AxisY2D.CustomLabels>
                             <dxc:CustomAxisLabel Content="0" Value="0"/>
                             <dxc:CustomAxisLabel Content="5" Value="5"/>
                             <dxc:CustomAxisLabel Content="10" Value="10"/>
-                            <dxc:CustomAxisLabel Content="15" Value="15"/>
-                            <dxc:CustomAxisLabel Content="20" Value="20"/>
-                            <dxc:CustomAxisLabel Content="25" Value="25"/>
+                            <dxc:CustomAxisLabel Content="16" Value="16"/>
                         </dxc:AxisY2D.CustomLabels>-->
-                                            <!--<dxc:AxisY2D.WholeRange>
-                            <dxc:Range  AutoSideMargins="True" MaxValue="{Binding RelativeSource={RelativeSource Mode= FindAncestor,AncestorType={x:Type local:DoubleBarChart}}, Path=MaxY}" MinValue="0"></dxc:Range>
-                        </dxc:AxisY2D.WholeRange>-->
-                                            <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel FontSize="18"/>
-                                            </dxc:AxisY2D.Label>
                                         </dxc:AxisY2D>
                                     </dxc:XYDiagram2D.AxisY>
 
-                                    <dxc:BarSideBySideSeries2D x:Name="realValueChart"
-                                           DisplayName="{TemplateBinding DisplayName}"
-                                           CrosshairLabelPattern="{}{S} : {V}"
-                                           FontSize="30" BarWidth="0.2" Brush="{TemplateBinding ChartColor}">
+                                    <dxc:XYDiagram2D.DefaultPane>
+                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
+                                    </dxc:XYDiagram2D.DefaultPane>
+                                    <dxc:BarSideBySideSeries2D x:Name="month4Chart" Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
+
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
                                         </dxc:BarSideBySideSeries2D.Model>
@@ -129,6 +105,7 @@
                                     Visible="False"
                                     dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
                                         </dxc:BarSideBySideSeries2D.Label>
+
                                         <dxc:BarSideBySideSeries2D.Points>
                                             <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
                                             <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
@@ -512,47 +489,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:StackedSplineAreaChart}">
                     <Viewbox>
-                        <dxc:ChartControl>
+                        <dxc:ChartControl Width="500" Background="{x:Null}">
                             <dxc:ChartControl.Diagram>
                                 <dxc:XYDiagram2D>
                                     <dxc:XYDiagram2D.Series>
-                                        <dxc:SplineAreaStackedSeries2D DisplayName="1998" LineTension="0.8"
-                                                       Transparency="0.4">
-                                            <!--<dxc:SplineAreaStackedSeries2D.Brush>
-                                                <LinearGradientBrush>
-                                                    <LinearGradientBrush.GradientStops>
-                                                        <GradientStop Offset="0" Color="red"></GradientStop>
-                                                        <GradientStop Offset="0.5" Color="blue"></GradientStop>
-                                                        <GradientStop Offset="1" Color="Yellow"></GradientStop>
-                                                    </LinearGradientBrush.GradientStops>
-                                                </LinearGradientBrush>
-                                            </dxc:SplineAreaStackedSeries2D.Brush>-->
-                                            <dxc:SplineAreaStackedSeries2D.Points>
-                                                <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
-                                                <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
-                                                <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
-                                                <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
-                                                <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
-                                            </dxc:SplineAreaStackedSeries2D.Points>
-                                            <dxc:SplineAreaStackedSeries2D.Label>
-                                                <dxc:SeriesLabel Visible="True"  dxc:MarkerSeries2D.Angle="40" />
-                                            </dxc:SplineAreaStackedSeries2D.Label>
-                                        </dxc:SplineAreaStackedSeries2D>
-                                        <dxc:SplineAreaStackedSeries2D DisplayName="2001" LineTension="0.8"
-                                                       Transparency="0.4">
-                                            <dxc:SplineAreaStackedSeries2D.Points>
-                                                <dxc:SeriesPoint Argument="Illinois" Value="476.851" />
-                                                <dxc:SeriesPoint Argument="Indiana" Value="195.769" />
-                                                <dxc:SeriesPoint Argument="Michigan" Value="335.793" />
-                                                <dxc:SeriesPoint Argument="Ohio" Value="374.771" />
-                                                <dxc:SeriesPoint Argument="Wisconsin" Value="182.373" />
-                                            </dxc:SplineAreaStackedSeries2D.Points>
-                                            <dxc:SplineAreaStackedSeries2D.Label>
-                                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
-                                            </dxc:SplineAreaStackedSeries2D.Label>
-                                        </dxc:SplineAreaStackedSeries2D>
                                         <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
                                                        Transparency="0.4">
+
+                                            <dxc:SplineAreaStackedSeries2D.Brush>
+                                                <SolidColorBrush Color="#00A5FB"></SolidColorBrush>
+                                            </dxc:SplineAreaStackedSeries2D.Brush>
+
                                             <dxc:SplineAreaStackedSeries2D.Points>
                                                 <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
                                                 <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
@@ -560,34 +507,45 @@
                                                 <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
                                                 <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
                                             </dxc:SplineAreaStackedSeries2D.Points>
-                                            <dxc:SplineAreaStackedSeries2D.Label>
-                                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
-                                            </dxc:SplineAreaStackedSeries2D.Label>
+                                            <!--<dxc:SplineAreaStackedSeries2D.Label>
+                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
+                            </dxc:SplineAreaStackedSeries2D.Label>-->
                                         </dxc:SplineAreaStackedSeries2D>
+
                                     </dxc:XYDiagram2D.Series>
+                                    <dxc:XYDiagram2D.DefaultPane>
+                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
+                                    </dxc:XYDiagram2D.DefaultPane>
                                     <dxc:XYDiagram2D.AxisX>
-                                        <dxc:AxisX2D>
-                                            <dxc:AxisX2D.WholeRange>
-                                                <dxc:Range SideMarginsValue="0" />
-                                            </dxc:AxisX2D.WholeRange>
+                                        <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
+                        Interlaced="False" TickmarksVisible="False">
+                                            <dxc:AxisX2D.Label>
+                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            </dxc:AxisX2D.Label>
+                                            <!--<dxc:AxisX2D.WholeRange>
+                                <dxc:Range SideMarginsValue="0" />
+                            </dxc:AxisX2D.WholeRange>-->
                                         </dxc:AxisX2D>
                                     </dxc:XYDiagram2D.AxisX>
                                     <dxc:XYDiagram2D.AxisY>
-                                        <dxc:AxisY2D>
-                                            <dxc:AxisY2D.Title>
-                                                <dxc:AxisTitle Content="Millions of Dollars" />
-                                            </dxc:AxisY2D.Title>
+                                        <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
+                                            <dxc:AxisY2D.Label>
+                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            </dxc:AxisY2D.Label>
+                                            <!--<dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Millions of Dollars" />
+                            </dxc:AxisY2D.Title>-->
                                         </dxc:AxisY2D>
                                     </dxc:XYDiagram2D.AxisY>
                                 </dxc:XYDiagram2D>
                             </dxc:ChartControl.Diagram>
-                            <dxc:ChartControl.Legend>
-                                <dxc:Legend HorizontalPosition="Right" />
-                            </dxc:ChartControl.Legend>
-                            <dxc:ChartControl.Titles>
-                                <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
-                                </dxc:Title>
-                            </dxc:ChartControl.Titles>
+                            <!--<dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" />
+            </dxc:ChartControl.Legend>-->
+                            <!--<dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
+                </dxc:Title>
+            </dxc:ChartControl.Titles>-->
                         </dxc:ChartControl>
                     </Viewbox>
                 </ControlTemplate>

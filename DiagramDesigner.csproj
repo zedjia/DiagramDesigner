@@ -451,6 +451,14 @@
     <Content Include="packages\Stylet.1.1.21\lib\net45\Stylet.pdb" />
     <Content Include="packages\WPG.dll" />
     <Content Include="packages\WPG.pdb" />
+    <Resource Include="Resources\Pictures\园区.png" />
+    <Resource Include="Resources\Pictures\大数据.png" />
+    <Resource Include="Resources\Pictures\平安园区.png" />
+    <Resource Include="Resources\Pictures\技术服务.png" />
+    <Resource Include="Resources\Pictures\智能运维.png" />
+    <Resource Include="Resources\Pictures\服务.png" />
+    <Resource Include="Resources\Pictures\返回.png" />
+    <Resource Include="Resources\Pictures\首页.png" />
     <Resource Include="Resources\Pictures\preview.png" />
     <Resource Include="packages\Stylet.1.1.21\lib\net45\Stylet.xml" />
     <Resource Include="packages\Stylet.1.1.21\readme.txt" />

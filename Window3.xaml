@@ -20,38 +20,68 @@
     xmlns:ds="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         x:Class="DiagramDesigner.Window3"
         mc:Ignorable="d"
-        Title="SplineAreaChart" Height="600" Width="700">
+        Title="SplineAreaChart" Height="600" Width="700" Background="Transparent">
     <Window.DataContext>
-        <ds:DataSourceViewBindingModel></ds:DataSourceViewBindingModel>
+        <ds:DataSourceViewModel></ds:DataSourceViewModel>
     </Window.DataContext>
-    <Grid>
-        
-        <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Height="200">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="序号" Width="60">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label></Label>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="数据库类型" Width="100" Binding="{Binding Path=DBType}"/>
-                <DataGridTextColumn Header="数据源别名" Width="100" Binding="{Binding Path=DBAlias}"/>
-                <DataGridTextColumn Header="连接字符串" Width="*" Binding="{Binding Path=DBConnUrl}"/>
-                <DataGridTemplateColumn Header="删除" Width="60">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="Lbl" Background="Transparent" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}">
-                                <Button.Content>
-                                    <Border Width="20" Height="20" CornerRadius="16" BorderThickness="0" Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <Path Data="M0 0L22 0" Stroke="WhiteSmoke" StrokeThickness="4" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
-                                    </Border>
-                                </Button.Content>
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+    <Viewbox>
+        <dxc:ChartControl Width="500" Background="{x:Null}">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
+                                                       Transparency="0.4">
+
+                            <dxc:SplineAreaStackedSeries2D.Brush>
+                                <SolidColorBrush Color="#00A5FB"></SolidColorBrush>
+                            </dxc:SplineAreaStackedSeries2D.Brush>
+
+                            <dxc:SplineAreaStackedSeries2D.Points>
+                                <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
+                                <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
+                                <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
+                                <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
+                                <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
+                            </dxc:SplineAreaStackedSeries2D.Points>
+                            <!--<dxc:SplineAreaStackedSeries2D.Label>
+                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
+                            </dxc:SplineAreaStackedSeries2D.Label>-->
+                        </dxc:SplineAreaStackedSeries2D>
+
+                    </dxc:XYDiagram2D.Series>
+                    <dxc:XYDiagram2D.DefaultPane>
+                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
+                    </dxc:XYDiagram2D.DefaultPane>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
+                        Interlaced="False" TickmarksVisible="False">
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                            </dxc:AxisX2D.Label>
+                            <!--<dxc:AxisX2D.WholeRange>
+                                <dxc:Range SideMarginsValue="0" />
+                            </dxc:AxisX2D.WholeRange>-->
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
+                            <dxc:AxisY2D.Label>
+                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                            </dxc:AxisY2D.Label>
+                            <!--<dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Millions of Dollars" />
+                            </dxc:AxisY2D.Title>-->
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <!--<dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" />
+            </dxc:ChartControl.Legend>-->
+            <!--<dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
+                </dxc:Title>
+            </dxc:ChartControl.Titles>-->
+        </dxc:ChartControl>
+    </Viewbox>
 </Window>

@@ -64,7 +64,7 @@ namespace DiagramDesigner.CustomControls.Buttons
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageUrlProperty =
-            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(BottomTxtImageBtn), new PropertyMetadata(null));
+            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(BottomTxtImageBtn), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/微信.png"))));
 
         [DisplayName("图片高度")]
         public double ImageHeight
