@@ -147,6 +147,32 @@ namespace DiagramDesigner.Windows.WindDataSource
         }
 
         /// <summary>
+        /// 执行
+        /// </summary>
+        public ICommand ExecuteConfigCmd => new DelegateCommand<DataSourceModel>(ExecuteConfig);
+
+        void ExecuteConfig(DataSourceModel dataSourceModel)
+        {
+            //if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            //{
+            //    this.dataSourceModels.Remove(dataSourceModel);
+            //}
+        }
+
+        /// <summary>
+        /// 保存
+        /// </summary>
+        public ICommand SaveExConfigCmd => new DelegateCommand<DataSourceModel>(SaveExConfig);
+
+        void SaveExConfig(DataSourceModel dataSourceModel)
+        {
+            //if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            //{
+            //    this.dataSourceModels.Remove(dataSourceModel);
+            //}
+        }
+
+        /// <summary>
         /// 关闭窗体时写入文件,如果失败则取消关闭
         /// </summary>
         public bool CloseForm()

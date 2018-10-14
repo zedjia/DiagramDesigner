@@ -29,7 +29,7 @@
     <cvt:PercentToAngleConverter x:Key="PercentToAngleConverter"></cvt:PercentToAngleConverter>
 
     <!--测试控件-->
-    <Style TargetType="{x:Type local:CustomControl1}">
+    <!--<Style TargetType="{x:Type local:CustomControl1}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CustomControl1}">
@@ -40,7 +40,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <Style TargetType="{x:Type local:CustomControl2}">
         <Setter Property="Template">
@@ -845,11 +845,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type brs:CefSharpBrowser}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <wpf:ChromiumWebBrowser Address="{TemplateBinding Url}"></wpf:ChromiumWebBrowser>
-                    </Border>
+                    <wpf:ChromiumWebBrowser Address="{TemplateBinding Url}"></wpf:ChromiumWebBrowser>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
