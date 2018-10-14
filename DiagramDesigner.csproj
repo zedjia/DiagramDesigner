@@ -204,6 +204,7 @@
     <Compile Include="UserControls\DataItemUC.xaml.cs">
       <DependentUpon>DataItemUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DataItemViewModel.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>
     </Compile>

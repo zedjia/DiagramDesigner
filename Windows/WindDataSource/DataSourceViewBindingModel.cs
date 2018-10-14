@@ -26,8 +26,7 @@ namespace DiagramDesigner.Windows.WindDataSource
         public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
         public DataSourceModel SelectedDataSourceModel { get; set; } = new DataSourceModel();
 
-        public DataSourceModel TabDataSourceModel { get; set; } = new DataSourceModel();
-        public DataItem SelectedDataItemModel { get; set; } = new DataItem();
+        
 
 
 
@@ -160,77 +159,6 @@ namespace DiagramDesigner.Windows.WindDataSource
         }
 
         #endregion
-
-
-        #region tab2 事件
-
-
-        /// <summary>
-        /// 新增到配置列表
-        /// </summary>
-        public ICommand AddDataItemCmd => new DelegateCommand(AddDataItem);
-
-        void AddDataItem()
-        {
-            //SelectedDataSourceModel.Id = Guid.NewGuid();
-            //dataSourceModels.Add(SelectedDataSourceModel.Clone());
-            //TestResult = string.Empty;
-        }
-        /// <summary>
-        /// 保存
-        /// </summary>
-        public ICommand SaveDataItemCmd => new DelegateCommand(SaveDataItem);
-
-        void SaveDataItem()
-        {
-            //var editItem = dataSourceModels.FirstOrDefault(i => i.Id == SelectedDataSourceModel.Id);
-            //if (editItem == null)
-            //{
-            //    MessageBox.Show("无法编辑本条记录,请先进行新增操作.", "提示");
-            //    return;
-            //}
-            //editItem.SetValue(SelectedDataSourceModel);
-            //TestResult = string.Empty;
-        }
-
-
-        public ICommand SelectionDataItemChangedCmd => new DelegateCommand<ListBox>(SelectionDataItemChanged);
-
-        void SelectionDataItemChanged(ListBox lst)
-        {
-            //DbType dataSourceModel = lst.SelectedItem as DbType;
-            //if (dataSourceModel != null) SelectedDataSourceModel.DBType = dataSourceModel.Name;
-        }
-
-        /// <summary>
-        /// 执行
-        /// </summary>
-        public ICommand ExecuteDataItemCmd => new DelegateCommand<DataItem>(ExecuteDataItem);
-
-        void ExecuteDataItem(DataItem dataSourceModel)
-        {
-            //if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-            //{
-            //    this.dataSourceModels.Remove(dataSourceModel);
-            //}
-        }
-
-
-        /// <summary>
-        /// 删除
-        /// </summary>
-        public ICommand DeleteDataItemCmd => new DelegateCommand<DataItem>(DeleteDataItem);
-
-        void DeleteDataItem(DataItem dataItem)
-        {
-            //if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-            //{
-            //    this.dataSourceModels.Remove(dataItem);
-            //}
-        }
-
-        #endregion
-
 
 
 

@@ -10,7 +10,7 @@
     <Window.DataContext>
         <local:DataSourceViewBindingModel/>
     </Window.DataContext>
-    <TabControl SelectionChanged="TabControl_SelectionChanged">
+    <TabControl >
         <TabItem Header="数据源">
             <Grid>
                 <Grid.RowDefinitions>
@@ -148,9 +148,10 @@
             </Grid>
         </TabItem>
         <TabItem Header="数据">
-            <TabControl x:Name="dataSourceTabContrl" TabStripPlacement="Left">
-                <TabItem Header="SQL Server">
-                    <Grid>
+            <StackPanel>
+            <TabControl Height="200" x:Name="dataSourceTabContrl" TabStripPlacement="Left" Loaded="dataSourceTabContrl_Loaded">
+                <!--<TabItem Header="SQL Server">
+                    --><!--<Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
@@ -165,11 +166,6 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" Width="100" Height="30">
-                                            <!--<RadioButton x:Name="radioBtn" FontSize="14" GroupName="area" VerticalAlignment="Center">
-                                                <RadioButton.IsChecked>
-                                                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay" />
-                                                </RadioButton.IsChecked>
-                                            </RadioButton>-->
                                             <Label Content="{Binding Alias}" HorizontalAlignment="Left"></Label>
                                         </StackPanel>
                                     </DataTemplate>
@@ -192,18 +188,13 @@
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                        <DataGrid Grid.Row="1" ItemsSource="{Binding Path=dataSourceModels}">
-                            
-                        </DataGrid>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Oracle">
-
-                </TabItem>
-                <TabItem Header="My Sql">
-
-                </TabItem>
+                        
+                    </Grid>--><!--
+                </TabItem>-->
             </TabControl>
+            <!--<DataGrid></DataGrid>-->
+            <DataGrid></DataGrid>
+            </StackPanel>
         </TabItem>
     </TabControl>
 </Window>

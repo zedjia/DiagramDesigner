@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using DiagramDesigner.UserControls;
 
 namespace DiagramDesigner.Windows.WindDataSource
 {
@@ -42,13 +43,9 @@ namespace DiagramDesigner.Windows.WindDataSource
             }
 
         }
+        
 
-        /// <summary>
-        /// 外侧tab change
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dataSourceTabContrl_Loaded(object sender, RoutedEventArgs e)
         {
             DataSourceViewBindingModel Context = this.DataContext as DataSourceViewBindingModel;
             if (Context == null)
@@ -56,22 +53,18 @@ namespace DiagramDesigner.Windows.WindDataSource
                 return;
             }
             Context.CloseForm();// 这里必须要保存一次配置到文件，所以调用一次这个方法.
+            dataSourceTabContrl.Items.Clear();
+
 
             var dataSources = Context.dataSourceModels.OrderBy(i => i.Sort);
-            //以下是测试代码
-            if(dataSources.Count()<3)
-                return;
-            
-            var tmpdata = dataSources.Take(dataSourceTabContrl.Items.Count).ToArray();
-            for (int i=0;i<dataSourceTabContrl.Items.Count;i++)
+            foreach (var dataSourceModel in dataSources)
             {
-                TabItem tabiemp = dataSourceTabContrl.Items[i] as TabItem;
-                tabiemp.Header = $"{tmpdata[i].DBType}({tmpdata[i].DBAlias})";
-            }
-            tmpdata=dataSources.Skip(dataSourceTabContrl.Items.Count).ToArray();
-            foreach (var i in tmpdata)
-            {
-                dataSourceTabContrl.Items.Add(new TabItem() {Header = $"{i.DBType}({i.DBAlias})"});
+                DataItemUC uc = new DataItemUC();
+                uc.DataContext = dataSourceModel;
+                TabItem tabItem = new TabItem() {Header = $"{dataSourceModel.DBAlias}({dataSourceModel.DBType})"};
+                //tabItem.RegisterName($"uc{dataSourceModel.Id}", uc);
+                tabItem.Content = uc;
+                dataSourceTabContrl.Items.Add(tabItem);
             }
         }
     }
