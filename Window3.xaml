@@ -12,6 +12,7 @@
         xmlns:ssw="clr-namespace:DiagramDesigner.Windows.SuspensionWD"    
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:model="clr-namespace:DiagramDesigner.Models"
+    xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
         xmlns:vm="clr-namespace:DiagramDesigner.ViewModel"
         xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
@@ -25,63 +26,17 @@
         <ds:DataSourceViewModel></ds:DataSourceViewModel>
     </Window.DataContext>
     <Viewbox>
-        <dxc:ChartControl Width="500" Background="{x:Null}">
-            <dxc:ChartControl.Diagram>
-                <dxc:XYDiagram2D>
-                    <dxc:XYDiagram2D.Series>
-                        <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
-                                                       Transparency="0.4">
-
-                            <dxc:SplineAreaStackedSeries2D.Brush>
-                                <SolidColorBrush Color="#00A5FB"></SolidColorBrush>
-                            </dxc:SplineAreaStackedSeries2D.Brush>
-
-                            <dxc:SplineAreaStackedSeries2D.Points>
-                                <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
-                                <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
-                                <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
-                                <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
-                                <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
-                            </dxc:SplineAreaStackedSeries2D.Points>
-                            <!--<dxc:SplineAreaStackedSeries2D.Label>
-                                <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
-                            </dxc:SplineAreaStackedSeries2D.Label>-->
-                        </dxc:SplineAreaStackedSeries2D>
-
-                    </dxc:XYDiagram2D.Series>
-                    <dxc:XYDiagram2D.DefaultPane>
-                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
-                    </dxc:XYDiagram2D.DefaultPane>
-                    <dxc:XYDiagram2D.AxisX>
-                        <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
-                        Interlaced="False" TickmarksVisible="False">
-                            <dxc:AxisX2D.Label>
-                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                            </dxc:AxisX2D.Label>
-                            <!--<dxc:AxisX2D.WholeRange>
-                                <dxc:Range SideMarginsValue="0" />
-                            </dxc:AxisX2D.WholeRange>-->
-                        </dxc:AxisX2D>
-                    </dxc:XYDiagram2D.AxisX>
-                    <dxc:XYDiagram2D.AxisY>
-                        <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
-                            <dxc:AxisY2D.Label>
-                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                            </dxc:AxisY2D.Label>
-                            <!--<dxc:AxisY2D.Title>
-                                <dxc:AxisTitle Content="Millions of Dollars" />
-                            </dxc:AxisY2D.Title>-->
-                        </dxc:AxisY2D>
-                    </dxc:XYDiagram2D.AxisY>
-                </dxc:XYDiagram2D>
-            </dxc:ChartControl.Diagram>
-            <!--<dxc:ChartControl.Legend>
-                <dxc:Legend HorizontalPosition="Right" />
-            </dxc:ChartControl.Legend>-->
-            <!--<dxc:ChartControl.Titles>
-                <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
-                </dxc:Title>
-            </dxc:ChartControl.Titles>-->
-        </dxc:ChartControl>
+        <StackPanel Orientation="Horizontal">
+            <Path Stroke="Blue" StrokeThickness="1">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="5,12">
+                            <LineSegment Point="20,12"></LineSegment>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Label Content="图例" Foreground="White" FontSize="14"></Label>
+        </StackPanel>
     </Viewbox>
 </Window>

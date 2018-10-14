@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.props" Condition="Exists('packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.props')" />
+  <Import Project="packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props" Condition="Exists('packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props')" />
   <Import Project="packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props" Condition="Exists('packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -48,6 +50,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,6 +60,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -134,12 +155,16 @@
     </Compile>
     <Compile Include="Controls\Label_HT.cs" />
     <Compile Include="Converters\ConverterManager.cs" />
+    <Compile Include="CustomControls\Browsers\CefSharpBrowser.cs" />
     <Compile Include="CustomControls\Buttons\BottomTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CenterTxtImageBtn.cs" />
     <Compile Include="CustomControls\Buttons\CommonButton.cs" />
     <Compile Include="CustomControls\Button_Diag.cs" />
     <Compile Include="CustomControls\Charts\CircleNumberChart.cs" />
+    <Compile Include="CustomControls\Charts\DoubleHisChart.cs" />
+    <Compile Include="CustomControls\Charts\HisAndAreaChart.cs" />
     <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
+    <Compile Include="CustomControls\Charts\ThreeStackedAreaChart.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
     <Compile Include="CustomControls\DataGrid_Diag.cs" />
@@ -150,6 +175,7 @@
     <Compile Include="CustomControls\Labels\ImageOneLineLabel.cs" />
     <Compile Include="CustomControls\Labels\Label1.cs" />
     <Compile Include="CustomControls\Labels\LabelCommon.cs" />
+    <Compile Include="CustomControls\Legends\LineTxtLegend.cs" />
     <Compile Include="CustomControls\Lists\RadioButtonList.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
     <Compile Include="CustomControls\SingleChart_Diag.cs" />
@@ -532,7 +558,17 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\Fody.3.2.9\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.3.2.9\build\Fody.targets'))" />
     <Error Condition="!Exists('packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PropertyChanged.Fody.2.5.13\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.props'))" />
+    <Error Condition="!Exists('packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.targets'))" />
   </Target>
+  <Import Project="packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets" Condition="Exists('packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets')" />
+  <Import Project="packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets" Condition="Exists('packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets')" />
+  <Import Project="packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets" Condition="Exists('packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets')" />
+  <Import Project="packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.targets" Condition="Exists('packages\CefSharp.Wpf.55.0.0\build\CefSharp.Wpf.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

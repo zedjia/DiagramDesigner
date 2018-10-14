@@ -8,6 +8,8 @@
                     xmlns:chart="clr-namespace:DiagramDesigner.CustomControls.Charts"
                     xmlns:img="clr-namespace:DiagramDesigner.CustomControls.Images"
                     xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
+                    xmlns:brs="clr-namespace:DiagramDesigner.CustomControls.Browsers"
+                    xmlns:lgd="clr-namespace:DiagramDesigner.CustomControls.Legends"
                     xmlns:c="clr-namespace:DiagramDesigner.Controls">
 
   <!--<RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
@@ -81,11 +83,13 @@
         <!--<cs:CustomControl2 IsHitTestVisible="false"></cs:CustomControl2>-->
     </s:Toolbox>
 
-    <s:Toolbox x:Key="Chart_Diag">
+    <s:Toolbox x:Key="Chart">
         <cs:SingleChart_Diag IsHitTestVisible="false"></cs:SingleChart_Diag>
+        <chart:DoubleHisChart IsHitTestVisible="False"></chart:DoubleHisChart>
         <cs:PieChart_Diag IsHitTestVisible="false"></cs:PieChart_Diag>
         <cs:SingleLineChart_Diag IsHitTestVisible="false"></cs:SingleLineChart_Diag>
         <chart:StackedSplineAreaChart IsHitTestVisible="False"></chart:StackedSplineAreaChart>
+        <chart:ThreeStackedAreaChart IsHitTestVisible="False"></chart:ThreeStackedAreaChart>
         <chart:CircleNumberChart IsHitTestVisible="False"></chart:CircleNumberChart>
     </s:Toolbox>
 
@@ -93,21 +97,27 @@
         <cs:TextBox_Diag IsHitTestVisible="false"></cs:TextBox_Diag>
     </s:Toolbox>
 
-    <s:Toolbox x:Key="Button_Diag">
+    <s:Toolbox x:Key="Button">
         <btn:CommonButton IsHitTestVisible="False"></btn:CommonButton>
         <cs:Button_Diag IsHitTestVisible="false"></cs:Button_Diag>
         <btn:BottomTxtImageBtn IsHitTestVisible="false"></btn:BottomTxtImageBtn>
         <btn:CenterTxtImageBtn IsHitTestVisible="False"></btn:CenterTxtImageBtn>
     </s:Toolbox>
 
-    <s:Toolbox x:Key="Image_Diag">
+    <s:Toolbox x:Key="Image">
         <cs:Image_Diag IsHitTestVisible="false"></cs:Image_Diag>
         <img:ImageCommon IsHitTestVisible="False"></img:ImageCommon>
     </s:Toolbox>
-    <s:Toolbox x:Key="Table_Diag">
+    <s:Toolbox x:Key="Table">
         <cs:DataGrid_Diag IsHitTestVisible="false" ToolTip="DataGrid"></cs:DataGrid_Diag>
     </s:Toolbox>
     <s:Toolbox x:Key="List_Diag">
         <list:RadioButtonList IsHitTestVisible="False"></list:RadioButtonList>
+    </s:Toolbox>
+    <s:Toolbox x:Key="Legend">
+        <lgd:LineTxtLegend IsHitTestVisible="False"></lgd:LineTxtLegend>
+    </s:Toolbox>
+    <s:Toolbox x:Key="Browser">
+        <brs:CefSharpBrowser IsHitTestVisible="False"></brs:CefSharpBrowser>
     </s:Toolbox>
 </ResourceDictionary>
