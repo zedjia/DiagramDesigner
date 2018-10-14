@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Dapper;
+using DiagramDesigner.Services;
 using ListBox = System.Windows.Controls.ListBox;
 using MessageBox = System.Windows.MessageBox;
 
@@ -27,16 +28,20 @@ namespace DiagramDesigner.Windows.WindDataSource
 
         public DataSourceViewBindingModel()
         {
-            dataSourceModels = new ObservableCollection<DataSourceModel>()
-            {
-                new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
-                new DataSourceModel(){ DBType="Oracle",DBAlias="test",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="Access",DBAlias="test",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="DB2",DBAlias="test",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="MySQL",DBAlias="test",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="SQLite",DBAlias="test",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
-            };
+            dataSourceModels =FileDataServices.GetDataModelFromFile<ObservableCollection<DataSourceModel>>();
+            dataSourceModels = dataSourceModels ?? new ObservableCollection<DataSourceModel>();
+
+
+            //dataSourceModels = new ObservableCollection<DataSourceModel>()
+            //{
+            //    new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
+            //    new DataSourceModel(){ DBType="Oracle",DBAlias="test",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="Access",DBAlias="test",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="DB2",DBAlias="test",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="MySQL",DBAlias="test",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="SQLite",DBAlias="test",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
+            //};
         }
 
         public string TestResult { get; set; }
@@ -55,13 +60,7 @@ namespace DiagramDesigner.Windows.WindDataSource
         /// <summary>
         /// 数据源类型选择
         /// </summary>
-        public ICommand SelectionChangedCmd
-        {
-            get
-            {
-                return new DelegateCommand<ListBox>(SelectionChanged);
-            }
-        }
+        public ICommand SelectionChangedCmd => new DelegateCommand<ListBox>(SelectionChanged);
 
         void SelectionChanged(ListBox lst)
         {
@@ -81,12 +80,12 @@ namespace DiagramDesigner.Windows.WindDataSource
         void TestConnection()
         {
             Console.WriteLine(SelectedDataSourceModel.DBType);
-
+            TestResult = "测试中.";
             using (SqlConnection cn = new SqlConnection(SelectedDataSourceModel.DBConnUrl))
             {
                 try
                 {
-                    cn.ExecuteScalar("select 1");
+                    cn.ExecuteScalarAsync("select 1").Wait();
                     TestResult = "连接成功";
                 }
                 catch (Exception ex)
@@ -104,6 +103,7 @@ namespace DiagramDesigner.Windows.WindDataSource
         {
             SelectedDataSourceModel.Id = Guid.NewGuid();
             dataSourceModels.Add(SelectedDataSourceModel.Clone());
+            TestResult = string.Empty;
         }
         /// <summary>
         /// 保存
@@ -119,16 +119,18 @@ namespace DiagramDesigner.Windows.WindDataSource
                 return;
             }
             editItem.SetValue(SelectedDataSourceModel);
+            TestResult = string.Empty;
         }
 
         /// <summary>
-        /// 删除
+        /// 编辑
         /// </summary>
         public ICommand EditConfigCmd => new DelegateCommand<DataSourceModel>(EditConfig);
 
         void EditConfig(DataSourceModel dataSourceModel)
         {
             SelectedDataSourceModel = dataSourceModel.Clone();
+            TestResult = string.Empty;
         }
 
         /// <summary>
@@ -145,11 +147,11 @@ namespace DiagramDesigner.Windows.WindDataSource
         }
 
         /// <summary>
-        /// 关闭窗体时写入文件
+        /// 关闭窗体时写入文件,如果失败则取消关闭
         /// </summary>
-        public void CloseForm()
+        public bool CloseForm()
         {
-            
+            return FileDataServices.SaveDataModelToFile(dataSourceModels, FileDataServices.DATASOURCEFILENAME);
         }
 
 
@@ -160,11 +162,18 @@ namespace DiagramDesigner.Windows.WindDataSource
     [AddINotifyPropertyChangedInterface]
     public class DataSourceModel
     {
+        public DataSourceModel()
+        {
+            DataItems=new List<DataItem>();
+        }
+
         public Guid Id { get; set; }
         public string DBType { get; set; } = "Oracle";
         public string DBAlias { get; set; } = "test";
         public string DBConnUrl { get; set; } = "Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;";
         public bool ConnStatus { get; set; }
+
+        public List<DataItem> DataItems { get; set; }
 
         public DataSourceModel Clone()
         {
@@ -188,6 +197,33 @@ namespace DiagramDesigner.Windows.WindDataSource
         }
 
     }
+
+
+    public class DataItem
+    {
+        public Guid Id { get; set; }
+        public string Alias { get; set; }
+        public string SqlStr { get; set; }
+
+        public DataItem Clone()
+        {
+            return new DataItem()
+            {
+                Id = this.Id,
+                Alias = this.Alias,
+                SqlStr = this.SqlStr,
+            };
+        }
+
+        public void SetValue(DataItem model)
+        {
+            this.Id = model.Id;
+            this.Alias = model.Alias;
+            this.SqlStr = model.SqlStr;
+        }
+
+    }
+
 
 
     public class DbType

@@ -690,6 +690,48 @@ namespace DiagramDesigner.Helper
 
         #endregion
 
+
+        /// <summary>
+        /// 通过流读取txt文件内容,用于文件比较大的情况.
+        /// </summary>
+        /// <param name="path">文件地址</param>
+        /// <param name="encoding"></param>
+        public static string ReadTxtContentByStream(string path,Encoding encoding)
+        {
+            StringBuilder content=new StringBuilder();
+            string row = string.Empty;
+            using (StreamReader sr = new StreamReader(path, encoding))
+            {
+                while ((row=sr.ReadLine()) != null)
+                {
+                    content.Append(row);
+                }
+            }
+            return content.ToString();
+        }
+
+        /// <summary>
+        /// 一次性读取整个文件，最好先判断文件是否存在.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static string ReadAllTxtContent(string path, Encoding encoding)
+        {
+            string content = string.Empty;
+            try
+            {
+                content = File.ReadAllText(path, encoding);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return content;
+        }
+
+
+
         #region 记录错误日志到文件方法  
 
         ///// <summary>  

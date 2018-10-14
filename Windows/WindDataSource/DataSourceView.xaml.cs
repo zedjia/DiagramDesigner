@@ -32,9 +32,16 @@ namespace DiagramDesigner.Windows.WindDataSource
         private void DataSourceView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             DataSourceViewBindingModel Context = this.DataContext as DataSourceViewBindingModel;
-            if (Context != null) Context.CloseForm();
+            bool result = false;
+            if (Context != null) result = Context.CloseForm();
+            if (!result)
+            {
+                MessageBox.Show("数据配置保存失败,请重新尝试或者联系管理员", "提示");
+                e.Cancel = true;
+            }
+
         }
-        
-        
+
+
     }
 }

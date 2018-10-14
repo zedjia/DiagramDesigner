@@ -62,7 +62,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1">
             <Label Content="2.请选择要配置的源数据库类型" Margin="8 5 0 5" FontSize="16"></Label>
-            <ListBox x:Name="Lst" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10 0 10 0" ItemsSource="{Binding dataSourceModels}" Height="75">
+            <ListBox x:Name="Lst" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10 0 10 0" ItemsSource="{Binding DbTypeList}" Height="75">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SelectionChangedCmd}" CommandParameter="{Binding ElementName=Lst}" />
@@ -104,7 +104,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="连接字符串:"></Label>
                     <TextBox Grid.Column="1" Width="340" HorizontalAlignment="Left" Margin="10 0" Text="{Binding SelectedDataSourceModel.DBConnUrl}"></TextBox>
-                    <Label x:Name="TestResultlbl" Grid.Column="2" Content="{Binding TestResult}"></Label>
+                    <Label x:Name="TestResultlbl" Grid.Column="2" Content="{Binding TestResult}" Foreground="Red"  ></Label>
                     <Button x:Name="ConnButton" Grid.Column="3" Content="测试连接" HorizontalAlignment="Left" Margin="0 0 20 0" Command="{Binding TestConnectionCmd}"></Button>
                 </Grid>
             </Border>
