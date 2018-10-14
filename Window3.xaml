@@ -22,18 +22,9 @@
         x:Class="DiagramDesigner.Window3"
         mc:Ignorable="d"
         Title="SplineAreaChart" Height="600" Width="700" Background="Transparent">
-    <Viewbox>
-        <StackPanel Orientation="Horizontal">
-            <Path Stroke="Blue" StrokeThickness="1">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathFigure StartPoint="5,12">
-                            <LineSegment Point="20,12"></LineSegment>
-                        </PathFigure>
-                    </PathGeometry>
-                </Path.Data>
-            </Path>
-            <Label Content="图例" Foreground="White" FontSize="14"></Label>
-        </StackPanel>
-    </Viewbox>
+    <Grid>
+        <TabControl x:Name="TabControl">
+
+        </TabControl>
+    </Grid>
 </Window>

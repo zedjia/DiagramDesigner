@@ -200,6 +200,9 @@
     </Compile>
     <Compile Include="PreviewViewModel.cs" />
     <Compile Include="Services\FileDataServices.cs" />
+    <Compile Include="UserControls\DataItemUC.xaml.cs">
+      <DependentUpon>DataItemUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>
     </Compile>
@@ -313,6 +316,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataItemUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
