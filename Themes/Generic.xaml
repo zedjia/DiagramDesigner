@@ -235,7 +235,7 @@
                         <dxc:ChartControl HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="Transparent">
                             <dxc:XYDiagram2D  LabelsResolveOverlappingMinIndent="2" x:Name="diagram1" EnableAxisXNavigation="True" Background="Transparent">
                                 <dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:Pane DomainBrush="Transparent" Foreground="White" DomainBorderBrush="Transparent"/>
+                                    <dxc:Pane DomainBrush="Transparent" Foreground="{DynamicResource FontColor}" DomainBorderBrush="Transparent"/>
                                 </dxc:XYDiagram2D.DefaultPane>
                                 <dxc:XYDiagram2D.AxisX>
                                     <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Brush="#0066AE" Thickness="1" Logarithmic="False" TickmarksCrossAxis="False" Foreground="#add2ea">
@@ -256,7 +256,7 @@
                                     <dxc:AxisY2D x:Name="axisY2D" TickmarksMinorVisible="False" Brush="#0066AE" Thickness="1" GridLinesVisible="True" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
                                         <dxc:AxisY2D.Label>
-                                            <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            <dxc:AxisLabel Foreground="{DynamicResource FontColor}" FontSize="18"/>
                                         </dxc:AxisY2D.Label>
                                     </dxc:AxisY2D>
                                 </dxc:XYDiagram2D.AxisY>
@@ -479,7 +479,7 @@
                             <Grid.Background>
                                 <ImageBrush ImageSource="../Resources/Pictures/box.png"></ImageBrush>
                             </Grid.Background>
-                            <TextBlock x:Name="TextBlock" Foreground="White" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">
+                            <TextBlock x:Name="TextBlock" Foreground="{DynamicResource FontColor}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">
                                     <Label Foreground="{Binding Path=Foreground,ElementName=TextBlock}">交通</Label>
                                     <LineBreak></LineBreak>
                                     <Label Foreground="{Binding Path=Foreground,ElementName=TextBlock}">体系</Label>
@@ -621,14 +621,14 @@
                             </Grid.RowDefinitions>
                             <Image Grid.RowSpan="2" Source="{TemplateBinding ImageUrl}" Stretch="Fill"></Image>
                             <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
+                                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0" Foreground="{DynamicResource FontColor}"></Label>
                                 <Label Content="19" FontSize="24" Foreground="#31FC00"></Label>
-                                <Label Content="辆/分" Margin="5 10 0 0"></Label>
+                                <Label Content="辆/分" Margin="5 10 0 0" Foreground="{DynamicResource FontColor}"></Label>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0"></Label>
+                                <Label Content="进场车辆:" FontSize="18" Margin="0 5 5 0" Foreground="{DynamicResource FontColor}"></Label>
                                 <Label Content="20" FontSize="24" VerticalAlignment="Top" Foreground="#00A8FF"></Label>
-                                <Label Content="辆/分" Margin="5 10 0 0"></Label>
+                                <Label Content="辆/分" Margin="5 10 0 0" Foreground="{DynamicResource FontColor}"></Label>
                             </StackPanel>
                         </Grid>
                     </Viewbox>
@@ -682,9 +682,9 @@
                                 </ed:Arc.RenderTransform>
                             </ed:Arc>
                             <!--数据-->
-                            <Label Content="{TemplateBinding Number}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-                            <Label Content="{TemplateBinding Unit}" FontSize="16" Margin="0 100 0 0" HorizontalAlignment="Center"></Label>
-                            <Label Content="{TemplateBinding TypeName}" FontSize="20"  HorizontalAlignment="Center" Margin="0 150 0 0"></Label>
+                            <Label Content="{TemplateBinding Number}" Foreground="{DynamicResource FontColor}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{TemplateBinding Unit}" Foreground="{DynamicResource FontColor}" FontSize="16" Margin="0 100 0 0" HorizontalAlignment="Center"></Label>
+                            <Label Content="{TemplateBinding TypeName}" Foreground="{DynamicResource FontColor}" FontSize="20"  HorizontalAlignment="Center" Margin="0 150 0 0"></Label>
                         </Grid>
                     </Viewbox>
                     <ControlTemplate.Triggers>

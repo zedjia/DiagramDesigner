@@ -163,6 +163,10 @@
     <Compile Include="Models\DataSourceModel.cs" />
     <Compile Include="Models\FontProperty.cs" />
     <Compile Include="Models\InterfaceModel.cs" />
+    <Compile Include="PreviewView.xaml.cs">
+      <DependentUpon>PreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewViewModel.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>
     </Compile>
@@ -191,6 +195,10 @@
     <Page Include="Controls\Label_Dragable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PreviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\ApplicationToolbar.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -429,6 +437,7 @@
     <Content Include="packages\Stylet.1.1.21\lib\net45\Stylet.pdb" />
     <Content Include="packages\WPG.dll" />
     <Content Include="packages\WPG.pdb" />
+    <Resource Include="Resources\Pictures\preview.png" />
     <Resource Include="packages\Stylet.1.1.21\lib\net45\Stylet.xml" />
     <Resource Include="packages\Stylet.1.1.21\readme.txt" />
     <Resource Include="packages\PropertyChanged.Fody.2.5.13\lib\net452\PropertyChanged.xml" />

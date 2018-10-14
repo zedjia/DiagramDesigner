@@ -7,6 +7,35 @@
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         mc:Ignorable="d"
         Title="数据源配置" Height="580" Width="680" Top="360" Left="600" ResizeMode="NoResize" x:Name="wDataSource" Icon="../../Resources/Images/DataSource.ico">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard">
+            <DoubleAnimation Storyboard.TargetName="BtnDelete" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" 
+                        From="1" To="1.5" Duration="0:0:0.3" AutoReverse="False" />
+            <DoubleAnimation Storyboard.TargetName="BtnDelete" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" 
+                        From="1" To="1.5" Duration="0:0:0.3" AutoReverse="False" />
+        </Storyboard>
+        
+        <Style TargetType="ListBox">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Style.Resources>
+                <!--SelectedItem with focus-->
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightBlue" Opacity=".4"/>
+                <!--SelectedItem without focus-->
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightBlue" Opacity=".4"/>
+            </Style.Resources>
+            <!-- 设置触发器 -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+                <Trigger Property="IsFocused" Value="true">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Window.DataContext>
         <local:DataSourceViewModel />
     </Window.DataContext>
@@ -33,25 +62,32 @@
         </StackPanel>
         <StackPanel Grid.Row="1">
             <Label Content="2.请选择要配置的源数据库类型" Margin="8 5 0 5" FontSize="16"></Label>
-            <ListBox x:Name="Lst" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10 0 10 0" ItemsSource="{Binding dataSourceModels}" Height="75">
+            <ListBox x:Name="Lst" HorizontalAlignment="Stretch" BorderThickness="0" VerticalAlignment="Stretch" Margin="10 0 10 0" ItemsSource="{Binding dataSourceModels}" Height="75">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SelectionChangedCmd}" CommandParameter="{Binding ElementName=Lst}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <!--<ListBox.Template>
+                <ListBox.Template>
                     <ControlTemplate>
                         <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
                     </ControlTemplate>
-                </ListBox.Template>-->
-                <ListBox.ItemsPanel>
+                </ListBox.Template>
+                <!--<ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="4"/>
                     </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+                </ListBox.ItemsPanel>-->
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding DBType}" Width="100" HorizontalContentAlignment="Center"></Label>
+                        <StackPanel Orientation="Horizontal" Width="130" Height="30" Margin="25 0 0 0">
+                            <RadioButton x:Name="radioBtn" FontSize="14" GroupName="area" VerticalAlignment="Center">
+                                <RadioButton.IsChecked>
+                                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay" />
+                                </RadioButton.IsChecked>
+                            </RadioButton>
+                            <Label Content="{Binding DBType}" VerticalAlignment="Center"></Label>
+                        </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -102,7 +138,7 @@
                     <DataGridTemplateColumn Header="编辑" Width="40">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Lbl" Width="30" Height="25" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}">
+                                <Button x:Name="BtnEdit" Width="30" Height="25" Command="{Binding DataContext.EditConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}" BorderThickness="0">
                                     <Button.Background>
                                         <ImageBrush ImageSource="../../Resources/Images/ApiEdit.png"></ImageBrush>
                                     </Button.Background>
@@ -118,7 +154,7 @@
                     <DataGridTemplateColumn Header="删除" Width="40">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Lbl" Width="30" Height="25" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}">
+                                <Button x:Name="BtnDelete" Width="30" Height="25" Command="{Binding DataContext.DeleteConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}" BorderThickness="0">
                                     <Button.Background>
                                         <ImageBrush ImageSource="../../Resources/Images/ApiDelete.png"></ImageBrush>
                                     </Button.Background>

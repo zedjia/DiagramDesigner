@@ -14,6 +14,7 @@ using System.Windows.Input;
 
 namespace DiagramDesigner.Windows.WindDataSource
 {
+    [AddINotifyPropertyChangedInterface]
     public class DataSourceViewModel
     {
         public DataSourceModel DataSourceModel { get; set; } = new DataSourceModel();
@@ -93,6 +94,21 @@ namespace DiagramDesigner.Windows.WindDataSource
         void SaveConfig()
         {
 
+        }
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        public ICommand EditConfigCmd
+        {
+            get
+            {
+                return new DelegateCommand<DataSourceModel>(EditConfig);
+            }
+        }
+
+        void EditConfig(DataSourceModel dataSourceModel)
+        {
+            DataSourceModel = dataSourceModel;
         }
         /// <summary>
         /// 删除
