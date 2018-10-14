@@ -10,7 +10,7 @@
         x:Class="DiagramDesigner.MainView"
         WindowStartupLocation="CenterScreen"
         Title="Diagram Designer"
-        Height="850" Width="1300">
+        Height="850" Width="1300" Background="Transparent" KeyDown="Window_KeyDown">
     <Window.DataContext>
         <cmd:DataSourceCommand></cmd:DataSourceCommand>
     </Window.DataContext>
@@ -54,28 +54,23 @@
             <GridSplitter Focusable="False" Width="2" Background="LightGray"
                     VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
 
-            <Grid Grid.Column="1">
+            <Grid x:Name="Grid" Grid.Column="1" Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2.5*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <!-- Designer -->
-                <GroupBox Header="Diagram" Grid.Column="0" Margin="3,0,3,0">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto">
-                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
-                            Background="{StaticResource WindowBackgroundBrush}"
+                <s:DesignerCanvas Grid.Row="0" Grid.Column="0" Focusable="true" x:Name="MyDesigner"
+                            Background="Transparent"
                             Margin="10" FocusVisualStyle="{x:Null}"
                             ContextMenu="{StaticResource DesignerCanvasContextMenu}">
-                            <!--<s:DesignerItem x:Name="DesignerItem">-->
+                    <!--<s:DesignerItem x:Name="DesignerItem">-->
 
-                            <!--</s:DesignerItem>-->
-                        </s:DesignerCanvas>
-                    </ScrollViewer>
-                </GroupBox>
+                    <!--</s:DesignerItem>-->
+                </s:DesignerCanvas>
                 <GridSplitter Focusable="False" Width="2" Background="LightGray"
                     VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
-                <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2 0 0 0">
+                <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2 0 0 0" Background="Transparent">
                     <dxprg:PropertyDefinition Type="model:DataSourceModel">
                         <dxprg:PropertyDefinition.MenuCustomizations>
                             <dxb:BarCheckItem x:Name="sqlserver" Content="SQL Server" IsChecked="False" dxb:CollectionAction.Index="0">

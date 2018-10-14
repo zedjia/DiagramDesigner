@@ -24,6 +24,8 @@
                     </s:ApplicationLoader.Bootstrapper>
                 </s:ApplicationLoader>-->
             </ResourceDictionary.MergedDictionaries>
+            <!--字体颜色-->
+            <SolidColorBrush x:Key="FontColor" Color="White"></SolidColorBrush>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

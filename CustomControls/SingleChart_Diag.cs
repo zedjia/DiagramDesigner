@@ -71,15 +71,15 @@ namespace DiagramDesigner.CustomControls
         /// <summary>
         /// 柱状图颜色
         /// </summary>
-        public SolidColorBrush ChartColor
+        public Brush ChartColor
         {
-            get { return (SolidColorBrush)GetValue(ChartColorProperty); }
+            get { return (Brush)GetValue(ChartColorProperty); }
             set { SetValue(ChartColorProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartColorProperty =
-            DependencyProperty.Register("ChartColor", typeof(SolidColorBrush), typeof(SingleChart_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
+            DependencyProperty.Register("ChartColor", typeof(Brush), typeof(SingleChart_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
         /// <summary>
         /// 图例文字
         /// </summary>
@@ -103,7 +103,7 @@ namespace DiagramDesigner.CustomControls
 
         // Using a DependencyProperty as the backing store for TitleColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TitleColorProperty =
-            DependencyProperty.Register("TitleColor", typeof(SolidColorBrush), typeof(SingleChart_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#09B0B8"))));
+            DependencyProperty.Register("TitleColor", typeof(SolidColorBrush), typeof(SingleChart_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
         /// <summary>
         /// 标题大小
         /// </summary>
