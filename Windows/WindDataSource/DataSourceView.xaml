@@ -190,7 +190,7 @@
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Margin="0 10 0 0">
+                        <DataGrid Grid.Row="1" ItemsSource="{Binding Path=dataSourceModels}">
                             
                         </DataGrid>
                     </Grid>

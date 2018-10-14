@@ -29,19 +29,19 @@ namespace DiagramDesigner.Windows.WindDataSource
         public DataSourceViewBindingModel()
         {
             dataSourceModels =FileDataServices.GetDataModelFromFile<ObservableCollection<DataSourceModel>>();
-            dataSourceModels = dataSourceModels ?? new ObservableCollection<DataSourceModel>();
+            //dataSourceModels = dataSourceModels ?? new ObservableCollection<DataSourceModel>();
 
 
-            //dataSourceModels = new ObservableCollection<DataSourceModel>()
-            //{
-            //    new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
-            //    new DataSourceModel(){ DBType="Oracle",DBAlias="test",DBConnUrl="127.0.0.1"},
-            //    new DataSourceModel(){ DBType="Access",DBAlias="test",DBConnUrl="127.0.0.1"},
-            //    new DataSourceModel(){ DBType="DB2",DBAlias="test",DBConnUrl="127.0.0.1"},
-            //    new DataSourceModel(){ DBType="MySQL",DBAlias="test",DBConnUrl="127.0.0.1"},
-            //    new DataSourceModel(){ DBType="SQLite",DBAlias="test",DBConnUrl="127.0.0.1"},
-            //    new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
-            //};
+            dataSourceModels = new ObservableCollection<DataSourceModel>()
+            {
+                new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
+                new DataSourceModel(){ DBType="Oracle",DBAlias="test1",DBConnUrl="127.0.0.1"},
+                new DataSourceModel(){ DBType="Access",DBAlias="test2",DBConnUrl="127.0.0.1"},
+                new DataSourceModel(){ DBType="DB2",DBAlias="test3",DBConnUrl="127.0.0.1"},
+                new DataSourceModel(){ DBType="MySQL",DBAlias="test4",DBConnUrl="127.0.0.1"},
+                new DataSourceModel(){ DBType="SQLite",DBAlias="test",DBConnUrl="127.0.0.1"},
+                new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
+            };
         }
 
         public string TestResult { get; set; }
