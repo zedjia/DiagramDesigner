@@ -199,6 +199,7 @@
       <DependentUpon>PreviewView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PreviewViewModel.cs" />
+    <Compile Include="Services\DbServices.cs" />
     <Compile Include="Services\FileDataServices.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>

@@ -27,6 +27,7 @@ namespace DiagramDesigner.Windows.WindDataSource
         {
             InitializeComponent();
             this.Closing += DataSourceView_Closing;
+            dataSourceTabContrl.SelectedIndex = 0;
         }
 
         private void DataSourceView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -42,6 +43,36 @@ namespace DiagramDesigner.Windows.WindDataSource
 
         }
 
+        /// <summary>
+        /// 外侧tab change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataSourceViewBindingModel Context = this.DataContext as DataSourceViewBindingModel;
+            if (Context == null)
+            {
+                return;
+            }
+            Context.CloseForm();// 这里必须要保存一次配置到文件，所以调用一次这个方法.
 
+            var dataSources = Context.dataSourceModels.OrderBy(i => i.Sort);
+            //以下是测试代码
+            if(dataSources.Count()<3)
+                return;
+            
+            var tmpdata = dataSources.Take(dataSourceTabContrl.Items.Count).ToArray();
+            for (int i=0;i<dataSourceTabContrl.Items.Count;i++)
+            {
+                TabItem tabiemp = dataSourceTabContrl.Items[i] as TabItem;
+                tabiemp.Header = $"{tmpdata[i].DBType}({tmpdata[i].DBAlias})";
+            }
+            tmpdata=dataSources.Skip(dataSourceTabContrl.Items.Count).ToArray();
+            foreach (var i in tmpdata)
+            {
+                dataSourceTabContrl.Items.Add(new TabItem() {Header = $"{i.DBType}({i.DBAlias})"});
+            }
+        }
     }
 }

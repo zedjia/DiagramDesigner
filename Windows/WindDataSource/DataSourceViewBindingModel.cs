@@ -23,32 +23,38 @@ namespace DiagramDesigner.Windows.WindDataSource
     [AddINotifyPropertyChangedInterface]
     public class DataSourceViewBindingModel
     {
-        public DataSourceModel SelectedDataSourceModel { get; set; } = new DataSourceModel();
         public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
+        public DataSourceModel SelectedDataSourceModel { get; set; } = new DataSourceModel();
+
+        public DataSourceModel TabDataSourceModel { get; set; } = new DataSourceModel();
+        public DataItem SelectedDataItemModel { get; set; } = new DataItem();
+
+
+
 
         public DataSourceViewBindingModel()
         {
             dataSourceModels =FileDataServices.GetDataModelFromFile<ObservableCollection<DataSourceModel>>();
-            //dataSourceModels = dataSourceModels ?? new ObservableCollection<DataSourceModel>();
+            dataSourceModels = dataSourceModels ?? new ObservableCollection<DataSourceModel>();
 
 
-            dataSourceModels = new ObservableCollection<DataSourceModel>()
-            {
-                new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
-                new DataSourceModel(){ DBType="Oracle",DBAlias="test1",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="Access",DBAlias="test2",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="DB2",DBAlias="test3",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="MySQL",DBAlias="test4",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="SQLite",DBAlias="test",DBConnUrl="127.0.0.1"},
-                new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
-            };
+            //dataSourceModels = new ObservableCollection<DataSourceModel>()
+            //{
+            //    new DataSourceModel(){ DBType="SQL Server",DBAlias="test",DBConnUrl="Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;"},
+            //    new DataSourceModel(){ DBType="Oracle",DBAlias="test1",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="Access",DBAlias="test2",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="DB2",DBAlias="test3",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="MySQL",DBAlias="test4",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="SQLite",DBAlias="test",DBConnUrl="127.0.0.1"},
+            //    new DataSourceModel(){ DBType="PostgreSQL",DBAlias="test",DBConnUrl="127.0.0.1"}
+            //};
         }
 
         public string TestResult { get; set; }
 
         public List<DbType> DbTypeList => new List<DbType>()
         {
-            new DbType(){Name = "SQL Server",Value = 0},
+            new DbType(){Name = "SQLServer",Value = 0},
             new DbType(){Name = "Oracle",Value = 1},
             new DbType(){Name = "Access",Value = 2},
             new DbType(){Name = "DB2",Value = 3},
@@ -56,6 +62,11 @@ namespace DiagramDesigner.Windows.WindDataSource
             new DbType(){Name = "SQLite",Value = 5},
             new DbType(){Name = "PostgreSQL",Value = 6}
         };
+
+        #region tab1 事件委托
+
+        
+
 
         /// <summary>
         /// 数据源类型选择
@@ -67,6 +78,8 @@ namespace DiagramDesigner.Windows.WindDataSource
             DbType dataSourceModel = lst.SelectedItem as DbType;
             if (dataSourceModel != null) SelectedDataSourceModel.DBType = dataSourceModel.Name;
         }
+
+        
         /// <summary>
         /// 测试链接
         /// </summary>
@@ -146,18 +159,81 @@ namespace DiagramDesigner.Windows.WindDataSource
             }
         }
 
+        #endregion
+
+
+        #region tab2 事件
+
+
+        /// <summary>
+        /// 新增到配置列表
+        /// </summary>
+        public ICommand AddDataItemCmd => new DelegateCommand(AddDataItem);
+
+        void AddDataItem()
+        {
+            //SelectedDataSourceModel.Id = Guid.NewGuid();
+            //dataSourceModels.Add(SelectedDataSourceModel.Clone());
+            //TestResult = string.Empty;
+        }
+        /// <summary>
+        /// 保存
+        /// </summary>
+        public ICommand SaveDataItemCmd => new DelegateCommand(SaveDataItem);
+
+        void SaveDataItem()
+        {
+            //var editItem = dataSourceModels.FirstOrDefault(i => i.Id == SelectedDataSourceModel.Id);
+            //if (editItem == null)
+            //{
+            //    MessageBox.Show("无法编辑本条记录,请先进行新增操作.", "提示");
+            //    return;
+            //}
+            //editItem.SetValue(SelectedDataSourceModel);
+            //TestResult = string.Empty;
+        }
+
+
+        public ICommand SelectionDataItemChangedCmd => new DelegateCommand<ListBox>(SelectionDataItemChanged);
+
+        void SelectionDataItemChanged(ListBox lst)
+        {
+            //DbType dataSourceModel = lst.SelectedItem as DbType;
+            //if (dataSourceModel != null) SelectedDataSourceModel.DBType = dataSourceModel.Name;
+        }
+
         /// <summary>
         /// 执行
         /// </summary>
-        public ICommand ExecuteConfigCmd => new DelegateCommand<DataSourceModel>(ExecuteConfig);
+        public ICommand ExecuteDataItemCmd => new DelegateCommand<DataItem>(ExecuteDataItem);
 
-        void ExecuteConfig(DataSourceModel dataSourceModel)
+        void ExecuteDataItem(DataItem dataSourceModel)
         {
             //if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             //{
             //    this.dataSourceModels.Remove(dataSourceModel);
             //}
         }
+
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        public ICommand DeleteDataItemCmd => new DelegateCommand<DataItem>(DeleteDataItem);
+
+        void DeleteDataItem(DataItem dataItem)
+        {
+            //if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            //{
+            //    this.dataSourceModels.Remove(dataItem);
+            //}
+        }
+
+        #endregion
+
+
+
+
 
         /// <summary>
         /// 保存
@@ -194,10 +270,27 @@ namespace DiagramDesigner.Windows.WindDataSource
         }
 
         public Guid Id { get; set; }
-        public string DBType { get; set; } = "Oracle";
+
+        private string _dbtype;
+
+        public string DBType
+        {
+            get { return _dbtype; }
+            set
+            {
+                if (value == "SQLServer")
+                {
+                    Sort = 0;
+                }
+                _dbtype = value;
+            }
+        }
+
         public string DBAlias { get; set; } = "test";
         public string DBConnUrl { get; set; } = "Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;";
         public bool ConnStatus { get; set; }
+
+        public int Sort { get; set; } = 1;
 
         public List<DataItem> DataItems { get; set; }
 
