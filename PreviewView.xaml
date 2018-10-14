@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiagramDesigner"
         mc:Ignorable="d"
-        Title="PreviewView" Height="1080" Width="1920" WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Transparent">
+        Title="PreviewView" Height="1080" Width="1920" WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" KeyDown="Window_KeyDown">
     <Grid x:Name="GridContent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <!--<ContentPresenter VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></ContentPresenter>-->
     </Grid>
