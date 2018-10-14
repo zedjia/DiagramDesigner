@@ -11,6 +11,7 @@ using System.Windows.Input;
 
 namespace DiagramDesigner.Windows.WindInterface
 {
+    [AddINotifyPropertyChangedInterface]
     public class InterfaceViewModel
     {
         public InterfaceModel InterfaceModel { get; set; } = new InterfaceModel();

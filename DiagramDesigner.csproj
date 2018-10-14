@@ -166,6 +166,7 @@
     <Compile Include="Models\DataSourceModel.cs" />
     <Compile Include="Models\FontProperty.cs" />
     <Compile Include="Models\InterfaceModel.cs" />
+    <Compile Include="Services\FileDataServices.cs" />
     <Compile Include="UserControls\Label_Diag.xaml.cs">
       <DependentUpon>Label_Diag.xaml</DependentUpon>
     </Compile>
@@ -494,7 +495,9 @@
     <Resource Include="Resources\Images\ApiSave.png" />
     <Resource Include="Resources\Pictures\直方框.png" />
     <Resource Include="Resources\Images\ApiDelete.png" />
-    <Resource Include="Resources\Images\ApiEdit.png" />
+    <Content Include="Resources\Images\ApiEdit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\Images\ApiNew.png" />
     <Resource Include="Resources\Images\ApiTest.png" />
     <Resource Include="Resources\Images\DataSource.ico" />

@@ -22,9 +22,10 @@
         mc:Ignorable="d"
         Title="SplineAreaChart" Height="600" Width="700">
     <Window.DataContext>
-        <ds:DataSourceViewModel></ds:DataSourceViewModel>
+        <ds:DataSourceViewBindingModel></ds:DataSourceViewBindingModel>
     </Window.DataContext>
     <Grid>
+        
         <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Height="200">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="序号" Width="60">

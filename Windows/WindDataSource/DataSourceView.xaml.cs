@@ -26,29 +26,15 @@ namespace DiagramDesigner.Windows.WindDataSource
         public DataSourceView()
         {
             InitializeComponent();
+            this.Closing += DataSourceView_Closing;
         }
 
-        private void ConnButton_Click(object sender, RoutedEventArgs e)
+        private void DataSourceView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            TestResultlbl.Content = "测试连接中";
-            //test connstr
-            string connstr =
-                "Data Source = 172.18.0.88;Initial Catalog = myDataBase;User Id = sa;Password = 123!@#qwe;";
-            using (SqlConnection cn = new SqlConnection(connstr))
-            {
-                try
-                {
-                    cn.ExecuteScalar("select 1");
-                    TestResultlbl.Content = "连接成功";
-                }
-                catch (Exception ex)
-                {
-                    TestResultlbl.Content = "连接失败";
-                }
-                finally
-                {
-                }
-            }
+            DataSourceViewBindingModel Context = this.DataContext as DataSourceViewBindingModel;
+            if (Context != null) Context.CloseForm();
         }
+        
+        
     }
 }
