@@ -25,6 +25,8 @@ namespace DiagramDesigner
             InitializeComponent();
 
             this.Loaded += Window3_Loaded;
+
+            this.TabControl.ItemsSource = new List<string>() { "1","2","3" };
         }
 
         private void Window3_Loaded(object sender, RoutedEventArgs e)
