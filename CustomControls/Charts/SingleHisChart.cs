@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiagramDesigner.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -65,15 +66,15 @@ namespace DiagramDesigner.CustomControls.Charts
             DependencyProperty.Register("ChartColor", typeof(Brush), typeof(SingleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
 
         [DisplayName("数据源")]
-        public object ChartSource
+        public SingleHisDataSource ChartSource
         {
-            get { return (object)GetValue(ChartSourceProperty); }
+            get { return (SingleHisDataSource)GetValue(ChartSourceProperty); }
             set { SetValue(ChartSourceProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartSourceProperty =
-            DependencyProperty.Register("ChartSource", typeof(object), typeof(SingleHisChart), new PropertyMetadata(null));
+            DependencyProperty.Register("ChartSource", typeof(SingleHisDataSource), typeof(SingleHisChart), new PropertyMetadata(null));
 
         /// <summary>
         /// 图例文字

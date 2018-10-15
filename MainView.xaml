@@ -9,7 +9,7 @@
         x:Class="DiagramDesigner.MainView"
         WindowStartupLocation="CenterScreen"
         Title="智慧园区可视化"
-        Height="850" Width="1300" Background="Transparent" KeyDown="Window_KeyDown">
+        Height="850" Width="1300" Background="Transparent" KeyDown="Window_KeyDown" WindowState="Maximized">
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">
             <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
@@ -21,7 +21,7 @@
         </ContextMenu>
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -29,14 +29,14 @@
 
         <ContentControl Content="{StaticResource MyToolbar}"/>
 
-        <Grid Grid.Row="1" Margin="0,10,0,0">
+        <Grid Grid.Row="1" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="265"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!-- Toolbox -->
             <ScrollViewer>
-                <StackPanel Grid.Column="0" Margin="0,0,3,0" Background="White">
+                <StackPanel Grid.Column="0" Margin="0,0,0,0" Background="White">
                     <!--<Expander Header="Flow Chart" Content="{StaticResource FlowChartStencils}" IsExpanded="True"/>
                 <Expander Header="Shapes" Content="{StaticResource ShapeStencils}" IsExpanded="True"/>-->
                     <Expander Header="Labels" Content="{StaticResource Label_Diag}" IsExpanded="False"/>
@@ -57,7 +57,7 @@
 
             <Grid x:Name="Grid" Grid.Column="1" Background="Transparent">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <!-- Designer -->
@@ -74,11 +74,13 @@
                 
                 <GridSplitter Focusable="False" Width="2" Background="LightGray"
                     VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
-                <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2 0 0 0">
-                    <dxprg:PropertyDefinition Type="model:DataSourceModel">
+                <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 0 0 0">
+                    <dxprg:PropertyDefinition Type="model:SingleHisDataSource">
                         <dxprg:PropertyDefinition.MenuCustomizations>
-                            <dxb:BarCheckItem  Content="SQL Server" IsChecked="False" dxb:CollectionAction.Index="0">
-                            </dxb:BarCheckItem>
+                            <dxb:BarButtonItem  Content="数据源" dxb:CollectionAction.Index="0">
+                            </dxb:BarButtonItem>
+                            <dxb:BarButtonItem  Content="数据接口" dxb:CollectionAction.Index="1">
+                            </dxb:BarButtonItem>
                         </dxprg:PropertyDefinition.MenuCustomizations>
                     </dxprg:PropertyDefinition>
                 </dxprg:PropertyGridControl>
