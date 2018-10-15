@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace DiagramDesigner.CustomControls.Charts
 {
     [AddINotifyPropertyChangedInterface]
-    public class SingleHisViewModel
+    public class StackedAreaViewModel
     {
-        public DataTable DataTable { get; set; }
+        public  DataTable DataTable { get; set; }
 
-        public SingleHisViewModel()
+        public StackedAreaViewModel()
         {
             #region 示例数据
             DataTable = new DataTable("Datas");

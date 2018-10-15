@@ -361,64 +361,69 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:StackedSplineAreaChart}">
                     <Viewbox>
-                        <dxc:ChartControl Width="700" Background="{x:Null}">
-                            <dxc:ChartControl.Diagram>
-                                <dxc:XYDiagram2D>
-                                    <dxc:XYDiagram2D.Series>
-                                        <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
-                                                       Transparency="0.4">
+                        <Grid>
+                            <Grid.DataContext>
+                                <chart:StackedAreaViewModel></chart:StackedAreaViewModel>
+                            </Grid.DataContext>
+                            <dxc:ChartControl Width="700" Background="{x:Null}" DataSource="{Binding DataTable}">
+                                <dxc:ChartControl.Diagram>
+                                    <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D.Series>
+                                            <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
+                                                       Transparency="0.4" ArgumentDataMember="Argument" ValueDataMember="Value">
 
-                                            <dxc:SplineAreaStackedSeries2D.Brush>
-                                                <SolidColorBrush Color="#00A5FB"></SolidColorBrush>
-                                            </dxc:SplineAreaStackedSeries2D.Brush>
+                                                <dxc:SplineAreaStackedSeries2D.Brush>
+                                                    <SolidColorBrush Color="#00C3EE"></SolidColorBrush>
+                                                </dxc:SplineAreaStackedSeries2D.Brush>
 
-                                            <dxc:SplineAreaStackedSeries2D.Points>
-                                                <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
-                                                <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
-                                                <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
-                                                <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
-                                                <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
-                                            </dxc:SplineAreaStackedSeries2D.Points>
-                                            <!--<dxc:SplineAreaStackedSeries2D.Label>
+                                                <!--<dxc:SplineAreaStackedSeries2D.Points>
+                                                    <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
+                                                    <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
+                                                    <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
+                                                    <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
+                                                    <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
+                                                </dxc:SplineAreaStackedSeries2D.Points>-->
+                                                <!--<dxc:SplineAreaStackedSeries2D.Label>
                                 <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
                             </dxc:SplineAreaStackedSeries2D.Label>-->
-                                        </dxc:SplineAreaStackedSeries2D>
+                                            </dxc:SplineAreaStackedSeries2D>
 
-                                    </dxc:XYDiagram2D.Series>
-                                    <dxc:XYDiagram2D.DefaultPane>
-                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
-                                    </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:XYDiagram2D.AxisX>
-                                        <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
+                                        </dxc:XYDiagram2D.Series>
+                                        <dxc:XYDiagram2D.DefaultPane>
+                                            <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
+                                        </dxc:XYDiagram2D.DefaultPane>
+                                        <dxc:XYDiagram2D.AxisX>
+                                            <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
-                                            <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                            </dxc:AxisX2D.Label>
-                                            <!--<dxc:AxisX2D.WholeRange>
+                                                <dxc:AxisX2D.Label>
+                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                </dxc:AxisX2D.Label>
+                                                <!--<dxc:AxisX2D.WholeRange>
                                 <dxc:Range SideMarginsValue="0" />
                             </dxc:AxisX2D.WholeRange>-->
-                                        </dxc:AxisX2D>
-                                    </dxc:XYDiagram2D.AxisX>
-                                    <dxc:XYDiagram2D.AxisY>
-                                        <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
-                                            <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                            </dxc:AxisY2D.Label>
-                                            <!--<dxc:AxisY2D.Title>
+                                            </dxc:AxisX2D>
+                                        </dxc:XYDiagram2D.AxisX>
+                                        <dxc:XYDiagram2D.AxisY>
+                                            <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
+                                                <dxc:AxisY2D.Label>
+                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                </dxc:AxisY2D.Label>
+                                                <!--<dxc:AxisY2D.Title>
                                 <dxc:AxisTitle Content="Millions of Dollars" />
                             </dxc:AxisY2D.Title>-->
-                                        </dxc:AxisY2D>
-                                    </dxc:XYDiagram2D.AxisY>
-                                </dxc:XYDiagram2D>
-                            </dxc:ChartControl.Diagram>
-                            <!--<dxc:ChartControl.Legend>
+                                            </dxc:AxisY2D>
+                                        </dxc:XYDiagram2D.AxisY>
+                                    </dxc:XYDiagram2D>
+                                </dxc:ChartControl.Diagram>
+                                <!--<dxc:ChartControl.Legend>
                 <dxc:Legend HorizontalPosition="Right" />
             </dxc:ChartControl.Legend>-->
-                            <!--<dxc:ChartControl.Titles>
+                                <!--<dxc:ChartControl.Titles>
                 <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
                 </dxc:Title>
             </dxc:ChartControl.Titles>-->
-                        </dxc:ChartControl>
+                            </dxc:ChartControl>
+                        </Grid>
                     </Viewbox>
                 </ControlTemplate>
             </Setter.Value>
@@ -533,8 +538,11 @@
                 <ControlTemplate TargetType="{x:Type chart:DoubleHisChart}">
                     <Viewbox>
                         <Grid Background="Transparent" Width="800" Height="600">
+                            <Grid.DataContext>
+                                <chart:DoubleHisViewModel></chart:DoubleHisViewModel>
+                            </Grid.DataContext>
                             <!--柱状图-->
-                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
+                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{Binding DataTable}">
                                 <dxc:ChartControl.Palette>
                                     <dxc:DXChartsPalette></dxc:DXChartsPalette>
                                 </dxc:ChartControl.Palette>
@@ -567,7 +575,7 @@
                                     <dxc:XYDiagram2D.DefaultPane>
                                         <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
                                     </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:BarSideBySideSeries2D Brush="#32C4FF" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
+                                    <dxc:BarSideBySideSeries2D Brush="#32C4FF" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value1">
 
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
@@ -580,16 +588,16 @@
                                     dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
                                         </dxc:BarSideBySideSeries2D.Label>
 
-                                        <dxc:BarSideBySideSeries2D.Points>
+                                        <!--<dxc:BarSideBySideSeries2D.Points>
                                             <dxc:SeriesPoint Argument="Illinois" Value="420" />
                                             <dxc:SeriesPoint Argument="Indiana" Value="170" />
                                             <dxc:SeriesPoint Argument="Michigan" Value="300" />
                                             <dxc:SeriesPoint Argument="Ohio" Value="347" />
                                             <dxc:SeriesPoint Argument="Wisconsin" Value="169" />
-                                        </dxc:BarSideBySideSeries2D.Points>
+                                        </dxc:BarSideBySideSeries2D.Points>-->
                                     </dxc:BarSideBySideSeries2D>
 
-                                    <dxc:BarSideBySideSeries2D Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
+                                    <dxc:BarSideBySideSeries2D Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value2">
 
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
@@ -602,13 +610,13 @@
                                     dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
                                         </dxc:BarSideBySideSeries2D.Label>
 
-                                        <dxc:BarSideBySideSeries2D.Points>
+                                        <!--<dxc:BarSideBySideSeries2D.Points>
                                             <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
                                             <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
                                             <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
                                             <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
                                             <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
-                                        </dxc:BarSideBySideSeries2D.Points>
+                                        </dxc:BarSideBySideSeries2D.Points>-->
                                     </dxc:BarSideBySideSeries2D>
                                 </dxc:XYDiagram2D>
                             </dxc:ChartControl>
@@ -724,102 +732,107 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:ThreeStackedAreaChart}">
                     <Viewbox>
-                        <dxc:ChartControl Width="700" Background="{x:Null}">
-                            <dxc:ChartControl.Diagram>
-                                <dxc:XYDiagram2D>
-                                    <dxc:XYDiagram2D.Series>
-                                        <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
-                                                       Transparency="0.4">
+                        <Grid>
+                            <Grid.DataContext>
+                                <chart:ThreeStackedAreaViewModel></chart:ThreeStackedAreaViewModel>
+                            </Grid.DataContext>
+                            <dxc:ChartControl Width="800" Background="{x:Null}" DataSource="{Binding DataTable}">
+                                <dxc:ChartControl.Diagram>
+                                    <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D.Series>
+                                            <dxc:AreaSeries2D DisplayName="2004"
+                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value1">
 
-                                            <dxc:SplineAreaStackedSeries2D.Brush>
-                                                <SolidColorBrush Color="#00A5FB"></SolidColorBrush>
-                                            </dxc:SplineAreaStackedSeries2D.Brush>
+                                                <dxc:AreaSeries2D.Brush>
+                                                    <SolidColorBrush Color="#91E9FD"></SolidColorBrush>
+                                                </dxc:AreaSeries2D.Brush>
 
-                                            <dxc:SplineAreaStackedSeries2D.Points>
-                                                <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
-                                                <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
-                                                <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
-                                                <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
-                                                <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
-                                            </dxc:SplineAreaStackedSeries2D.Points>
-                                            <!--<dxc:SplineAreaStackedSeries2D.Label>
+                                                <!--<dxc:SplineAreaStackedSeries2D.Points>
+                                                    <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
+                                                    <dxc:SeriesPoint Argument="Indiana" Value="227.271" />
+                                                    <dxc:SeriesPoint Argument="Michigan" Value="372.576" />
+                                                    <dxc:SeriesPoint Argument="Ohio" Value="418.258" />
+                                                    <dxc:SeriesPoint Argument="Wisconsin" Value="211.727" />
+                                                </dxc:SplineAreaStackedSeries2D.Points>-->
+                                                <!--<dxc:SplineAreaStackedSeries2D.Label>
                                 <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
                             </dxc:SplineAreaStackedSeries2D.Label>-->
-                                        </dxc:SplineAreaStackedSeries2D>
+                                            </dxc:AreaSeries2D>
 
-                                        <dxc:SplineAreaStackedSeries2D DisplayName="2005" LineTension="0.8"
-                                                       Transparency="0.4">
+                                            <dxc:AreaSeries2D DisplayName="2005"
+                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value2">
 
-                                            <dxc:SplineAreaStackedSeries2D.Brush>
-                                                <SolidColorBrush Color="#00F8F1"></SolidColorBrush>
-                                            </dxc:SplineAreaStackedSeries2D.Brush>
+                                                <dxc:AreaSeries2D.Brush>
+                                                    <SolidColorBrush Color="#38D8FD"></SolidColorBrush>
+                                                </dxc:AreaSeries2D.Brush>
 
-                                            <dxc:SplineAreaStackedSeries2D.Points>
-                                                <dxc:SeriesPoint Argument="Illinois" Value="522" />
-                                                <dxc:SeriesPoint Argument="Indiana" Value="229" />
-                                                <dxc:SeriesPoint Argument="Michigan" Value="353" />
-                                                <dxc:SeriesPoint Argument="Ohio" Value="400" />
-                                                <dxc:SeriesPoint Argument="Wisconsin" Value="200" />
-                                            </dxc:SplineAreaStackedSeries2D.Points>
-                                            <!--<dxc:SplineAreaStackedSeries2D.Label>
+                                                <!--<dxc:SplineAreaStackedSeries2D.Points>
+                                                    <dxc:SeriesPoint Argument="Illinois" Value="522" />
+                                                    <dxc:SeriesPoint Argument="Indiana" Value="229" />
+                                                    <dxc:SeriesPoint Argument="Michigan" Value="353" />
+                                                    <dxc:SeriesPoint Argument="Ohio" Value="400" />
+                                                    <dxc:SeriesPoint Argument="Wisconsin" Value="200" />
+                                                </dxc:SplineAreaStackedSeries2D.Points>-->
+                                                <!--<dxc:SplineAreaStackedSeries2D.Label>
                                 <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
                             </dxc:SplineAreaStackedSeries2D.Label>-->
-                                        </dxc:SplineAreaStackedSeries2D>
+                                            </dxc:AreaSeries2D>
 
-                                        <dxc:SplineAreaStackedSeries2D DisplayName="2006" LineTension="0.8"
-                                                       Transparency="0.4">
+                                            <dxc:AreaSeries2D DisplayName="2006"
+                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value3">
 
-                                            <dxc:SplineAreaStackedSeries2D.Brush>
-                                                <SolidColorBrush Color="#02ACA7"></SolidColorBrush>
-                                            </dxc:SplineAreaStackedSeries2D.Brush>
+                                                <dxc:AreaSeries2D.Brush>
+                                                    <SolidColorBrush Color="#00C3EE"></SolidColorBrush>
+                                                </dxc:AreaSeries2D.Brush>
 
-                                            <dxc:SplineAreaStackedSeries2D.Points>
-                                                <dxc:SeriesPoint Argument="Illinois" Value="520" />
-                                                <dxc:SeriesPoint Argument="Indiana" Value="220" />
-                                                <dxc:SeriesPoint Argument="Michigan" Value="370" />
-                                                <dxc:SeriesPoint Argument="Ohio" Value="410" />
-                                                <dxc:SeriesPoint Argument="Wisconsin" Value="210" />
-                                            </dxc:SplineAreaStackedSeries2D.Points>
-                                            <!--<dxc:SplineAreaStackedSeries2D.Label>
+                                                <!--<dxc:SplineAreaStackedSeries2D.Points>
+                                                    <dxc:SeriesPoint Argument="Illinois" Value="520" />
+                                                    <dxc:SeriesPoint Argument="Indiana" Value="220" />
+                                                    <dxc:SeriesPoint Argument="Michigan" Value="370" />
+                                                    <dxc:SeriesPoint Argument="Ohio" Value="410" />
+                                                    <dxc:SeriesPoint Argument="Wisconsin" Value="210" />
+                                                </dxc:SplineAreaStackedSeries2D.Points>-->
+                                                <!--<dxc:SplineAreaStackedSeries2D.Label>
                                 <dxc:SeriesLabel Visible="True" dxc:MarkerSeries2D.Angle="40" />
                             </dxc:SplineAreaStackedSeries2D.Label>-->
-                                        </dxc:SplineAreaStackedSeries2D>
+                                            </dxc:AreaSeries2D>
 
-                                    </dxc:XYDiagram2D.Series>
-                                    <dxc:XYDiagram2D.DefaultPane>
-                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
-                                    </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:XYDiagram2D.AxisX>
-                                        <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
+                                        </dxc:XYDiagram2D.Series>
+                                        <dxc:XYDiagram2D.DefaultPane>
+                                            <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent" Background="Transparent"></dxc:Pane>
+                                        </dxc:XYDiagram2D.DefaultPane>
+                                        <dxc:XYDiagram2D.AxisX>
+                                            <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
-                                            <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                            </dxc:AxisX2D.Label>
-                                            <!--<dxc:AxisX2D.WholeRange>
+                                                <dxc:AxisX2D.Label>
+                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                </dxc:AxisX2D.Label>
+                                                <!--<dxc:AxisX2D.WholeRange>
                                 <dxc:Range SideMarginsValue="0" />
                             </dxc:AxisX2D.WholeRange>-->
-                                        </dxc:AxisX2D>
-                                    </dxc:XYDiagram2D.AxisX>
-                                    <dxc:XYDiagram2D.AxisY>
-                                        <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
-                                            <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                            </dxc:AxisY2D.Label>
-                                            <!--<dxc:AxisY2D.Title>
+                                            </dxc:AxisX2D>
+                                        </dxc:XYDiagram2D.AxisX>
+                                        <dxc:XYDiagram2D.AxisY>
+                                            <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
+                                                <dxc:AxisY2D.Label>
+                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                </dxc:AxisY2D.Label>
+                                                <!--<dxc:AxisY2D.Title>
                                 <dxc:AxisTitle Content="Millions of Dollars" />
                             </dxc:AxisY2D.Title>-->
-                                        </dxc:AxisY2D>
-                                    </dxc:XYDiagram2D.AxisY>
-                                </dxc:XYDiagram2D>
-                            </dxc:ChartControl.Diagram>
-                            <!--<dxc:ChartControl.Legend>
+                                            </dxc:AxisY2D>
+                                        </dxc:XYDiagram2D.AxisY>
+                                    </dxc:XYDiagram2D>
+                                </dxc:ChartControl.Diagram>
+                                <!--<dxc:ChartControl.Legend>
                 <dxc:Legend HorizontalPosition="Right" />
             </dxc:ChartControl.Legend>-->
-                            <!--<dxc:ChartControl.Titles>
+                                <!--<dxc:ChartControl.Titles>
                 <dxc:Title Dock="Top" HorizontalAlignment="Center">Great Lakes Gross State Product
                 </dxc:Title>
             </dxc:ChartControl.Titles>-->
-                        </dxc:ChartControl>
+                            </dxc:ChartControl>
+                        </Grid>
                     </Viewbox>
                 </ControlTemplate>
             </Setter.Value>

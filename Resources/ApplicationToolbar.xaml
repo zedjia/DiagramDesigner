@@ -12,7 +12,7 @@
     
     <ToolBar x:Key="MyToolbar" Height="120">
         <!--File-->
-        <GroupBox Header="File" Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3">
+        <GroupBox Header="文件" Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3">
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
@@ -80,7 +80,7 @@
         </GroupBox>
 
         <!--Edit-->
-        <GroupBox Header="Edit" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="编辑" Style="{StaticResource ToolbarGroup}" Margin="3">
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Margin="3" Width="55"
                         Style="{StaticResource ToolBarButtonBaseStyle}"
@@ -148,7 +148,7 @@
         </GroupBox>
 
         <!--Alignment-->
-        <GroupBox Header="Alignment" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="位置" Style="{StaticResource ToolbarGroup}" Margin="3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -244,7 +244,7 @@
         </GroupBox>
 
         <!--Arrange-->
-        <GroupBox Header="Arrange" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="范围" Style="{StaticResource ToolbarGroup}" Margin="3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -355,7 +355,7 @@
         </GroupBox>
 
         <!--DataSource And Interface-->
-        <GroupBox Header="DatasourceAndInterface" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="数据源" Style="{StaticResource ToolbarGroup}" Margin="3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -397,33 +397,6 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
-
-        <!--Preview-->
-        <!--<GroupBox Header="Preview" Style="{StaticResource ToolbarGroup}" Margin="3">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Button Margin="0,16,0,3" Padding="5" HorizontalContentAlignment="Left"
-                            Style="{StaticResource ToolBarButtonBaseStyle}"
-                            Command="{x:Static s:DesignerCanvas.DataSourceConfig}"
-                            CommandTarget="{Binding ElementName=MyDesigner}">
-                        <Button.Content>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image Source="Pictures/preview.png" Width="32"/>
-                                <TextBlock Margin="3" Text="预览" VerticalAlignment="Center"  Grid.Column="1"/>
-                            </Grid>
-                        </Button.Content>
-                    </Button>
-                </StackPanel>
-            </Grid>
-        </GroupBox>-->
     </ToolBar>
 
     <!--API Interface Toolbar-->
