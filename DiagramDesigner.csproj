@@ -470,6 +470,7 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Pictures\模式.png" />
     <Resource Include="Resources\Pictures\预览.png" />
     <Resource Include="Resources\Pictures\产业园区.png" />
     <Resource Include="Resources\Pictures\安全.png" />

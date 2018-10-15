@@ -1,6 +1,7 @@
 ﻿using DevExpress.Xpf.Bars;
 using DiagramDesigner.Windows.DataSourceWD;
 using System.Windows;
+using System.Windows.Media;
 
 namespace DiagramDesigner
 {
@@ -47,6 +48,20 @@ namespace DiagramDesigner
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OpenPreviewView();
+        }
+
+        private void ModuleChange_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.ModuleLabel.Content.Equals("透明"))
+            {
+                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(0, 255, 255, 255));
+                this.ModuleLabel.Content = "常规";
+            }
+            else
+            {
+                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                this.ModuleLabel.Content = "透明";
+            }
         }
     }
 }
