@@ -187,7 +187,6 @@
     <Compile Include="CustomControls\Lists\RadioButtonList.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
     <Compile Include="CustomControls\TextBox_Diag.cs" />
-    <Compile Include="Commands\DataSourceCommand.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
     <Compile Include="MainViewModel.cs" />
@@ -454,6 +453,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Commands\" />
     <Folder Include="CustomControls\DataGrids\" />
     <Folder Include="CustomControls\Graphs\" />
     <Folder Include="CustomControls\Splits\" />
