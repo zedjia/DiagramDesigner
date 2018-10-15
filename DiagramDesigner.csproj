@@ -154,6 +154,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Commands\PropertyGridCommand.cs" />
     <Compile Include="Controls\CustomControl1.cs" />
     <Compile Include="Controls\CustomControl2.cs" />
     <Compile Include="Controls\Label_Dragable.xaml.cs">
@@ -457,7 +458,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="CustomControls\DataGrids\" />
     <Folder Include="CustomControls\Graphs\" />
     <Folder Include="CustomControls\Splits\" />
@@ -470,6 +470,8 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Pictures\模式.png" />
+    <Resource Include="Resources\Pictures\预览.png" />
     <Resource Include="Resources\Pictures\产业园区.png" />
     <Resource Include="Resources\Pictures\安全.png" />
     <Resource Include="Resources\Pictures\安全扫描.png" />

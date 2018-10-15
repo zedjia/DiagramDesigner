@@ -4,12 +4,14 @@
         xmlns:s="clr-namespace:DiagramDesigner"
         xmlns:model="clr-namespace:DiagramDesigner.Models"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
+        xmlns:cmd="clr-namespace:DiagramDesigner.Commands"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
         x:Class="DiagramDesigner.MainView"
         WindowStartupLocation="CenterScreen"
         Title="智慧园区可视化"
-        Height="850" Width="1300" Background="Transparent" KeyDown="Window_KeyDown" WindowState="Maximized">
+        Height="1080" Width="1920" Background="Transparent" KeyDown="Window_KeyDown" WindowState="Maximized">
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">
             <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
@@ -20,7 +22,9 @@
             <MenuItem Header="Select All" Command="{x:Static s:DesignerCanvas.SelectAll}"/>
         </ContextMenu>
     </Window.Resources>
-
+    <Window.DataContext>
+        <cmd:PropertyGridCommand></cmd:PropertyGridCommand>
+    </Window.DataContext>
     <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -28,6 +32,62 @@
         </Grid.RowDefinitions>
 
         <ContentControl Content="{StaticResource MyToolbar}"/>
+
+        <GroupBox Header="其它" Style="{StaticResource ToolbarGroup}" Margin="160 0 0 0" Width="100" Height="110">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Button x:Name="ModuleChange" Grid.Column="0" HorizontalContentAlignment="Center" Margin="8 0 0 0"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Click="ModuleChange_Click">
+                        <Button.Content>
+                            <Grid Margin="0 20 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Pictures/模式.png" Height="30" Width="30"></Image>
+                                <Label x:Name="ModuleLabel" Grid.Row="1" Content="透明" HorizontalAlignment="Center" FontSize="12"></Label>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                    <Button Grid.Column="0" HorizontalContentAlignment="Center"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Click="Button_Click">
+                        <Button.Content>
+                            <Grid Margin="0 20 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Pictures/预览.png" Height="30" Width="30"></Image>
+                                <Label Grid.Row="1" Content="预览" HorizontalAlignment="Center" FontSize="12"></Label>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!--<Button Width="60" Height="80" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Hand" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Source="Resources/Pictures/预览.png"></Image>
+                        <Label Grid.Row="1" Content="预览" HorizontalAlignment="Center" FontSize="16"></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>-->
 
         <Grid Grid.Row="1" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
@@ -63,8 +123,7 @@
                 <!-- Designer -->
                 <ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Visible">
                     <s:DesignerCanvas Grid.Row="0" Grid.Column="0" Focusable="true" x:Name="MyDesigner" Height="1080" Width="1920"
-                            Background="Transparent"
-                            Margin="10" FocusVisualStyle="{x:Null}"
+                            Background="White" FocusVisualStyle="{x:Null}"
                             ContextMenu="{StaticResource DesignerCanvasContextMenu}">
                         <!--<s:DesignerItem x:Name="DesignerItem">-->
 
@@ -77,9 +136,9 @@
                 <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 0 0 0">
                     <dxprg:PropertyDefinition Type="model:SingleHisDataSource">
                         <dxprg:PropertyDefinition.MenuCustomizations>
-                            <dxb:BarButtonItem  Content="数据源" dxb:CollectionAction.Index="0">
+                            <dxb:BarButtonItem  Content="数据源" dxb:CollectionAction.Index="0" Command="{Binding SingleHisDSCmd}" CommandParameter="{Binding ElementName=PropertyGridCard}">
                             </dxb:BarButtonItem>
-                            <dxb:BarButtonItem  Content="数据接口" dxb:CollectionAction.Index="1">
+                            <dxb:BarButtonItem  Content="数据接口" dxb:CollectionAction.Index="1" Command="{Binding SingleHisDTCmd}" CommandParameter="{Binding ElementName=PropertyGridCard}">
                             </dxb:BarButtonItem>
                         </dxprg:PropertyDefinition.MenuCustomizations>
                     </dxprg:PropertyDefinition>
