@@ -84,10 +84,10 @@
     </s:Toolbox>
 
     <s:Toolbox x:Key="Chart">
-        <cs:SingleChart_Diag IsHitTestVisible="false"></cs:SingleChart_Diag>
+        <chart:SingleHisChart IsHitTestVisible="false"></chart:SingleHisChart>
         <chart:DoubleHisChart IsHitTestVisible="False"></chart:DoubleHisChart>
-        <cs:PieChart_Diag IsHitTestVisible="false"></cs:PieChart_Diag>
-        <cs:SingleLineChart_Diag IsHitTestVisible="false"></cs:SingleLineChart_Diag>
+        <!--<cs:PieChart_Diag IsHitTestVisible="false"></cs:PieChart_Diag>-->
+        <!--<chart:SingleLineChart IsHitTestVisible="False"></chart:SingleLineChart>-->
         <chart:StackedSplineAreaChart IsHitTestVisible="False"></chart:StackedSplineAreaChart>
         <chart:ThreeStackedAreaChart IsHitTestVisible="False"></chart:ThreeStackedAreaChart>
         <chart:CircleNumberChart IsHitTestVisible="False"></chart:CircleNumberChart>

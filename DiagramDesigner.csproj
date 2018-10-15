@@ -169,6 +169,8 @@
     <Compile Include="CustomControls\Charts\CircleNumberChart.cs" />
     <Compile Include="CustomControls\Charts\DoubleHisChart.cs" />
     <Compile Include="CustomControls\Charts\HisAndAreaChart.cs" />
+    <Compile Include="CustomControls\Charts\SingleHisChart.cs" />
+    <Compile Include="CustomControls\Charts\SingleLineChart.cs" />
     <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
     <Compile Include="CustomControls\Charts\ThreeStackedAreaChart.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
@@ -184,8 +186,6 @@
     <Compile Include="CustomControls\Legends\LineTxtLegend.cs" />
     <Compile Include="CustomControls\Lists\RadioButtonList.cs" />
     <Compile Include="CustomControls\PieChart_Diag.cs" />
-    <Compile Include="CustomControls\SingleChart_Diag.cs" />
-    <Compile Include="CustomControls\SingleLineChart_Diag.cs" />
     <Compile Include="CustomControls\TextBox_Diag.cs" />
     <Compile Include="Commands\DataSourceCommand.cs" />
     <Compile Include="Helper\FileHelper.cs" />

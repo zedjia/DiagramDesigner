@@ -57,76 +57,6 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:SingleChart_Diag}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:SingleChart_Diag}">
-                    <Viewbox>
-                        <Grid Background="Transparent" Width="500">
-                            <!--柱状图-->
-                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
-                                <dxc:ChartControl.Palette>
-                                    <dxc:DXChartsPalette></dxc:DXChartsPalette>
-                                </dxc:ChartControl.Palette>
-
-                                <dxc:XYDiagram2D BarDistance="0.05">
-
-                                    <dxc:XYDiagram2D.AxisX>
-                                        <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
-                                            <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                            </dxc:AxisX2D.Label>
-                                        </dxc:AxisX2D>
-                                    </dxc:XYDiagram2D.AxisX>
-
-                                    <dxc:XYDiagram2D.AxisY>
-                                        <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
-                        Interlaced="False" TickmarksVisible="False">
-                                            <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                            </dxc:AxisY2D.Label>
-                                            <!--<dxc:AxisY2D.CustomLabels>
-                            <dxc:CustomAxisLabel Content="0" Value="0"/>
-                            <dxc:CustomAxisLabel Content="5" Value="5"/>
-                            <dxc:CustomAxisLabel Content="10" Value="10"/>
-                            <dxc:CustomAxisLabel Content="16" Value="16"/>
-                        </dxc:AxisY2D.CustomLabels>-->
-                                        </dxc:AxisY2D>
-                                    </dxc:XYDiagram2D.AxisY>
-
-                                    <dxc:XYDiagram2D.DefaultPane>
-                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
-                                    </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:BarSideBySideSeries2D x:Name="month4Chart" Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
-
-                                        <dxc:BarSideBySideSeries2D.Model>
-                                            <dxc:BorderlessSimpleBar2DModel/>
-                                        </dxc:BarSideBySideSeries2D.Model>
-
-                                        <dxc:BarSideBySideSeries2D.Label>
-                                            <dxc:SeriesLabel Indent="10" ResolveOverlappingMode="Default"
-                                    ConnectorThickness="1"
-                                    Visible="False"
-                                    dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
-                                        </dxc:BarSideBySideSeries2D.Label>
-
-                                        <dxc:BarSideBySideSeries2D.Points>
-                                            <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
-                                            <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
-                                            <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
-                                            <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
-                                            <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
-                                        </dxc:BarSideBySideSeries2D.Points>
-                                    </dxc:BarSideBySideSeries2D>
-                                </dxc:XYDiagram2D>
-                            </dxc:ChartControl>
-                        </Grid>
-                    </Viewbox>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <Style TargetType="{x:Type local:PieChart_Diag}">
         <Setter Property="Template">
             <Setter.Value>
@@ -203,68 +133,6 @@
                         </Grid>
                     </Viewbox>
 
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type local:SingleLineChart_Diag}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:SingleLineChart_Diag}">
-                    <Viewbox>
-                        <dxc:ChartControl HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="Transparent">
-                            <dxc:XYDiagram2D  LabelsResolveOverlappingMinIndent="2" x:Name="diagram1" EnableAxisXNavigation="True" Background="Transparent">
-                                <dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:Pane DomainBrush="Transparent" Foreground="{DynamicResource FontColor}" DomainBorderBrush="Transparent"/>
-                                </dxc:XYDiagram2D.DefaultPane>
-                                <dxc:XYDiagram2D.AxisX>
-                                    <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Brush="#0066AE" Thickness="1" Logarithmic="False" TickmarksCrossAxis="False" Foreground="#add2ea">
-                                        <dxc:AxisX2D.Label>
-                                            <dxc:AxisLabel Foreground="White" FontSize="18"/>
-                                        </dxc:AxisX2D.Label>
-                                        <!--<dxc:AxisX2D.CustomLabels>
-                            <dxc:CustomAxisLabel Content="2013" Value="2013"/>
-                            <dxc:CustomAxisLabel Content="2014" Value="2014"/>
-                            <dxc:CustomAxisLabel Content="2015" Value="2015"/>
-                             <dxc:CustomAxisLabel Content="2016" Value="2016"/>
-                            <dxc:CustomAxisLabel Content="2017" Value="2017"/>
-                        </dxc:AxisX2D.CustomLabels>-->
-                                    </dxc:AxisX2D>
-                                </dxc:XYDiagram2D.AxisX>
-
-                                <dxc:XYDiagram2D.AxisY>
-                                    <dxc:AxisY2D x:Name="axisY2D" TickmarksMinorVisible="False" Brush="#0066AE" Thickness="1" GridLinesVisible="True" GridLinesBrush="#115789"
-                        Interlaced="False" TickmarksVisible="False">
-                                        <dxc:AxisY2D.Label>
-                                            <dxc:AxisLabel Foreground="{DynamicResource FontColor}" FontSize="18"/>
-                                        </dxc:AxisY2D.Label>
-                                    </dxc:AxisY2D>
-                                </dxc:XYDiagram2D.AxisY>
-
-                                <dxc:LineSeries2D MarkerVisible="False" LabelsVisibility="True" DisplayName="图例" Background="Transparent">
-                                    <dxc:LineSeries2D.LineStyle>
-                                        <dxc:LineStyle Thickness="1" />
-                                    </dxc:LineSeries2D.LineStyle>
-                                    <dxc:LineSeries2D.Points>
-                                        <dxc:SeriesPoint Argument="2015" Value="5"></dxc:SeriesPoint>
-                                        <dxc:SeriesPoint Argument="2016" Value="4"></dxc:SeriesPoint>
-                                        <dxc:SeriesPoint Argument="2017" Value="6"></dxc:SeriesPoint>
-                                        <dxc:SeriesPoint Argument="2018" Value="3"></dxc:SeriesPoint>
-                                    </dxc:LineSeries2D.Points>
-                                </dxc:LineSeries2D>
-                            </dxc:XYDiagram2D>
-                            <dxc:ChartControl.Titles>
-                                <dxc:Title Content="标题"></dxc:Title>
-                            </dxc:ChartControl.Titles>
-                            <dxc:ChartControl.Legend>
-                                <dxc:Legend HorizontalPosition="RightOutside"/>
-                            </dxc:ChartControl.Legend>
-                            <dxc:ChartControl.ToolTipController>
-                                <dxc:ChartToolTipController AutoPopDelay="0" InitialDelay="0"/>
-                            </dxc:ChartControl.ToolTipController>
-                        </dxc:ChartControl>
-                    </Viewbox>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -975,6 +843,138 @@
                             </Path>
                             <Label Content="{TemplateBinding Text}" Foreground="White" FontSize="14"></Label>
                         </StackPanel>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type chart:SingleHisChart}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type chart:SingleHisChart}">
+                    <Viewbox>
+                        <Grid Background="Transparent" Width="500">
+                            <!--柱状图-->
+                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
+                                <dxc:ChartControl.Palette>
+                                    <dxc:DXChartsPalette></dxc:DXChartsPalette>
+                                </dxc:ChartControl.Palette>
+
+                                <dxc:XYDiagram2D BarDistance="0.05">
+
+                                    <dxc:XYDiagram2D.AxisX>
+                                        <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
+                                            <dxc:AxisX2D.Label>
+                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            </dxc:AxisX2D.Label>
+                                        </dxc:AxisX2D>
+                                    </dxc:XYDiagram2D.AxisX>
+
+                                    <dxc:XYDiagram2D.AxisY>
+                                        <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
+                        Interlaced="False" TickmarksVisible="False">
+                                            <dxc:AxisY2D.Label>
+                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            </dxc:AxisY2D.Label>
+                                            <!--<dxc:AxisY2D.CustomLabels>
+                            <dxc:CustomAxisLabel Content="0" Value="0"/>
+                            <dxc:CustomAxisLabel Content="5" Value="5"/>
+                            <dxc:CustomAxisLabel Content="10" Value="10"/>
+                            <dxc:CustomAxisLabel Content="16" Value="16"/>
+                        </dxc:AxisY2D.CustomLabels>-->
+                                        </dxc:AxisY2D>
+                                    </dxc:XYDiagram2D.AxisY>
+
+                                    <dxc:XYDiagram2D.DefaultPane>
+                                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
+                                    </dxc:XYDiagram2D.DefaultPane>
+                                    <dxc:BarSideBySideSeries2D x:Name="month4Chart" Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
+
+                                        <dxc:BarSideBySideSeries2D.Model>
+                                            <dxc:BorderlessSimpleBar2DModel/>
+                                        </dxc:BarSideBySideSeries2D.Model>
+
+                                        <dxc:BarSideBySideSeries2D.Label>
+                                            <dxc:SeriesLabel Indent="10" ResolveOverlappingMode="Default"
+                                    ConnectorThickness="1"
+                                    Visible="False"
+                                    dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
+                                        </dxc:BarSideBySideSeries2D.Label>
+
+                                        <dxc:BarSideBySideSeries2D.Points>
+                                            <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
+                                            <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
+                                            <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
+                                            <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
+                                            <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
+                                        </dxc:BarSideBySideSeries2D.Points>
+                                    </dxc:BarSideBySideSeries2D>
+                                </dxc:XYDiagram2D>
+                            </dxc:ChartControl>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type chart:SingleLineChart}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type chart:SingleLineChart}">
+                    <Viewbox>
+                        <dxc:ChartControl HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Background="Transparent">
+                            <dxc:XYDiagram2D  LabelsResolveOverlappingMinIndent="2" x:Name="diagram1" EnableAxisXNavigation="True" Background="Transparent">
+                                <dxc:XYDiagram2D.DefaultPane>
+                                    <dxc:Pane DomainBrush="Transparent" Foreground="{DynamicResource FontColor}" DomainBorderBrush="Transparent"/>
+                                </dxc:XYDiagram2D.DefaultPane>
+                                <dxc:XYDiagram2D.AxisX>
+                                    <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Brush="#0066AE" Thickness="1" Logarithmic="False" TickmarksCrossAxis="False" Foreground="#add2ea">
+                                        <dxc:AxisX2D.Label>
+                                            <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                        </dxc:AxisX2D.Label>
+                                        <!--<dxc:AxisX2D.CustomLabels>
+                            <dxc:CustomAxisLabel Content="2013" Value="2013"/>
+                            <dxc:CustomAxisLabel Content="2014" Value="2014"/>
+                            <dxc:CustomAxisLabel Content="2015" Value="2015"/>
+                             <dxc:CustomAxisLabel Content="2016" Value="2016"/>
+                            <dxc:CustomAxisLabel Content="2017" Value="2017"/>
+                        </dxc:AxisX2D.CustomLabels>-->
+                                    </dxc:AxisX2D>
+                                </dxc:XYDiagram2D.AxisX>
+
+                                <dxc:XYDiagram2D.AxisY>
+                                    <dxc:AxisY2D x:Name="axisY2D" TickmarksMinorVisible="False" Brush="#0066AE" Thickness="1" GridLinesVisible="True" GridLinesBrush="#115789"
+                        Interlaced="False" TickmarksVisible="False">
+                                        <dxc:AxisY2D.Label>
+                                            <dxc:AxisLabel Foreground="{DynamicResource FontColor}" FontSize="18"/>
+                                        </dxc:AxisY2D.Label>
+                                    </dxc:AxisY2D>
+                                </dxc:XYDiagram2D.AxisY>
+
+                                <dxc:LineSeries2D MarkerVisible="False" LabelsVisibility="True" DisplayName="图例" Background="Transparent">
+                                    <dxc:LineSeries2D.LineStyle>
+                                        <dxc:LineStyle Thickness="1" />
+                                    </dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineSeries2D.Points>
+                                        <dxc:SeriesPoint Argument="2015" Value="5"></dxc:SeriesPoint>
+                                        <dxc:SeriesPoint Argument="2016" Value="4"></dxc:SeriesPoint>
+                                        <dxc:SeriesPoint Argument="2017" Value="6"></dxc:SeriesPoint>
+                                        <dxc:SeriesPoint Argument="2018" Value="3"></dxc:SeriesPoint>
+                                    </dxc:LineSeries2D.Points>
+                                </dxc:LineSeries2D>
+                            </dxc:XYDiagram2D>
+                            <dxc:ChartControl.Titles>
+                                <dxc:Title Content="标题"></dxc:Title>
+                            </dxc:ChartControl.Titles>
+                            <dxc:ChartControl.Legend>
+                                <dxc:Legend HorizontalPosition="RightOutside"/>
+                            </dxc:ChartControl.Legend>
+                            <dxc:ChartControl.ToolTipController>
+                                <dxc:ChartToolTipController AutoPopDelay="0" InitialDelay="0"/>
+                            </dxc:ChartControl.ToolTipController>
+                        </dxc:ChartControl>
                     </Viewbox>
                 </ControlTemplate>
             </Setter.Value>
