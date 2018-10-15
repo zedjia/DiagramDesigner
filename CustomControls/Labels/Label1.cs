@@ -120,6 +120,17 @@ namespace DiagramDesigner.CustomControls.Labels
         // Using a DependencyProperty as the backing store for TextHorizontalAlignment.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextHorizontalAlignmentProperty =
             DependencyProperty.Register("TextHorizontalAlignment", typeof(HorizontalAlignment), typeof(Label1), new PropertyMetadata(HorizontalAlignment.Left));
+
+        [DisplayName("文字与各边距离")]
+        public Thickness TextThickness
+        {
+            get { return (Thickness)GetValue(TextThicknessProperty); }
+            set { SetValue(TextThicknessProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextThickness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextThicknessProperty =
+            DependencyProperty.Register("TextThickness", typeof(Thickness), typeof(Label1), new PropertyMetadata(new Thickness(0, 0, 0, 0)));
         #endregion
 
         #region 数字

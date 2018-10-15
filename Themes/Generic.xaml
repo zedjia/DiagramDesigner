@@ -366,7 +366,7 @@
                                 <RowDefinition Height="30"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0" Source="{TemplateBinding ImageUrl}" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}"></Image>
-                            <Label Grid.Row="1" Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" Margin="0 -20 0 0"></Label>
+                            <Label Grid.Row="1" Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" Margin="{TemplateBinding TextThickness}"></Label>
                         </Grid>
                     </Viewbox>
                 </ControlTemplate>
@@ -385,7 +385,7 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <StackPanel Grid.Row="0">
-                                <Label x:Name="Type" Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}"></Label>
+                                <Label x:Name="Type" Content="{TemplateBinding Text}" FontFamily="{TemplateBinding TextFontFamily}" FontSize="{TemplateBinding TextSize}" Foreground="{TemplateBinding TextColor}" VerticalContentAlignment="{TemplateBinding TextVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding TextHorizontalAlignment}" Margin="{TemplateBinding TextThickness}"></Label>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
                                 <Label x:Name="Number" Content="{TemplateBinding Number}" FontFamily="{TemplateBinding NumberFontFamily}" FontSize="{TemplateBinding NumberSize}" Foreground="{TemplateBinding NumberColor}" VerticalContentAlignment="{TemplateBinding NumberVerticalAlignment}" HorizontalContentAlignment="{TemplateBinding NumberHorizontalAlignment}"></Label>

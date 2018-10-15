@@ -464,6 +464,12 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Pictures\产业园区.png" />
+    <Resource Include="Resources\Pictures\安全.png" />
+    <Resource Include="Resources\Pictures\安全扫描.png" />
+    <Resource Include="Resources\Pictures\智能算法.png" />
+    <Resource Include="Resources\Pictures\智能设计.png" />
+    <Resource Include="Resources\Pictures\首页.png" />
     <Resource Include="Resources\Pictures\园区.png" />
     <Resource Include="Resources\Pictures\大数据.png" />
     <Resource Include="Resources\Pictures\平安园区.png" />
@@ -471,7 +477,6 @@
     <Resource Include="Resources\Pictures\智能运维.png" />
     <Resource Include="Resources\Pictures\服务.png" />
     <Resource Include="Resources\Pictures\返回.png" />
-    <Resource Include="Resources\Pictures\首页.png" />
     <Resource Include="Resources\Pictures\preview.png" />
     <Resource Include="FodyWeavers.xml" />
     <Resource Include="Resources\Images\ApiSave.png" />
