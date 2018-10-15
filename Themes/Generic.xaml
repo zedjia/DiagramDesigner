@@ -867,10 +867,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:SingleHisChart}">
                     <Viewbox>
-                        <Grid Background="Transparent" Width="700">
-                            <Grid.DataContext>
-                                <chart:SingleHisViewModel></chart:SingleHisViewModel>
-                            </Grid.DataContext>
+                        <Grid x:Name="Grid" Background="Transparent" Width="700" DataContext="{TemplateBinding DC}">
                             <!--柱状图-->
                             <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{Binding DataTable}">
                                 <dxc:ChartControl.Palette>

@@ -76,9 +76,7 @@ namespace DiagramDesigner.CustomControls.Charts
         public static readonly DependencyProperty ChartSourceProperty =
             DependencyProperty.Register("ChartSource", typeof(SingleHisDataSource), typeof(SingleHisChart), new PropertyMetadata(null));
 
-        /// <summary>
-        /// 图例文字
-        /// </summary>
+        [DisplayName("图例文字")]
         public string DisplayName
         {
             get { return (string)GetValue(DisplayNameProperty); }
@@ -88,5 +86,19 @@ namespace DiagramDesigner.CustomControls.Charts
         // Using a DependencyProperty as the backing store for DisplayName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DisplayNameProperty =
             DependencyProperty.Register("DisplayName", typeof(string), typeof(SingleHisChart), new PropertyMetadata("图例"));
+
+
+        [DisplayName("DataContext")]
+        public object DC
+        {
+            get { return (object)GetValue(DCProperty); }
+            set { SetValue(DCProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DC.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DCProperty =
+            DependencyProperty.Register("DC", typeof(object), typeof(SingleHisChart), new PropertyMetadata(new SingleHisViewModel()));
+
+
     }
 }

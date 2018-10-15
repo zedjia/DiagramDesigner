@@ -61,7 +61,7 @@ namespace DiagramDesigner.CustomControls.Browsers
 
         // Using a DependencyProperty as the backing store for Url.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UrlProperty =
-            DependencyProperty.Register("Url", typeof(string), typeof(CefSharpBrowser), new PropertyMetadata("http://www.baidu.com"));
+            DependencyProperty.Register("Url", typeof(string), typeof(CefSharpBrowser), new PropertyMetadata("http://172.18.0.80:60878/#/map"));
 
 
     }
