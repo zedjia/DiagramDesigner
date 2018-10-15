@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,13 +27,15 @@ namespace DiagramDesigner.Windows.WindDataSource
         public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
         public DataSourceModel SelectedDataSourceModel { get; set; } = new DataSourceModel();
 
+
+        public DataTable SqlExecResult { get; set; }
         
-
-
 
 
         public DataSourceViewBindingModel()
         {
+            SqlExecResult=new DataTable();
+
             dataSourceModels =FileDataServices.GetDataModelFromFile<ObservableCollection<DataSourceModel>>();
             dataSourceModels = dataSourceModels ?? new ObservableCollection<DataSourceModel>();
 
@@ -62,9 +65,17 @@ namespace DiagramDesigner.Windows.WindDataSource
             new DbType(){Name = "PostgreSQL",Value = 6}
         };
 
+        public void SetSqlExecResult(DataTable dt)
+        {
+            SqlExecResult = dt;
+        }
+
+
+
+
         #region tab1 事件委托
 
-        
+
 
 
         /// <summary>
@@ -194,7 +205,7 @@ namespace DiagramDesigner.Windows.WindDataSource
     {
         public DataSourceModel()
         {
-            DataItems=new List<DataItem>();
+            DataItems=new ObservableCollection<DataItem>();
         }
 
         public Guid Id { get; set; }
@@ -220,7 +231,7 @@ namespace DiagramDesigner.Windows.WindDataSource
 
         public int Sort { get; set; } = 1;
 
-        public List<DataItem> DataItems { get; set; }
+        public ObservableCollection<DataItem> DataItems { get; set; }
 
         public DataSourceModel Clone()
         {
@@ -245,7 +256,7 @@ namespace DiagramDesigner.Windows.WindDataSource
 
     }
 
-
+    [AddINotifyPropertyChangedInterface]
     public class DataItem
     {
         public Guid Id { get; set; }

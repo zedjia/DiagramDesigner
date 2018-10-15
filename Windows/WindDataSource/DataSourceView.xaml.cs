@@ -60,7 +60,7 @@ namespace DiagramDesigner.Windows.WindDataSource
             foreach (var dataSourceModel in dataSources)
             {
                 DataItemView uc = new DataItemView();
-                //uc.DataContext = dataSourceModel;
+                uc.DataContext = new DataItemViewModel() {TabDataSourceModel = dataSourceModel,SetSqlExecResult = Context.SetSqlExecResult};
                 TabItem tabItem = new TabItem() {Header = $"{dataSourceModel.DBAlias}({dataSourceModel.DBType})"};
                 //tabItem.RegisterName($"uc{dataSourceModel.Id}", uc);
                 tabItem.Content = uc;

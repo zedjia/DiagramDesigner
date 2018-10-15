@@ -21,6 +21,11 @@ namespace DiagramDesigner.UserControls
         public DataItem SelectedDataItemModel { get; set; } = new DataItem();
 
 
+        public Action<DataTable> SetSqlExecResult;
+
+
+
+
         #region tab2 事件
 
 
@@ -32,7 +37,7 @@ namespace DiagramDesigner.UserControls
         void AddDataItem()
         {
             SelectedDataItemModel.Id = Guid.NewGuid();
-            TabDataSourceModel.DataItems.Add(SelectedDataItemModel.Clone());
+            TabDataSourceModel.DataItems.Add(SelectedDataItemModel);
         }
         /// <summary>
         /// 保存
@@ -56,7 +61,7 @@ namespace DiagramDesigner.UserControls
         void SelectionDataItemChanged(ListBox lst)
         {
             DataItem item = lst.SelectedItem as DataItem;
-            if (item != null) SelectedDataItemModel = item;
+            if (item != null) SelectedDataItemModel = item.Clone();
         }
 
         /// <summary>
@@ -66,8 +71,10 @@ namespace DiagramDesigner.UserControls
 
         void ExecuteDataItem(DataItem dataitem)
         {
-            DataTable table = DbServices.GetDataTableBySql(dataitem.SqlStr, TabDataSourceModel.DBConnUrl);
+            DataTable table = DbServices.GetDataTableBySql(SelectedDataItemModel.SqlStr, TabDataSourceModel.DBConnUrl);
             //todo:需要绑定table
+            SetSqlExecResult(table);
+
 
         }
 
@@ -81,7 +88,9 @@ namespace DiagramDesigner.UserControls
         {
             if (MessageBox.Show("是否删除选中的记录?", "删除确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
-                this.TabDataSourceModel.DataItems.Remove(dataItem);
+                var editItem = TabDataSourceModel.DataItems.FirstOrDefault(i => i.Id == SelectedDataItemModel.Id);
+                if (editItem != null)
+                    this.TabDataSourceModel.DataItems.Remove(editItem);
             }
         }
 

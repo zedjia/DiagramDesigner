@@ -7,15 +7,15 @@
              xmlns:local="clr-namespace:DiagramDesigner.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="550">
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <local:DataItemViewModel></local:DataItemViewModel>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <Grid>
         <StackPanel Orientation="Horizontal">
             <ListBox x:Name="List" Width="120" HorizontalAlignment="Left" ItemsSource="{Binding TabDataSourceModel.DataItems}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding }" CommandParameter="{Binding ElementName=List}" />
+                        <i:InvokeCommandAction Command="{Binding SelectionDataItemChangedCmd}" CommandParameter="{Binding ElementName=List}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <ListBox.ItemTemplate>
@@ -33,7 +33,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
                     <Label Content="SQL："></Label>
-                    <TextBox Width="340" Height="100" Text="{Binding SelectedDataItemModel.SqlStr}"></TextBox>
+                    <TextBox Width="340" Height="100" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding SelectedDataItemModel.SqlStr}"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="40 10 0 0">
                     <Button Content="执行" Margin="20 0 0 0" Command="{Binding ExecuteDataItemCmd}"></Button>
