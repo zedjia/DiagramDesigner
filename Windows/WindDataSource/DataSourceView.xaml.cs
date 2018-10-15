@@ -59,8 +59,8 @@ namespace DiagramDesigner.Windows.WindDataSource
             var dataSources = Context.dataSourceModels.OrderBy(i => i.Sort);
             foreach (var dataSourceModel in dataSources)
             {
-                DataItemUC uc = new DataItemUC();
-                uc.DataContext = dataSourceModel;
+                DataItemView uc = new DataItemView();
+                //uc.DataContext = dataSourceModel;
                 TabItem tabItem = new TabItem() {Header = $"{dataSourceModel.DBAlias}({dataSourceModel.DBType})"};
                 //tabItem.RegisterName($"uc{dataSourceModel.Id}", uc);
                 tabItem.Content = uc;

@@ -18,9 +18,9 @@ namespace DiagramDesigner.UserControls
     /// <summary>
     /// DataItemUC.xaml 的交互逻辑
     /// </summary>
-    public partial class DataItemUC : UserControl
+    public partial class DataItemView : UserControl
     {
-        public DataItemUC()
+        public DataItemView()
         {
             InitializeComponent();
         }
