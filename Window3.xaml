@@ -22,9 +22,68 @@
         x:Class="DiagramDesigner.Window3"
         mc:Ignorable="d"
         Title="SplineAreaChart" Height="600" Width="700" Background="Transparent">
-    <Grid>
-        <TabControl x:Name="TabControl">
+    <Viewbox>
+        <Grid Background="Transparent" Width="700">
+            <Grid.DataContext>
+                <chart:SingleHisViewModel></chart:SingleHisViewModel>
+            </Grid.DataContext>
+            <!--柱状图-->
+            <dxc:ChartControl x:Name="SingleChart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16">
+                <dxc:ChartControl.Palette>
+                    <dxc:DXChartsPalette></dxc:DXChartsPalette>
+                </dxc:ChartControl.Palette>
 
-        </TabControl>
-    </Grid>
+                <dxc:XYDiagram2D BarDistance="0.05">
+
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                            </dxc:AxisX2D.Label>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
+                        Interlaced="False" TickmarksVisible="False">
+                            <dxc:AxisY2D.Label>
+                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                            </dxc:AxisY2D.Label>
+                            <!--<dxc:AxisY2D.CustomLabels>
+                            <dxc:CustomAxisLabel Content="0" Value="0"/>
+                            <dxc:CustomAxisLabel Content="5" Value="5"/>
+                            <dxc:CustomAxisLabel Content="10" Value="10"/>
+                            <dxc:CustomAxisLabel Content="16" Value="16"/>
+                        </dxc:AxisY2D.CustomLabels>-->
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+
+                    <dxc:XYDiagram2D.DefaultPane>
+                        <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
+                    </dxc:XYDiagram2D.DefaultPane>
+                    <dxc:BarSideBySideSeries2D x:Name="BarSideBySideSeries2D" Brush="Blue" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个">
+
+                        <dxc:BarSideBySideSeries2D.Model>
+                            <dxc:BorderlessSimpleBar2DModel/>
+                        </dxc:BarSideBySideSeries2D.Model>
+
+                        <dxc:BarSideBySideSeries2D.Label>
+                            <dxc:SeriesLabel Indent="10" ResolveOverlappingMode="Default"
+                                    ConnectorThickness="1"
+                                    Visible="False"
+                                    dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
+                        </dxc:BarSideBySideSeries2D.Label>
+
+                        <!--<dxc:BarSideBySideSeries2D.Points>
+                            <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
+                            <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
+                            <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
+                            <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
+                            <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
+                        </dxc:BarSideBySideSeries2D.Points>-->
+                    </dxc:BarSideBySideSeries2D>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl>
+        </Grid>
+    </Viewbox>
 </Window>

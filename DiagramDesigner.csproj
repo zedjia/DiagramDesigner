@@ -170,6 +170,7 @@
     <Compile Include="CustomControls\Charts\DoubleHisChart.cs" />
     <Compile Include="CustomControls\Charts\HisAndAreaChart.cs" />
     <Compile Include="CustomControls\Charts\SingleHisChart.cs" />
+    <Compile Include="CustomControls\Charts\SingleHisViewModel.cs" />
     <Compile Include="CustomControls\Charts\SingleLineChart.cs" />
     <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
     <Compile Include="CustomControls\Charts\ThreeStackedAreaChart.cs" />

@@ -361,7 +361,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:StackedSplineAreaChart}">
                     <Viewbox>
-                        <dxc:ChartControl Width="500" Background="{x:Null}">
+                        <dxc:ChartControl Width="700" Background="{x:Null}">
                             <dxc:ChartControl.Diagram>
                                 <dxc:XYDiagram2D>
                                     <dxc:XYDiagram2D.Series>
@@ -532,7 +532,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:DoubleHisChart}">
                     <Viewbox>
-                        <Grid Background="Transparent" Width="500">
+                        <Grid Background="Transparent" Width="800" Height="600">
                             <!--柱状图-->
                             <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
                                 <dxc:ChartControl.Palette>
@@ -624,7 +624,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:HisAndAreaChart}">
                     <Viewbox>
-                        <Grid Background="Transparent" Width="500">
+                        <Grid Background="Transparent" Width="700">
                             <!--柱状图-->
                             <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
                                 <dxc:ChartControl.Palette>
@@ -724,7 +724,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:ThreeStackedAreaChart}">
                     <Viewbox>
-                        <dxc:ChartControl Width="500" Background="{x:Null}">
+                        <dxc:ChartControl Width="700" Background="{x:Null}">
                             <dxc:ChartControl.Diagram>
                                 <dxc:XYDiagram2D>
                                     <dxc:XYDiagram2D.Series>
@@ -854,9 +854,12 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:SingleHisChart}">
                     <Viewbox>
-                        <Grid Background="Transparent" Width="500">
+                        <Grid Background="Transparent" Width="700">
+                            <Grid.DataContext>
+                                <chart:SingleHisViewModel></chart:SingleHisViewModel>
+                            </Grid.DataContext>
                             <!--柱状图-->
-                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{TemplateBinding ChartSource}">
+                            <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{Binding DataTable}">
                                 <dxc:ChartControl.Palette>
                                     <dxc:DXChartsPalette></dxc:DXChartsPalette>
                                 </dxc:ChartControl.Palette>
@@ -889,7 +892,7 @@
                                     <dxc:XYDiagram2D.DefaultPane>
                                         <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
                                     </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:BarSideBySideSeries2D x:Name="month4Chart" Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
+                                    <dxc:BarSideBySideSeries2D x:Name="month4Chart" Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value">
 
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
@@ -902,13 +905,13 @@
                                     dxc:BarSideBySideSeries2D.LabelPosition="Outside"/>
                                         </dxc:BarSideBySideSeries2D.Label>
 
-                                        <dxc:BarSideBySideSeries2D.Points>
+                                        <!--<dxc:BarSideBySideSeries2D.Points>
                                             <dxc:SeriesPoint Argument="Illinois" Value="423.721" />
                                             <dxc:SeriesPoint Argument="Indiana" Value="178.719" />
                                             <dxc:SeriesPoint Argument="Michigan" Value="308.845" />
                                             <dxc:SeriesPoint Argument="Ohio" Value="348.555" />
                                             <dxc:SeriesPoint Argument="Wisconsin" Value="160.274" />
-                                        </dxc:BarSideBySideSeries2D.Points>
+                                        </dxc:BarSideBySideSeries2D.Points>-->
                                     </dxc:BarSideBySideSeries2D>
                                 </dxc:XYDiagram2D>
                             </dxc:ChartControl>

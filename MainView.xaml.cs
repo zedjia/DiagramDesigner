@@ -20,7 +20,8 @@ namespace DiagramDesigner
                 previewView = new PreviewView();
                 var uis = this.Grid.Children;
                 DesignerCanvas = this.MyDesigner;
-                this.Grid.Children.Remove(DesignerCanvas);
+                //this.ScrollViewer.Children.Remove(DesignerCanvas);
+                this.ScrollViewer.Content = null;
                 previewView.GridContent.Children.Add(DesignerCanvas);//Content = DesignerCanvas;
                 DesignerCanvas.SetValue(DesignerCanvas.NameProperty, "MyDesigner");
                 //DesignerCanvas.SetValue(DesignerCanvas.WidthProperty, "MyDesigner");
@@ -34,7 +35,8 @@ namespace DiagramDesigner
         private void PreviewView_Closed(object sender, System.EventArgs e)
         {
             previewView.GridContent.Children.Remove(DesignerCanvas);
-            this.Grid.Children.Add(DesignerCanvas);
+            //this.Grid.Children.Add(DesignerCanvas);
+            this.ScrollViewer.Content = DesignerCanvas;
             DesignerCanvas.SetValue(System.Windows.Controls.Grid.RowProperty, 0);
             DesignerCanvas.SetValue(System.Windows.Controls.Grid.ColumnProperty, 0);
             
