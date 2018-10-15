@@ -10,7 +10,7 @@
     <Window.DataContext>
         <local:DataSourceViewBindingModel/>
     </Window.DataContext>
-    <TabControl>
+    <TabControl >
         <TabItem Header="数据源">
             <Grid>
                 <Grid.RowDefinitions>
@@ -148,60 +148,53 @@
             </Grid>
         </TabItem>
         <TabItem Header="数据">
-            <TabControl TabStripPlacement="Left">
-                <TabItem Header="SQL Server">
-                    <Grid>
+            <StackPanel>
+            <TabControl Height="200" x:Name="dataSourceTabContrl" TabStripPlacement="Left" Loaded="dataSourceTabContrl_Loaded">
+                <!--<TabItem Header="SQL Server">
+                    --><!--<Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal">
-                            <ListBox x:Name="List" Width="120" HorizontalAlignment="Left" ItemsSource="{Binding dataSourceModels}">
+                            <ListBox x:Name="List" Width="120" HorizontalAlignment="Left" ItemsSource="{Binding TabDataSourceModel.DataItems}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding }" CommandParameter="{Binding ElementName=List}" />
+                                        <i:InvokeCommandAction Command="{Binding SelectionDataItemChangedCmd}" CommandParameter="{Binding ElementName=List}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" Width="100" Height="30">
-                                            <!--<RadioButton x:Name="radioBtn" FontSize="14" GroupName="area" VerticalAlignment="Center">
-                                                <RadioButton.IsChecked>
-                                                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay" />
-                                                </RadioButton.IsChecked>
-                                            </RadioButton>-->
-                                            <Label Content="{Binding DBType}" HorizontalAlignment="Left"></Label>
+                                            <Label Content="{Binding Alias}" HorizontalAlignment="Left"></Label>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-                            <StackPanel Margin="10 0 0 0">
+                            <StackPanel Margin="10 0 0 0" >
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="别名："></Label>
-                                    <TextBox Width="150" Text="{Binding Path=SelectedDataSourceModel.DBAlias}"></TextBox>
+                                    <TextBox Width="150" Text="{Binding Path=SelectedDataItemModel.Alias}"></TextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
                                     <Label Content="SQL："></Label>
-                                    <TextBox Width="370" Height="100" Text="{Binding SelectedDataSourceModel.DataItems[0].SqlStr}"></TextBox>
+                                    <TextBox Width="370" Height="100" Text="{Binding SelectedDataItemModel.SqlStr}"></TextBox>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="280 10 0 0">
-                                    <Button Content="执行"></Button>
-                                    <Button Content="保存" Margin="20 0 0 0"></Button>
+                                <StackPanel Orientation="Horizontal" Margin="80 10 0 0">
+                                    <Button Content="执行" Command="{Binding ExecuteDataItemCmd}"></Button>
+                                    <Button Content="新增" Command="{Binding AddDataItemCmd}" Margin="20 0 0 0"></Button>
+                                    <Button Content="删除" Command="{Binding DeleteDataItemCmd}" Margin="20 0 0 0"></Button>
+                                    <Button Content="保存" Command="{Binding SaveDataItemCmd }" Margin="20 0 0 0"></Button>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                        <DataGrid Grid.Row="1" ItemsSource="{Binding Path=dataSourceModels}">
-                            
-                        </DataGrid>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Oracle">
-
-                </TabItem>
-                <TabItem Header="My Sql">
-
-                </TabItem>
+                        
+                    </Grid>--><!--
+                </TabItem>-->
             </TabControl>
+            <!--<DataGrid></DataGrid>-->
+            <DataGrid></DataGrid>
+            </StackPanel>
         </TabItem>
     </TabControl>
 </Window>

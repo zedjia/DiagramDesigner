@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using DiagramDesigner.UserControls;
 
 namespace DiagramDesigner.Windows.WindDataSource
 {
@@ -27,6 +28,7 @@ namespace DiagramDesigner.Windows.WindDataSource
         {
             InitializeComponent();
             this.Closing += DataSourceView_Closing;
+            dataSourceTabContrl.SelectedIndex = 0;
         }
 
         private void DataSourceView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -41,7 +43,29 @@ namespace DiagramDesigner.Windows.WindDataSource
             }
 
         }
+        
+
+        private void dataSourceTabContrl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataSourceViewBindingModel Context = this.DataContext as DataSourceViewBindingModel;
+            if (Context == null)
+            {
+                return;
+            }
+            Context.CloseForm();// 这里必须要保存一次配置到文件，所以调用一次这个方法.
+            dataSourceTabContrl.Items.Clear();
 
 
+            var dataSources = Context.dataSourceModels.OrderBy(i => i.Sort);
+            foreach (var dataSourceModel in dataSources)
+            {
+                DataItemUC uc = new DataItemUC();
+                uc.DataContext = dataSourceModel;
+                TabItem tabItem = new TabItem() {Header = $"{dataSourceModel.DBAlias}({dataSourceModel.DBType})"};
+                //tabItem.RegisterName($"uc{dataSourceModel.Id}", uc);
+                tabItem.Content = uc;
+                dataSourceTabContrl.Items.Add(tabItem);
+            }
+        }
     }
 }
