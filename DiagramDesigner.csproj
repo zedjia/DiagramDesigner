@@ -205,6 +205,7 @@
     <Compile Include="PreviewViewModel.cs" />
     <Compile Include="Services\DbServices.cs" />
     <Compile Include="Services\FileDataServices.cs" />
+    <Compile Include="Tools\ControlUtility.cs" />
     <Compile Include="UserControls\DataItemView.xaml.cs">
       <DependentUpon>DataItemView.xaml</DependentUpon>
     </Compile>
@@ -470,6 +471,8 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Pictures\left-shadow.png" />
+    <Resource Include="Resources\Pictures\right-shadow.png" />
     <Resource Include="Resources\Pictures\模式.png" />
     <Resource Include="Resources\Pictures\预览.png" />
     <Resource Include="Resources\Pictures\产业园区.png" />

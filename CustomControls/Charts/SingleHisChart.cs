@@ -98,7 +98,5 @@ namespace DiagramDesigner.CustomControls.Charts
         // Using a DependencyProperty as the backing store for DC.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DCProperty =
             DependencyProperty.Register("DC", typeof(object), typeof(SingleHisChart), new PropertyMetadata(new SingleHisViewModel()));
-
-
     }
 }

@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:map="clr-namespace:DiagramDesigner.CustomControls.Browsers"
         xmlns:local="clr-namespace:DiagramDesigner"
         mc:Ignorable="d"
         Title="PreviewView" Height="1080" Width="1920" WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" KeyDown="Window_KeyDown">
-    <Grid x:Name="GridContent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <!--<ContentPresenter VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></ContentPresenter>-->
-    </Grid>
+    <Canvas x:Name="Canvas">
+        <!--<map:CefSharpBrowser></map:CefSharpBrowser>-->
+    </Canvas>
 </Window>

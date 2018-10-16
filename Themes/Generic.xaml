@@ -476,13 +476,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type img:ImageCommon}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            Height="{TemplateBinding Height}" 
-                            Width="{TemplateBinding Width}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <Image Source="{TemplateBinding ImageUrl}"></Image>
-                    </Border>
+                    <Image Source="{TemplateBinding ImageUrl}" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}"></Image>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
