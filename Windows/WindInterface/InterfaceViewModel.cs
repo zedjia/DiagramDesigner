@@ -3,6 +3,7 @@ using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using DiagramDesigner.Helper;
 using DiagramDesigner.Models;
 using DiagramDesigner.Services;
+using Newtonsoft.Json;
 
 namespace DiagramDesigner.Windows.WindInterface
 {
@@ -36,7 +38,7 @@ namespace DiagramDesigner.Windows.WindInterface
             //};
         }
 
-        public string TestResult { get; set; }
+        public DataTable TestResult { get; set; }
 
         /// <summary>
         /// 测试链接
@@ -46,9 +48,16 @@ namespace DiagramDesigner.Windows.WindInterface
         void TestConnection()
         {
             HttpHelper helper=new HttpHelper();
-            var result= helper.GetHtml(new HttpItem() {URL = SelectedInterfaceModel.IFUrl});
-
-            TestResult = result.Html;
+            try
+            {
+                var result = helper.GetHtml(new HttpItem() { URL = SelectedInterfaceModel.IFUrl });
+                TestResult = JsonConvert.DeserializeObject<DataTable>(result.Html);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("测试出错，无法获取数据或者数据格式不支持,请使用DataTable类型.","错误提示");
+                Console.WriteLine(e);
+            }
         }
         /// <summary>
         /// 新增到配置列表
@@ -59,7 +68,6 @@ namespace DiagramDesigner.Windows.WindInterface
         {
             SelectedInterfaceModel.Id = Guid.NewGuid();
             InterfaceModels.Add(SelectedInterfaceModel.Clone());
-            TestResult = string.Empty;
         }
         /// <summary>
         /// 保存
@@ -75,7 +83,6 @@ namespace DiagramDesigner.Windows.WindInterface
                 return;
             }
             editItem.SetValue(SelectedInterfaceModel);
-            TestResult = string.Empty;
         }
 
         /// <summary>
@@ -86,7 +93,7 @@ namespace DiagramDesigner.Windows.WindInterface
         void EditConfig(InterfaceModel dataSourceModel)
         {
             SelectedInterfaceModel = dataSourceModel.Clone();
-            TestResult = string.Empty;
+            TestResult = null;
         }
 
         /// <summary>
