@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DiagramDesigner.CustomControls.Charts
 {
     [AddINotifyPropertyChangedInterface]
-    public class SingleHisViewModel
+    public class SingleHisViewModel: IChartViewModel
     {
         public DataTable DataTable { get; set; }
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DiagramDesigner.Models
 {
-    public class DataSourceModel
+    public class IDataSourceModel
     {
 
     }
 
-    public class SingleHisDataSource
+    public class SingleHisDataSource : IDataSourceModel
     {
 
     }

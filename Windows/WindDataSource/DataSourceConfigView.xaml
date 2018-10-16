@@ -4,40 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:DiagramDesigner.UserControls"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         mc:Ignorable="d"
-        Title="DataSourceConfigView" Height="450" Width="800">
+        Title="DataSourceConfigView" Height="450" Width="750">
+    <Window.DataContext>
+        <local:DataSourceConfigViewModel></local:DataSourceConfigViewModel>
+    </Window.DataContext>
     <StackPanel>
         <Grid Margin="10 10 10 0">
             <StackPanel Orientation="Horizontal">
-                <ListBox x:Name="List" Width="120" HorizontalAlignment="Left" ItemsSource="{Binding TabDataSourceModel.DataItems}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding SelectionDataItemChangedCmd}" CommandParameter="{Binding ElementName=List}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Width="100" Height="30">
-                                <Label Content="{Binding Alias}" HorizontalAlignment="Left"></Label>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <StackPanel Margin="10 0 0 0">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="别名："></Label>
-                        <TextBox Width="150" Text="{Binding Path=SelectedDataItemModel.Alias}"></TextBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
-                        <Label Content="SQL："></Label>
-                        <TextBox Width="600" Height="100" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding SelectedDataItemModel.SqlStr}"></TextBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="500 10 0 0" Width="120">
-                        <Button Content="执行" Margin="0 0 0 0" Command="{Binding ExecuteDataItemCmd}"></Button>
-                        <Button Content="选择" Margin="20 0 0 0" Command="{Binding SaveDataItemCmd }" ></Button>
-                    </StackPanel>
-                </StackPanel>
+                <TabControl Height="200" x:Name="dataSourceTabContrl" TabStripPlacement="Left" Loaded="dataSourceTabContrl_Loaded">
+                    <!--<uc:DataItemView></uc:DataItemView>-->
+                </TabControl>
             </StackPanel>
         </Grid>
         <!--<DataGrid></DataGrid>-->

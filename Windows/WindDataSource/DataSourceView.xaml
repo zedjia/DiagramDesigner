@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         mc:Ignorable="d"
-        Title="数据源配置" Height="580" Width="680" Top="360" Left="600" ResizeMode="NoResize" x:Name="wDataSource" Icon="../../Resources/Images/DataSource.ico">
+        Title="数据源配置" Height="580" Width="750" Top="360" Left="600" ResizeMode="NoResize" x:Name="wDataSource" Icon="../../Resources/Images/DataSource.ico">
     <Window.DataContext>
         <local:DataSourceViewBindingModel/>
     </Window.DataContext>

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using DiagramDesigner.CustomControls.Charts;
+using DiagramDesigner.Models;
 using DiagramDesigner.Services;
 using DiagramDesigner.Windows.WindDataSource;
 using Prism.Commands;
@@ -19,6 +21,8 @@ namespace DiagramDesigner.UserControls
     {
         public DataSourceModel TabDataSourceModel { get; set; } = new DataSourceModel();
         public DataItem SelectedDataItemModel { get; set; } = new DataItem();
+        public DataTable DataTable { get; set; }
+        public IChartViewModel ChartViewModel { get; set; }
 
 
         public Action<DataTable> SetSqlExecResult;
@@ -71,11 +75,22 @@ namespace DiagramDesigner.UserControls
 
         void ExecuteDataItem(DataItem dataitem)
         {
-            DataTable table = DbServices.GetDataTableBySql(SelectedDataItemModel.SqlStr, TabDataSourceModel.DBConnUrl);
+            DataTable = DbServices.GetDataTableBySql(SelectedDataItemModel.SqlStr, TabDataSourceModel.DBConnUrl);
             //todo:需要绑定table
-            SetSqlExecResult(table);
+            SetSqlExecResult(DataTable);
+        }
 
+        /// <summary>
+        /// 选择
+        /// </summary>
+        public ICommand SelectDataItemCmd => new DelegateCommand<DataItem>(SelectDataItem);
 
+        void SelectDataItem(DataItem dataitem)
+        {
+            if (DataTable != null && DataTable.Rows.Count > 0)
+            {
+                ChartViewModel.DataTable = DataTable;
+            }
         }
 
 

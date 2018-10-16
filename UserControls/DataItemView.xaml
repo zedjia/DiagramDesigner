@@ -36,10 +36,11 @@
                     <TextBox Width="340" Height="100" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding SelectedDataItemModel.SqlStr}"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="40 10 0 0">
-                    <Button Content="执行" Margin="20 0 0 0" Command="{Binding ExecuteDataItemCmd}"></Button>
-                    <Button Content="新增" Margin="20 0 0 0" Command="{Binding AddDataItemCmd}" ></Button>
-                    <Button Content="删除" Margin="20 0 0 0" Command="{Binding DeleteDataItemCmd}"></Button>
-                    <Button Content="保存" Margin="20 0 0 0" Command="{Binding SaveDataItemCmd }" ></Button>
+                    <Button Content="执行" Margin="20 0 0 0" Command="{Binding ExecuteDataItemCmd}" Visibility="{Binding RelativeSource={RelativeSource Mode= FindAncestor,AncestorType={x:Type local:DataItemView}}, Path=ExecuteVisibility}"></Button>
+                    <Button Content="新增" Margin="20 0 0 0" Command="{Binding AddDataItemCmd}" Visibility="{Binding RelativeSource={RelativeSource Mode= FindAncestor,AncestorType={x:Type local:DataItemView}}, Path=AddVisibility}"></Button>
+                    <Button Content="删除" Margin="20 0 0 0" Command="{Binding DeleteDataItemCmd}" Visibility="{Binding RelativeSource={RelativeSource Mode= FindAncestor,AncestorType={x:Type local:DataItemView}}, Path=DeleteVisibility}"></Button>
+                    <Button Content="保存" Margin="20 0 0 0" Command="{Binding SaveDataItemCmd }" Visibility="{Binding RelativeSource={RelativeSource Mode= FindAncestor,AncestorType={x:Type local:DataItemView}}, Path=SaveVisibility}"></Button>
+                    <Button Content="选择" Margin="20 0 0 0" Command="{Binding SelectDataItemCmd }" Visibility="{Binding RelativeSource={RelativeSource Mode= FindAncestor,AncestorType={x:Type local:DataItemView}}, Path=SelectVisibility}"></Button>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

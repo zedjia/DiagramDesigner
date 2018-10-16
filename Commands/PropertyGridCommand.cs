@@ -32,12 +32,12 @@ namespace DiagramDesigner.Commands
                 if (singleHisChart != null)
                 {
                     SingleHisViewModel singleHisViewModel = singleHisChart.DC as SingleHisViewModel;
-                    DataSourceView dataSourceView = new DataSourceView();
+                    DataSourceConfigView dataSourceConfigView = new DataSourceConfigView(singleHisViewModel);
                     MainView mainWindow = ((((propertyGridControl.Parent as Grid).Parent as Grid).Parent) as Grid).Parent as MainView;
                     //MainView mainWindow = frameworkElement.FindName("mainWindow") as MainView;
-                    dataSourceView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                    dataSourceView.Owner = mainWindow;
-                    dataSourceView.ShowDialog();
+                    dataSourceConfigView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    dataSourceConfigView.Owner = mainWindow;
+                    dataSourceConfigView.ShowDialog();
                 }
             }
         }
