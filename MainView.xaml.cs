@@ -1,5 +1,6 @@
 ﻿using DevExpress.Xpf.Bars;
 using DiagramDesigner.CustomControls.Browsers;
+using DiagramDesigner.CustomControls.Charts;
 using DiagramDesigner.CustomControls.Images;
 using DiagramDesigner.Tools;
 using DiagramDesigner.Windows.DataSourceWD;

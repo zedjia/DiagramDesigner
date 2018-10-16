@@ -23,46 +23,18 @@
         mc:Ignorable="d"
         Title="SplineAreaChart" Height="600" Width="700" Background="Transparent">
     <Viewbox>
-        <Grid Background="Transparent" Width="700">
-            <Grid.DataContext>
-                <chart:SingleHisViewModel></chart:SingleHisViewModel>
-            </Grid.DataContext>
-            <dxc:ChartControl Name="chartControl1">
-                <dxc:ChartControl.Diagram>
-                    <dxc:XYDiagram2D>
-                        <dxc:XYDiagram2D.Series>
-                            <dxc:AreaSeries2D DisplayName="First Series" Transparency="0.5">
-                                <dxc:AreaSeries2D.Points>
-                                    <dxc:SeriesPoint Argument="A" Value="1" />
-                                    <dxc:SeriesPoint Argument="B" Value="3" />
-                                    <dxc:SeriesPoint Argument="C" Value="7" />
-                                    <dxc:SeriesPoint Argument="D" Value="4" />
-                                </dxc:AreaSeries2D.Points>
-                            </dxc:AreaSeries2D>
-                            <dxc:AreaSeries2D DisplayName="Second Series" Transparency="0.5">
-                                <dxc:AreaSeries2D.Points>
-                                    <dxc:SeriesPoint Argument="A" Value="2" />
-                                    <dxc:SeriesPoint Argument="B" Value="2" />
-                                    <dxc:SeriesPoint Argument="C" Value="5" />
-                                    <dxc:SeriesPoint Argument="D" Value="4" />
-                                </dxc:AreaSeries2D.Points>
-                            </dxc:AreaSeries2D>
-                        </dxc:XYDiagram2D.Series>
-                        <!--region #SideMarginsEnabled-->
-                        <dxc:XYDiagram2D.AxisX>
-                            <dxc:AxisX2D >
-                                <dxc:AxisX2D.Range>
-                                    <dxc:AxisRange SideMarginsEnabled="True" />
-                                </dxc:AxisX2D.Range>
-                            </dxc:AxisX2D>
-                        </dxc:XYDiagram2D.AxisX>
-                        <!--endregion #SideMarginsEnabled-->
-                    </dxc:XYDiagram2D>
-                </dxc:ChartControl.Diagram>
-                <dxc:ChartControl.Legend>
-                    <dxc:Legend />
-                </dxc:ChartControl.Legend>
-            </dxc:ChartControl>
+        <Grid Width="600" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="9*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1" BorderThickness="0 0 0 1" BorderBrush="#BFC8CE"></Border>
+            <Image Grid.Column="0" Width="30" Height="30"></Image>
+            <Label Grid.Column="1" Content="人脸识别系统" Foreground="White" FontSize="30"></Label>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="正常" Foreground="White" FontSize="30" Margin="0 0 5 0"></Label>
+                <!--<Label Content="正常" Foreground="White" FontSize="16"></Label>-->
+            </StackPanel>
         </Grid>
     </Viewbox>
 </Window>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,27 +41,14 @@ namespace DiagramDesigner.CustomControls.Charts
     /// 步骤 2)
     /// 继续操作并在 XAML 文件中使用控件。
     ///
-    ///     <MyNamespace:StackedSplineAreaChart/>
+    ///     <MyNamespace:ThreeCircleChart/>
     ///
     /// </summary>
-    public class StackedSplineAreaChart : Control
+    public class ThreeCircleChart : Control
     {
-        static StackedSplineAreaChart()
+        static ThreeCircleChart()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(StackedSplineAreaChart), new FrameworkPropertyMetadata(typeof(StackedSplineAreaChart)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ThreeCircleChart), new FrameworkPropertyMetadata(typeof(ThreeCircleChart)));
         }
-
-        [DisplayName("柱状图颜色")]
-        public SolidColorBrush ChartColor
-        {
-            get { return (SolidColorBrush)GetValue(ChartColorProperty); }
-            set { SetValue(ChartColorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ChartColorProperty =
-            DependencyProperty.Register("ChartColor", typeof(SolidColorBrush), typeof(StackedSplineAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3E9AD4"))));
-
-
     }
 }

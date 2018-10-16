@@ -52,9 +52,7 @@ namespace DiagramDesigner.CustomControls.Charts
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(SingleHisChart), new FrameworkPropertyMetadata(typeof(SingleHisChart)));
         }
-        /// <summary>
-        /// 柱状图颜色
-        /// </summary>
+        [DisplayName("柱状图颜色")]
         public Brush ChartColor
         {
             get { return (Brush)GetValue(ChartColorProperty); }

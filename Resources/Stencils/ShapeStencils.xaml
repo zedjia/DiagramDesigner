@@ -91,6 +91,7 @@
         <chart:StackedSplineAreaChart IsHitTestVisible="False"></chart:StackedSplineAreaChart>
         <chart:ThreeStackedAreaChart IsHitTestVisible="False"></chart:ThreeStackedAreaChart>
         <chart:CircleNumberChart IsHitTestVisible="False"></chart:CircleNumberChart>
+        <chart:ThreeCircleChart IsHitTestVisible="False"></chart:ThreeCircleChart>
     </s:Toolbox>
 
     <s:Toolbox x:Key="TextBox_Diag">

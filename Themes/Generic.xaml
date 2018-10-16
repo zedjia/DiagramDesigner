@@ -300,7 +300,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type lbl:ImageOneLineLabel}">
                     <Viewbox>
-                        <Grid Width="600">
+                        <Grid Width="600" Height="{TemplateBinding CrtlHeight}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
                                 <ColumnDefinition Width="9*"></ColumnDefinition>
@@ -370,11 +370,7 @@
                                     <dxc:XYDiagram2D>
                                         <dxc:XYDiagram2D.Series>
                                             <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
-                                                       Transparency="0.4" ArgumentDataMember="Argument" ValueDataMember="Value">
-
-                                                <dxc:SplineAreaStackedSeries2D.Brush>
-                                                    <SolidColorBrush Color="#00C3EE"></SolidColorBrush>
-                                                </dxc:SplineAreaStackedSeries2D.Brush>
+                                                       Transparency="0.4" ArgumentDataMember="Argument" ValueDataMember="Value" Brush="{TemplateBinding ChartColor}">
 
                                                 <!--<dxc:SplineAreaStackedSeries2D.Points>
                                                     <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
@@ -982,6 +978,85 @@
                                 <dxc:ChartToolTipController AutoPopDelay="0" InitialDelay="0"/>
                             </dxc:ChartControl.ToolTipController>
                         </dxc:ChartControl>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type chart:ThreeCircleChart}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type chart:ThreeCircleChart}">
+                    <Viewbox VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Grid>
+                            <!--最外层-->
+                            <Ellipse Width="5" Height="5" Fill="#00C2FF" Opacity="1" StrokeThickness="0" Margin="10 0 0 117"/>
+                            <ed:Arc x:Name="BackCircle" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="270" Height="120" Width="120" StartAngle="0" Fill="#313439">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-120"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <ed:Arc x:Name="TargetCircle" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="270" Height="120" Width="120" Margin="0" Stretch="None" StartAngle="0" Fill="#00C2FF">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-120"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <!--中间层-->
+                            <Ellipse Width="5" Height="5" Fill="#71FD56" Opacity="1" StrokeThickness="0" Margin="10 0 0 98"/>
+                            <ed:Arc ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="270" Height="100" Width="100" StartAngle="0" Fill="#313439">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-100"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <ed:Arc ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="200" Height="100" Width="100" Margin="0" Stretch="None" StartAngle="0" Fill="#71FD56">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-100"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <!--最里层-->
+                            <Ellipse Width="5" Height="5" Fill="#00FFFD" Opacity="1" StrokeThickness="0" Margin="10 0 0 78"/>
+                            <ed:Arc ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="270" Height="80" Width="80" StartAngle="0" Fill="#313439">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-80"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <ed:Arc ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Height="80" Width="80" Margin="0" Stretch="None" StartAngle="0" Fill="#00FFFD">
+                                <ed:Arc.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform X="-80"></TranslateTransform>
+                                        <ScaleTransform ScaleX="-1" ScaleY="1"></ScaleTransform>
+                                        <SkewTransform AngleY="0" AngleX="0"></SkewTransform>
+                                        <RotateTransform Angle="0"></RotateTransform>
+                                    </TransformGroup>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                        </Grid>
                     </Viewbox>
                 </ControlTemplate>
             </Setter.Value>

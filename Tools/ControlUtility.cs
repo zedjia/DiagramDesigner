@@ -51,9 +51,12 @@ namespace DiagramDesigner.Tools
             //return rtb2;
             string rectXaml = XamlWriter.Save(control);
             StringReader stringReader = new StringReader(rectXaml);
-            XmlReader xmlReader = XmlReader.Create(stringReader);
-            T clonedChild = (T)XamlReader.Load(xmlReader);
-            return clonedChild;
+
+            //XmlReader xmlReader = XmlReader.Create(stringReader);
+            //T clonedChild = (T)XamlReader.Load(xmlReader);
+
+            var xamlReader = XamlReader.Parse(rectXaml) as T;
+            return xamlReader;
         }
     }
 }

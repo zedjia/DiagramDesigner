@@ -176,6 +176,7 @@
     <Compile Include="CustomControls\Charts\SingleLineChart.cs" />
     <Compile Include="CustomControls\Charts\StackedAreaViewModel.cs" />
     <Compile Include="CustomControls\Charts\StackedSplineAreaChart.cs" />
+    <Compile Include="CustomControls\Charts\ThreeCircleChart.cs" />
     <Compile Include="CustomControls\Charts\ThreeStackedAreaChart.cs" />
     <Compile Include="CustomControls\Charts\ThreeStackedAreaViewModel.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
@@ -471,6 +472,7 @@
     <Resource Include="Resources\Pictures\微信.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Pictures\圆圈.png" />
     <Resource Include="Resources\Pictures\left-shadow.png" />
     <Resource Include="Resources\Pictures\right-shadow.png" />
     <Resource Include="Resources\Pictures\模式.png" />
@@ -493,6 +495,21 @@
     <Resource Include="Resources\Images\ApiSave.png" />
     <Resource Include="Resources\Pictures\直方框.png" />
     <Resource Include="Resources\Images\ApiDelete.png" />
+    <Resource Include="Resources\icons\人群.png" />
+    <Resource Include="Resources\icons\人脸识别.png" />
+    <Resource Include="Resources\icons\可燃气体.png" />
+    <Resource Include="Resources\icons\地震.png" />
+    <Resource Include="Resources\icons\安防警报.png" />
+    <Resource Include="Resources\icons\敏感人群.png" />
+    <Resource Include="Resources\icons\水.png" />
+    <Resource Include="Resources\icons\水电.png" />
+    <Resource Include="Resources\icons\消防工程.png" />
+    <Resource Include="Resources\icons\电.png" />
+    <Resource Include="Resources\icons\电梯.png" />
+    <Resource Include="Resources\icons\电梯正常.png" />
+    <Resource Include="Resources\icons\红外线.png" />
+    <Resource Include="Resources\icons\消防预报.png" />
+    <Resource Include="Resources\icons\用电量.png" />
     <Content Include="Resources\Images\ApiEdit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

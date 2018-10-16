@@ -52,6 +52,18 @@ namespace DiagramDesigner.CustomControls.Labels
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ImageOneLineLabel), new FrameworkPropertyMetadata(typeof(ImageOneLineLabel)));
         }
 
+        [DisplayName("整体高度")]
+        public double CrtlHeight
+        {
+            get { return (double)GetValue(CrtlHeightProperty); }
+            set { SetValue(CrtlHeightProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CrtlHeight.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CrtlHeightProperty =
+            DependencyProperty.Register("CrtlHeight", typeof(double), typeof(ImageOneLineLabel), new PropertyMetadata(50.0));
+
+
         [DisplayName("图片路径")]
         public ImageSource ImageUrl
         {
