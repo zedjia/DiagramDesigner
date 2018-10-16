@@ -231,6 +231,10 @@
       <DependentUpon>SqlConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SuspensionWD\DsSuspensionWD.cs" />
+    <Compile Include="Windows\WindDataSource\DataSourceConfigView.xaml.cs">
+      <DependentUpon>DataSourceConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindDataSource\DataSourceConfigViewModel.cs" />
     <Compile Include="Windows\WindDataSource\DataSourceView.xaml.cs">
       <DependentUpon>DataSourceView.xaml</DependentUpon>
     </Compile>
@@ -366,6 +370,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DataSourceWD\SqlConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindDataSource\DataSourceConfigView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
