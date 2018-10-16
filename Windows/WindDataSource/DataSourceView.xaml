@@ -193,7 +193,7 @@
                 </TabItem>-->
             </TabControl>
             <!--<DataGrid></DataGrid>-->
-                <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Visible"></DataGrid>
+                <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="290"></DataGrid>
             </StackPanel>
         </TabItem>
     </TabControl>
