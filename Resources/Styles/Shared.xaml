@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- Toolbar Brushes -->
-  <SolidColorBrush x:Key="ToolbarBorderBrush" Color="#ffc5d2df"/>
-  <SolidColorBrush x:Key="ToolbarDarkBorderBrush" Color="#ffc1d9f1"/>  
-  <SolidColorBrush x:Key="ToolbarTextBrush" Color="#ff15428b"/>
-  <SolidColorBrush x:Key="ToolbarGroupHeaderBrush" Color="#200077EF"/>
+    <SolidColorBrush x:Key="ToolbarBorderBrush" Color="#222528"/>
+    <SolidColorBrush x:Key="ToolbarDarkBorderBrush" Color="#222528"/>
+    <SolidColorBrush x:Key="ToolbarTextBrush" Color="#B7C4CF"/>
+  <SolidColorBrush x:Key="ToolbarGroupHeaderBrush" Color="#222528"/>
 
   <LinearGradientBrush x:Key="ToolbarBrush" ColorInterpolationMode="ScRgbLinearInterpolation" StartPoint="0,0" EndPoint="0,1">
     <GradientStop Color="#D7E3F2" Offset="0.1"/>
@@ -92,9 +92,9 @@
 
   <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
 
-  <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#222528" />
 
-  <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF" />
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#222528" />
 
   <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#DDD" />
 

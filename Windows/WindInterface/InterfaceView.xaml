@@ -18,15 +18,16 @@
             <RowDefinition Height="220"></RowDefinition>
             <RowDefinition Height="200"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 10 10 0">
             <Label Content="别       名："></Label>
             <TextBox Width="100" Text="{Binding SelectedInterfaceModel.IFAlias}"></TextBox>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 10 0">
             <Label Content="接口地址："></Label>
             <TextBox Width="500" Text="{Binding SelectedInterfaceModel.IFUrl}"></TextBox>
             <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
         </StackPanel>
+
 
         <Grid Margin="6 5" Grid.Row="2" >
             <Grid.ColumnDefinitions>
@@ -45,9 +46,11 @@
             <Button  Content="新增" HorizontalAlignment="Left" Width="60"  Height="25"  Command="{Binding AddConfigCmd}"></Button>
             <Button  Content="保存" HorizontalAlignment="Center" Width="60" Height="25"  Command="{Binding SaveConfigCmd}"></Button>
 
-            --><!--<btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiNew.png" Text="新增" ImageHeight="30" ImageWidth="30" Margin="10 0 0 -10" Command="{Binding AddConfigCmd}"></btn:BottomTxtImageBtn>
+            -->
+        <!--<btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiNew.png" Text="新增" ImageHeight="30" ImageWidth="30" Margin="10 0 0 -10" Command="{Binding AddConfigCmd}"></btn:BottomTxtImageBtn>
             <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiSave.png" Text="保存" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding SaveConfigCmd}"></btn:BottomTxtImageBtn>
-            <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiDelete.png" Text="删除" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=SelectedInterfaceModel}"></btn:BottomTxtImageBtn>--><!--
+            <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiDelete.png" Text="删除" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=SelectedInterfaceModel}"></btn:BottomTxtImageBtn>-->
+        <!--
         </StackPanel>-->
         <!--暂时只做Get请求，参数可写在ur中-->
         <StackPanel Grid.Row="3" Margin="10">
@@ -100,6 +103,6 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        
+
     </Grid>
 </Window>

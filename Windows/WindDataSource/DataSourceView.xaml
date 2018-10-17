@@ -22,7 +22,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0">
                     <Label Content="1.请配置数据源别名" Width="220" HorizontalAlignment="Left" Margin="8 5 0 5" FontSize="16"></Label>
-                    <Border BorderBrush="#ccc" BorderThickness="1">
+                    <Border BorderBrush="#ccc" BorderThickness="1" Margin="10 0 10 0">
                         <Grid Margin="6 10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"></ColumnDefinition>
@@ -35,39 +35,36 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1">
                     <Label Content="2.请选择要配置的源数据库类型" Margin="8 5 0 5" FontSize="16"></Label>
-                    <ListBox x:Name="Lst" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10 0 10 0" ItemsSource="{Binding DbTypeList}" Height="75">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding SelectionChangedCmd}" CommandParameter="{Binding ElementName=Lst}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <ListBox.Template>
-                            <ControlTemplate>
-                                <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
-                            </ControlTemplate>
-                        </ListBox.Template>
-                        <!--<ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="4"/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>-->
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Width="130" Height="30" Margin="25 0 0 0">
-                                    <RadioButton x:Name="radioBtn" FontSize="14" GroupName="area" VerticalAlignment="Center">
-                                        <RadioButton.IsChecked>
-                                            <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay" />
-                                        </RadioButton.IsChecked>
-                                    </RadioButton>
-                                    <Label Content="{Binding Name}" VerticalAlignment="Center"></Label>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                    <Border Margin="10 0 10 0" BorderBrush="#B8B8B8" BorderThickness="1">
+                        <ListBox x:Name="Lst" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding DbTypeList}" Height="75">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SelectionChangedCmd}" CommandParameter="{Binding ElementName=Lst}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <ListBox.Template>
+                                <ControlTemplate>
+                                    <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                                </ControlTemplate>
+                            </ListBox.Template>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Width="130" Height="30" Margin="25 0 0 0">
+                                        <RadioButton x:Name="radioBtn" FontSize="14" GroupName="area" VerticalAlignment="Center">
+                                            <RadioButton.IsChecked>
+                                                <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay" />
+                                            </RadioButton.IsChecked>
+                                        </RadioButton>
+                                        <Label Content="{Binding Name}" VerticalAlignment="Center"></Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <Label Content="3.请配置源数据库的连接字符串" Width="220" HorizontalAlignment="Left" Margin="8 5 0 5" FontSize="16"></Label>
-                    <Border BorderBrush="#ccc" BorderThickness="1">
+                    <Border BorderBrush="#ccc" BorderThickness="1" Margin="10 0 10 0">
                         <Grid Margin="6 10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"></ColumnDefinition>
@@ -83,7 +80,7 @@
                     </Border>
                 </StackPanel>
                 <StackPanel Grid.Row="3">
-                    <Border BorderBrush="#ccc" BorderThickness="1">
+                    <Border BorderBrush="#ccc" BorderThickness="0">
                         <Grid Margin="6 10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width=".3*"></ColumnDefinition>

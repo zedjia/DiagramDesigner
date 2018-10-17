@@ -72,7 +72,7 @@ namespace DiagramDesigner.CustomControls.Charts
 
         // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NumberColorProperty =
-            DependencyProperty.Register("NumberColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("NumberColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         [DisplayName("单位")]
         public string Unit
@@ -94,7 +94,7 @@ namespace DiagramDesigner.CustomControls.Charts
 
         // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UnitColorProperty =
-            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         [DisplayName("名称")]
         public string TypeName
@@ -116,7 +116,7 @@ namespace DiagramDesigner.CustomControls.Charts
 
         // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TypeNameColorProperty =
-            DependencyProperty.Register("TypeNameColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("TypeNameColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         [DisplayName("底图颜色")]
         public Brush BackColor

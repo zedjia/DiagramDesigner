@@ -8,15 +8,16 @@
   <!-- SimpleStyles: ToolBarGroupBox -->
   <Style x:Key="ToolbarGroup"  TargetType="GroupBox">
     <Setter Property="Foreground" Value="{DynamicResource ToolbarTextBrush}"/>
+    <Setter Property="Background" Value="#222528"></Setter>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="GroupBox">
-          <Grid>
+           <Grid Background="#222528">
             <Grid.RowDefinitions>
               <RowDefinition Height="*"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Rectangle Stroke="GhostWhite" StrokeThickness="1" Margin="1,1,-1,0" RadiusX="3" RadiusY="3" Grid.RowSpan="2"/>
+            <Rectangle Stroke="#222528" StrokeThickness="1" Margin="1,1,-1,0" RadiusX="3" RadiusY="3" Grid.RowSpan="2"/>
             <Border Grid.Row="0"
                     BorderBrush="{StaticResource ToolbarBorderBrush}"
                     BorderThickness="1,1,1,0"
@@ -45,15 +46,15 @@
     <Setter Property="SnapsToDevicePixels" Value="true"/>
     <Setter Property="OverridesDefaultStyle" Value="true"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
-    <Setter Property="VerticalContentAlignment" Value="Center"/>
-    <Setter Property="Template">
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ButtonBase}">
           <Border
             x:Name="Border"
-            BorderThickness="1"
-            Background="Transparent"
-            BorderBrush="Transparent"
+            BorderThickness="0"
+            Background="#222528"
+            BorderBrush="#222528"
             CornerRadius="3">
             <ContentPresenter
               Margin="{TemplateBinding Padding}"

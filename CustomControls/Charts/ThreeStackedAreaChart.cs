@@ -100,7 +100,7 @@ namespace DiagramDesigner.CustomControls.Charts
 
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty XColorProperty =
-            DependencyProperty.Register("XColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("XColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         /// <summary>
         /// Y轴文字颜色
@@ -113,6 +113,6 @@ namespace DiagramDesigner.CustomControls.Charts
 
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty YColorProperty =
-            DependencyProperty.Register("YColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+            DependencyProperty.Register("YColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
     }
 }

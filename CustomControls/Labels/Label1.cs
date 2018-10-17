@@ -85,7 +85,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(Brush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         [DisplayName("文字大小")]
         public double TextSize
@@ -238,7 +238,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UnitColorProperty =
-            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(Label1), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         [DisplayName("单位大小")]
         public double UnitSize

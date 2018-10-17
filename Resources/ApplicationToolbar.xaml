@@ -10,7 +10,7 @@
         <ResourceDictionary Source="Styles/ToolBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <ToolBar x:Key="MyToolbar" Height="120">
+    <StackPanel x:Key="MyToolbar" Height="120" Orientation="Horizontal">
         <!--File-->
         <GroupBox Header="文件" Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3">
             <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -19,7 +19,7 @@
                         Command="{x:Static ApplicationCommands.New}"
                         CommandTarget="{Binding ElementName=MyDesigner}">
                     <Button.Content>
-                        <Grid>
+                        <Grid Background="#222528">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*"/>
                                 <RowDefinition Height="1*"/>
@@ -397,7 +397,7 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
-    </ToolBar>
+    </StackPanel>
 
     <!--API Interface Toolbar-->
     <ToolBar x:Key="ApiToolbar">

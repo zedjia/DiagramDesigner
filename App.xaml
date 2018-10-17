@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Resources/Styles/GroupBox.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/Expander.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/ScrollBar.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ScrollViewerStyle.xaml"/>
                 <ResourceDictionary Source="Resources/ApplicationToolbar.xaml"/>
                 <ResourceDictionary Source="Resources/DesignerItem.xaml"/>
                 <ResourceDictionary Source="Resources/ToolboxItem.xaml"/>
@@ -25,7 +26,7 @@
                 </s:ApplicationLoader>-->
             </ResourceDictionary.MergedDictionaries>
             <!--字体颜色-->
-            <SolidColorBrush x:Key="FontColor" Color="Black"></SolidColorBrush>
+            <SolidColorBrush x:Key="FontColor" Color="#B7C4CF"></SolidColorBrush>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
