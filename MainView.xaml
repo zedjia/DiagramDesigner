@@ -7,11 +7,12 @@
         xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
         xmlns:cmd="clr-namespace:DiagramDesigner.Commands"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
         x:Class="DiagramDesigner.MainView"
         WindowStartupLocation="CenterScreen"
-        Title="智慧园区可视化"
-        Height="1080" Width="1920" Background="Transparent" KeyDown="Window_KeyDown" WindowState="Maximized">
+        Title="智慧园区可视化" x:Name="MainWindow"
+        Height="1080" Width="1920" Background="Transparent" KeyDown="Window_KeyDown" WindowState="Maximized" ResizeMode="NoResize">
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">
             <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
@@ -22,9 +23,6 @@
             <MenuItem Header="Select All" Command="{x:Static s:DesignerCanvas.SelectAll}"/>
         </ContextMenu>
     </Window.Resources>
-    <Window.DataContext>
-        <cmd:PropertyGridCommand></cmd:PropertyGridCommand>
-    </Window.DataContext>
     <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -33,7 +31,39 @@
 
         <ContentControl Content="{StaticResource MyToolbar}"/>
 
-        <GroupBox Header="其它" Style="{StaticResource ToolbarGroup}" Margin="160 0 0 0" Width="100" Height="110">
+        <GroupBox Header="分辨率" Style="{StaticResource ToolbarGroup}" Margin="200 0 0 0" Width="150" Height="110">
+            <GroupBox.DataContext>
+                <s:MainViewModel></s:MainViewModel>
+            </GroupBox.DataContext>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="宽度："></Label>
+                    <TextBox x:Name="WidthTxt" Width="100" Text="1920">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding WidthChangedCmd}" CommandParameter="{Binding ElementName=MainWindow}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="高度："></Label>
+                    <TextBox x:Name="HeightTxt" Width="100" Text="1080">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding HeightChangedCmd}" CommandParameter="{Binding ElementName=MainWindow}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Header="其它" Style="{StaticResource ToolbarGroup}" Margin="460 0 0 0" Width="100" Height="110">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -73,7 +103,6 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
-
         <!--<Button Width="60" Height="80" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Hand" Click="Button_Click">
             <Button.Template>
                 <ControlTemplate>
@@ -134,6 +163,9 @@
                 <GridSplitter Focusable="False" Width="2" Background="LightGray"
                     VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
                 <dxprg:PropertyGridControl x:Name="PropertyGridCard" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 0 0 0">
+                    <dxprg:PropertyGridControl.DataContext>
+                        <cmd:PropertyGridCommand></cmd:PropertyGridCommand>
+                    </dxprg:PropertyGridControl.DataContext>
                     <dxprg:PropertyDefinition Type="model:SingleHisDataSource">
                         <dxprg:PropertyDefinition.MenuCustomizations>
                             <dxb:BarButtonItem  Content="数据源" dxb:CollectionAction.Index="0" Command="{Binding SingleHisDSCmd}" CommandParameter="{Binding ElementName=PropertyGridCard}">

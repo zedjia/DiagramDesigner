@@ -6,7 +6,7 @@
         xmlns:map="clr-namespace:DiagramDesigner.CustomControls.Browsers"
         xmlns:local="clr-namespace:DiagramDesigner"
         mc:Ignorable="d"
-        Title="PreviewView" Height="1080" Width="1920" WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" KeyDown="Window_KeyDown">
+        Title="PreviewView" WindowState="Normal" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" KeyDown="Window_KeyDown">
     <Canvas x:Name="Canvas">
         <!--<map:CefSharpBrowser></map:CefSharpBrowser>-->
     </Canvas>

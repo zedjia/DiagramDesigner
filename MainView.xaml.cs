@@ -84,7 +84,11 @@ namespace DiagramDesigner
                     previewView.Canvas.Children.Add(cloneControl);
                 }
             }
-
+            previewView.Height = this.MyDesigner.Height;
+            previewView.Width = this.MyDesigner.Width;
+            previewView.WindowStartupLocation = WindowStartupLocation.Manual;
+            previewView.Left = 0;
+            previewView.Top = 0;
             previewView.Topmost = true;
             previewView.Show();
 
