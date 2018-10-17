@@ -529,6 +529,9 @@
     <Resource Include="Resources\icons\红外线.png" />
     <Resource Include="Resources\icons\消防预报.png" />
     <Resource Include="Resources\icons\用电量.png" />
+    <Resource Include="Resources\icons\选择.png" />
+    <Resource Include="Resources\icons\删除.png" />
+    <Resource Include="Resources\icons\编辑.png" />
     <Content Include="Resources\Images\ApiEdit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
