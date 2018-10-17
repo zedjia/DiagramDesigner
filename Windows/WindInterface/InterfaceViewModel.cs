@@ -13,19 +13,20 @@ using DiagramDesigner.Helper;
 using DiagramDesigner.Models;
 using DiagramDesigner.Services;
 using Newtonsoft.Json;
+using DiagramDesigner.CustomControls.Charts;
 
 namespace DiagramDesigner.Windows.WindInterface
 {
     [AddINotifyPropertyChangedInterface]
     public class InterfaceViewModel
     {
+        public IChartViewModel ChartViewModel { get; set; }
         public InterfaceModel SelectedInterfaceModel { get; set; } = new InterfaceModel();
         public ObservableCollection<InterfaceModel> InterfaceModels { get; set; }
         public InterfaceViewModel()
         {
             InterfaceModels = FileDataServices.GetDataModelFromFile<ObservableCollection<InterfaceModel>>(FileDataServices.INTERFACEFILENAME);
             InterfaceModels = InterfaceModels ?? new ObservableCollection<InterfaceModel>();
-
             //InterfaceModels = new ObservableCollection<InterfaceModel>()
             //{
             //    new InterfaceModel(){ IFAlias="test",IFUrl="127.0.0.1"},
@@ -108,8 +109,19 @@ namespace DiagramDesigner.Windows.WindInterface
                 this.InterfaceModels.Remove(model);
             }
         }
-        
 
+        /// <summary>
+        /// 选择
+        /// </summary>
+        public ICommand SelectConfigCmd => new DelegateCommand<InterfaceModel>(SelectConfig);
+
+        void SelectConfig(InterfaceModel model)
+        {
+            if (TestResult != null && TestResult.Rows.Count > 0)
+            {
+                ChartViewModel.DataTable = TestResult;
+            }
+        }
 
 
         public bool CloseForm()

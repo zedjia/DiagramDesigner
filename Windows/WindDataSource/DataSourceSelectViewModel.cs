@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 namespace DiagramDesigner.Windows.WindDataSource
 {
     [AddINotifyPropertyChangedInterface]
-    public class DataSourceConfigViewModel
+    public class DataSourceSelectViewModel
     {
         public DataTable SqlExecResult { get; set; }
         public ObservableCollection<DataSourceModel> dataSourceModels { get; set; }
-        public DataSourceConfigViewModel()
+        public DataSourceSelectViewModel()
         {
             SqlExecResult = new DataTable();
 

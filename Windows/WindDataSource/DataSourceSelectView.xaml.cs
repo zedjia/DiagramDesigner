@@ -20,14 +20,14 @@ namespace DiagramDesigner.Windows.WindDataSource
     /// <summary>
     /// DataSourceConfigView.xaml 的交互逻辑
     /// </summary>
-    public partial class DataSourceConfigView : Window
+    public partial class DataSourceSelectView : Window
     {
         private IChartViewModel ChartViewModel;
-        public DataSourceConfigView()
+        public DataSourceSelectView()
         {
             InitializeComponent();
         }
-        public DataSourceConfigView(IChartViewModel chartViewModel)
+        public DataSourceSelectView(IChartViewModel chartViewModel)
         {
             InitializeComponent();
 
@@ -36,7 +36,7 @@ namespace DiagramDesigner.Windows.WindDataSource
 
         private void dataSourceTabContrl_Loaded(object sender, RoutedEventArgs e)
         {
-            DataSourceConfigViewModel Context = this.DataContext as DataSourceConfigViewModel;
+            DataSourceSelectViewModel Context = this.DataContext as DataSourceSelectViewModel;
 
             var dataSources = Context.dataSourceModels.OrderBy(i => i.Sort);
             foreach (var dataSourceModel in dataSources)

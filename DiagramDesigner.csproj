@@ -235,14 +235,18 @@
       <DependentUpon>SqlConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SuspensionWD\DsSuspensionWD.cs" />
-    <Compile Include="Windows\WindDataSource\DataSourceConfigView.xaml.cs">
-      <DependentUpon>DataSourceConfigView.xaml</DependentUpon>
+    <Compile Include="Windows\WindDataSource\DataSourceSelectView.xaml.cs">
+      <DependentUpon>DataSourceSelectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindDataSource\DataSourceConfigViewModel.cs" />
+    <Compile Include="Windows\WindDataSource\DataSourceSelectViewModel.cs" />
     <Compile Include="Windows\WindDataSource\DataSourceView.xaml.cs">
       <DependentUpon>DataSourceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WindDataSource\DataSourceViewBindingModel.cs" />
+    <Compile Include="Windows\WindInterface\InterfaceSelectView.xaml.cs">
+      <DependentUpon>InterfaceSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindInterface\InterfaceSelectViewModel.cs" />
     <Compile Include="Windows\WindInterface\InterfaceView.xaml.cs">
       <DependentUpon>InterfaceView.xaml</DependentUpon>
     </Compile>
@@ -377,13 +381,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindDataSource\DataSourceConfigView.xaml">
+    <Page Include="Windows\WindDataSource\DataSourceSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\WindDataSource\DataSourceView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindInterface\InterfaceSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\WindInterface\InterfaceView.xaml">
       <Generator>MSBuild:Compile</Generator>

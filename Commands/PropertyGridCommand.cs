@@ -70,7 +70,7 @@ namespace DiagramDesigner.Commands
                 if (chartControl != null)
                 {
                     IChartViewModel singleHisViewModel = chartControl.ChartViewModel;
-                    DataSourceConfigView dataSourceConfigView = new DataSourceConfigView(singleHisViewModel);
+                    DataSourceSelectView dataSourceConfigView = new DataSourceSelectView(singleHisViewModel);
                     OpenConfigWindow(propertyGridControl, dataSourceConfigView);
                 }
             }
@@ -87,7 +87,7 @@ namespace DiagramDesigner.Commands
                 if (chartControl != null)
                 {
                     IChartViewModel singleHisViewModel = chartControl.ChartViewModel;
-                    InterfaceView interfaceView = new InterfaceView();
+                    InterfaceSelectView interfaceView = new InterfaceSelectView(singleHisViewModel);
                     OpenConfigWindow(propertyGridControl, interfaceView);
                 }
             }

@@ -1,0 +1,75 @@
+﻿<Window x:Class="DiagramDesigner.Windows.WindInterface.InterfaceSelectView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
+        mc:Ignorable="d"
+        Title="选择数据接口"  Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
+    <Window.DataContext>
+        <local:InterfaceSelectViewModel></local:InterfaceSelectViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="220"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
+            <Label Content="别       名："></Label>
+            <TextBox Width="100" Text="{Binding SelectedInterfaceModel.IFAlias}" IsEnabled="False"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
+            <Label Content="接口地址："></Label>
+            <TextBox Width="500" Text="{Binding SelectedInterfaceModel.IFUrl}" IsEnabled="False"></TextBox>
+            <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
+        </StackPanel>
+
+        <Grid Margin="6 5" Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*"></ColumnDefinition>
+                <ColumnDefinition Width=".4*"></ColumnDefinition>
+                <ColumnDefinition Width=".3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Content="选择" HorizontalAlignment="Center" Width="60"   Command="{Binding SelectConfigCmd}"></Button>
+        </Grid>
+        <!--暂时只做Get请求，参数可写在ur中-->
+        <StackPanel Grid.Row="3" Margin="10">
+            <Border></Border>
+            <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
+            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="170" CanUserAddRows="False" IsReadOnly="True"></DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Margin="10">
+            <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
+            <Label Content="接口列表:" Margin="0 0 0 10"></Label>
+            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="序号" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--上面可加上选择框-->
+                                <Label ></Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding IFAlias}"/>
+                    <DataGridTextColumn Header="接口地址" Width="*" Binding="{Binding IFUrl}"/>
+                    <DataGridTemplateColumn Header="选择" Width="40">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="BtnEdit" Width="30" Height="25" Command="{Binding DataContext.EditConfigCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}" BorderThickness="0">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="../../Resources/Images/ApiEdit.png"></ImageBrush>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+    </Grid>
+</Window>

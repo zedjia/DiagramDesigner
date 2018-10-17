@@ -50,16 +50,16 @@
             <btn:BottomTxtImageBtn ImageUrl="../../Resources/Images/ApiDelete.png" Text="删除" ImageHeight="30" ImageWidth="30" Margin="20 0 0 -10" Command="{Binding DeleteConfigCmd}" CommandParameter="{Binding ElementName=SelectedInterfaceModel}"></btn:BottomTxtImageBtn>--><!--
         </StackPanel>-->
         <!--暂时只做Get请求，参数可写在ur中-->
-        <StackPanel Grid.Row="3">
+        <StackPanel Grid.Row="3" Margin="10">
             <Border></Border>
             <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
             <!--<TextBox Width="650" Height="55"  Text="{Binding TestResult}" HorizontalAlignment="Left" Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>-->
-            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="290"></DataGrid>
+            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="170"></DataGrid>
         </StackPanel>
-        <StackPanel Grid.Row="4">
+        <StackPanel Grid.Row="4" Margin="10">
             <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
-            
-            <DataGrid Name="dataGrid1"  AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
+            <Label Content="接口列表:" Margin="0 0 0 10"></Label>
+            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
