@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,5 +51,16 @@ namespace DiagramDesigner.CustomControls.Buttons
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CenterTxtImageBtn), new FrameworkPropertyMetadata(typeof(CenterTxtImageBtn)));
         }
+
+        [DisplayName("文字颜色")]
+        public Brush TextColor
+        {
+            get { return (Brush)GetValue(TextColorProperty); }
+            set { SetValue(TextColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextColorProperty =
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(CenterTxtImageBtn), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
     }
 }

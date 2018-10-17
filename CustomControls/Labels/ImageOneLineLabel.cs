@@ -73,7 +73,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageUrlProperty =
-            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(ImageOneLineLabel), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/微信.png"))));
+            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(ImageOneLineLabel), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/preview.png"))));
 
         [DisplayName("图片高度")]
         public double ImageHeight
@@ -131,7 +131,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(Brush), typeof(ImageOneLineLabel), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(ImageOneLineLabel), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("文字大小")]
         public double TextSize
@@ -202,7 +202,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty StatusColorProperty =
-            DependencyProperty.Register("StatusColor", typeof(Brush), typeof(ImageOneLineLabel), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("StatusColor", typeof(Brush), typeof(ImageOneLineLabel), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("状态文字大小")]
         public double StatusSize
@@ -273,7 +273,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UnitColorProperty =
-            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(ImageOneLineLabel), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(ImageOneLineLabel), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("单位大小")]
         public double UnitSize

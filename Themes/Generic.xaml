@@ -18,6 +18,7 @@
                     xmlns:lgd="clr-namespace:DiagramDesigner.CustomControls.Legends"
                     xmlns:brs="clr-namespace:DiagramDesigner.CustomControls.Browsers"
                     xmlns:cvt="clr-namespace:DiagramDesigner.Converters"
+                    xmlns:grid="clr-namespace:DiagramDesigner.CustomControls.DataGrids"
                     xmlns:local="clr-namespace:DiagramDesigner.CustomControls">
 
     <Storyboard x:Key="Storyboard">
@@ -326,9 +327,9 @@
                     <Viewbox>
                         <Grid Height="100" Width="100">
                             <Grid.Background>
-                                <ImageBrush ImageSource="../Resources/Pictures/box.png"></ImageBrush>
+                                <ImageBrush ImageSource="../Resources/Pictures/preview.png"></ImageBrush>
                             </Grid.Background>
-                            <TextBlock x:Name="TextBlock" Foreground="{DynamicResource FontColor}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">
+                            <TextBlock x:Name="TextBlock" Foreground="{TemplateBinding TextColor}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">
                                     <Label Foreground="{Binding Path=Foreground,ElementName=TextBlock}">交通</Label>
                                     <LineBreak></LineBreak>
                                     <Label Foreground="{Binding Path=Foreground,ElementName=TextBlock}">体系</Label>
@@ -392,7 +393,7 @@
                                             <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
                                                 <dxc:AxisX2D.Label>
-                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                    <dxc:AxisLabel Foreground="{TemplateBinding XColor}" FontSize="18"/>
                                                 </dxc:AxisX2D.Label>
                                                 <!--<dxc:AxisX2D.WholeRange>
                                 <dxc:Range SideMarginsValue="0" />
@@ -402,7 +403,7 @@
                                         <dxc:XYDiagram2D.AxisY>
                                             <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
                                                 <dxc:AxisY2D.Label>
-                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                    <dxc:AxisLabel Foreground="{TemplateBinding YColor}" FontSize="18"/>
                                                 </dxc:AxisY2D.Label>
                                                 <!--<dxc:AxisY2D.Title>
                                 <dxc:AxisTitle Content="Millions of Dollars" />
@@ -507,9 +508,9 @@
                                 </ed:Arc.RenderTransform>
                             </ed:Arc>
                             <!--数据-->
-                            <Label Content="{TemplateBinding Number}" Foreground="{DynamicResource FontColor}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-                            <Label Content="{TemplateBinding Unit}" Foreground="{DynamicResource FontColor}" FontSize="16" Margin="0 100 0 0" HorizontalAlignment="Center"></Label>
-                            <Label Content="{TemplateBinding TypeName}" Foreground="{DynamicResource FontColor}" FontSize="20"  HorizontalAlignment="Center" Margin="0 150 0 0"></Label>
+                            <Label Content="{TemplateBinding Number}" Foreground="{TemplateBinding NumberColor}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{TemplateBinding Unit}" Foreground="{TemplateBinding UnitColor}" FontSize="16" Margin="0 100 0 0" HorizontalAlignment="Center"></Label>
+                            <Label Content="{TemplateBinding TypeName}" Foreground="{TemplateBinding TypeNameColor}" FontSize="20"  HorizontalAlignment="Center" Margin="0 150 0 0"></Label>
                         </Grid>
                     </Viewbox>
                     <ControlTemplate.Triggers>
@@ -527,22 +528,19 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:DoubleHisChart}">
                     <Viewbox>
-                        <Grid Background="Transparent" Width="800" Height="600">
-                            <Grid.DataContext>
-                                <chart:DoubleHisViewModel></chart:DoubleHisViewModel>
-                            </Grid.DataContext>
+                        <Grid Background="Transparent" Width="800" Height="600" DataContext="{TemplateBinding ChartViewModel}">
                             <!--柱状图-->
                             <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{Binding DataTable}">
                                 <dxc:ChartControl.Palette>
                                     <dxc:DXChartsPalette></dxc:DXChartsPalette>
                                 </dxc:ChartControl.Palette>
 
-                                <dxc:XYDiagram2D BarDistance="0.05" Rotated="True">
+                                <dxc:XYDiagram2D BarDistance="0.05" Rotated="{TemplateBinding IsRotated}">
 
                                     <dxc:XYDiagram2D.AxisX>
                                         <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
                                             <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="{TemplateBinding XColor}" FontSize="18"/>
                                             </dxc:AxisX2D.Label>
                                         </dxc:AxisX2D>
                                     </dxc:XYDiagram2D.AxisX>
@@ -551,7 +549,7 @@
                                         <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
                                             <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="{TemplateBinding YColor}" FontSize="18"/>
                                             </dxc:AxisY2D.Label>
                                             <!--<dxc:AxisY2D.CustomLabels>
                             <dxc:CustomAxisLabel Content="0" Value="0"/>
@@ -565,7 +563,7 @@
                                     <dxc:XYDiagram2D.DefaultPane>
                                         <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
                                     </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:BarSideBySideSeries2D Brush="#32C4FF" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value1">
+                                    <dxc:BarSideBySideSeries2D Brush="{TemplateBinding ChartColor1}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value1">
 
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
@@ -587,7 +585,7 @@
                                         </dxc:BarSideBySideSeries2D.Points>-->
                                     </dxc:BarSideBySideSeries2D>
 
-                                    <dxc:BarSideBySideSeries2D Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value2">
+                                    <dxc:BarSideBySideSeries2D Brush="{TemplateBinding ChartColor2}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}" ArgumentDataMember="Argument" ValueDataMember="Value2">
 
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
@@ -634,7 +632,7 @@
                                     <dxc:XYDiagram2D.AxisX>
                                         <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
                                             <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="{TemplateBinding XColor}" FontSize="18"/>
                                             </dxc:AxisX2D.Label>
                                         </dxc:AxisX2D>
                                     </dxc:XYDiagram2D.AxisX>
@@ -643,7 +641,7 @@
                                         <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
                                             <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="{TemplateBinding YColor}" FontSize="18"/>
                                             </dxc:AxisY2D.Label>
                                             <!--<dxc:AxisY2D.CustomLabels>
                             <dxc:CustomAxisLabel Content="0" Value="0"/>
@@ -657,7 +655,8 @@
                                     <dxc:XYDiagram2D.DefaultPane>
                                         <dxc:Pane DomainBrush="Transparent" DomainBorderBrush="Transparent"></dxc:Pane>
                                     </dxc:XYDiagram2D.DefaultPane>
-                                    <dxc:BarSideBySideSeries2D Brush="#32C4FF" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
+
+                                    <dxc:BarSideBySideSeries2D Brush="{TemplateBinding ChartColor}" BarWidth="0.2" CrosshairLabelPattern="{}{S} : {V} 个" DisplayName="{TemplateBinding DisplayName}">
 
                                         <dxc:BarSideBySideSeries2D.Model>
                                             <dxc:BorderlessSimpleBar2DModel/>
@@ -680,11 +679,7 @@
                                     </dxc:BarSideBySideSeries2D>
                                     <!--面状图-->
                                     <dxc:SplineAreaStackedSeries2D DisplayName="2004" LineTension="0.8"
-                                                       Transparency="0.4">
-
-                                        <dxc:SplineAreaStackedSeries2D.Brush>
-                                            <SolidColorBrush Color="#00A5FB"></SolidColorBrush>
-                                        </dxc:SplineAreaStackedSeries2D.Brush>
+                                                       Transparency="0.4" Brush="{TemplateBinding AreaColor}">
 
                                         <dxc:SplineAreaStackedSeries2D.Points>
                                             <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
@@ -730,12 +725,9 @@
                                 <dxc:ChartControl.Diagram>
                                     <dxc:XYDiagram2D>
                                         <dxc:XYDiagram2D.Series>
-                                            <dxc:AreaSeries2D DisplayName="2004"
-                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value1">
 
-                                                <dxc:AreaSeries2D.Brush>
-                                                    <SolidColorBrush Color="#91E9FD"></SolidColorBrush>
-                                                </dxc:AreaSeries2D.Brush>
+                                            <dxc:AreaSeries2D DisplayName="2004"
+                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value1" Brush="{TemplateBinding AreaColor1}">
 
                                                 <!--<dxc:SplineAreaStackedSeries2D.Points>
                                                     <dxc:SeriesPoint Argument="Illinois" Value="528.904" />
@@ -750,11 +742,7 @@
                                             </dxc:AreaSeries2D>
 
                                             <dxc:AreaSeries2D DisplayName="2005"
-                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value2">
-
-                                                <dxc:AreaSeries2D.Brush>
-                                                    <SolidColorBrush Color="#38D8FD"></SolidColorBrush>
-                                                </dxc:AreaSeries2D.Brush>
+                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value2" Brush="{TemplateBinding AreaColor2}">
 
                                                 <!--<dxc:SplineAreaStackedSeries2D.Points>
                                                     <dxc:SeriesPoint Argument="Illinois" Value="522" />
@@ -769,11 +757,7 @@
                                             </dxc:AreaSeries2D>
 
                                             <dxc:AreaSeries2D DisplayName="2006"
-                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value3">
-
-                                                <dxc:AreaSeries2D.Brush>
-                                                    <SolidColorBrush Color="#00C3EE"></SolidColorBrush>
-                                                </dxc:AreaSeries2D.Brush>
+                                                       Transparency="0.6" ArgumentDataMember="Argument" ValueDataMember="Value3" Brush="{TemplateBinding AreaColor3}">
 
                                                 <!--<dxc:SplineAreaStackedSeries2D.Points>
                                                     <dxc:SeriesPoint Argument="Illinois" Value="520" />
@@ -795,7 +779,7 @@
                                             <dxc:AxisX2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Brush="#0066AE" GridLinesVisible="True" Thickness="1" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
                                                 <dxc:AxisX2D.Label>
-                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                    <dxc:AxisLabel Foreground="{TemplateBinding XColor}" FontSize="18"/>
                                                 </dxc:AxisX2D.Label>
                                                 <!--<dxc:AxisX2D.WholeRange>
                                 <dxc:Range SideMarginsValue="0" />
@@ -805,7 +789,7 @@
                                         <dxc:XYDiagram2D.AxisY>
                                             <dxc:AxisY2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Thickness="0" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
                                                 <dxc:AxisY2D.Label>
-                                                    <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                    <dxc:AxisLabel Foreground="{TemplateBinding YColor}" FontSize="18"/>
                                                 </dxc:AxisY2D.Label>
                                                 <!--<dxc:AxisY2D.Title>
                                 <dxc:AxisTitle Content="Millions of Dollars" />
@@ -844,7 +828,7 @@
                                     </PathGeometry>
                                 </Path.Data>
                             </Path>
-                            <Label Content="{TemplateBinding Text}" Foreground="White" FontSize="14"></Label>
+                            <Label Content="{TemplateBinding Text}" Foreground="{DynamicResource FontColor}" FontSize="14"></Label>
                         </StackPanel>
                     </Viewbox>
                 </ControlTemplate>
@@ -857,7 +841,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chart:SingleHisChart}">
                     <Viewbox>
-                        <Grid x:Name="Grid" Background="Transparent" Width="700" DataContext="{TemplateBinding DC}">
+                        <Grid x:Name="Grid" Background="Transparent" Width="700" DataContext="{TemplateBinding ChartViewModel}">
                             <!--柱状图-->
                             <dxc:ChartControl x:Name="chart" Grid.Row="2" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" FontSize="16" DataSource="{Binding DataTable}">
                                 <dxc:ChartControl.Palette>
@@ -869,7 +853,7 @@
                                     <dxc:XYDiagram2D.AxisX>
                                         <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Logarithmic="False"  Brush="#0066AE" TickmarksCrossAxis="False">
                                             <dxc:AxisX2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="{TemplateBinding XColor}" FontSize="18"/>
                                             </dxc:AxisX2D.Label>
                                         </dxc:AxisX2D>
                                     </dxc:XYDiagram2D.AxisX>
@@ -878,7 +862,7 @@
                                         <dxc:AxisY2D FlowDirection="RightToLeft" TickmarksMinorVisible="False" Thickness="0" Brush="#0066AE" GridLinesVisible="False" GridLinesBrush="#115789"
                         Interlaced="False" TickmarksVisible="False">
                                             <dxc:AxisY2D.Label>
-                                                <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                                <dxc:AxisLabel Foreground="{TemplateBinding YColor}" FontSize="18"/>
                                             </dxc:AxisY2D.Label>
                                             <!--<dxc:AxisY2D.CustomLabels>
                             <dxc:CustomAxisLabel Content="0" Value="0"/>
@@ -935,7 +919,7 @@
                                 <dxc:XYDiagram2D.AxisX>
                                     <dxc:AxisX2D TickmarksVisible="False" TickmarksMinorVisible="False" Reverse="False" Brush="#0066AE" Thickness="1" Logarithmic="False" TickmarksCrossAxis="False" Foreground="#add2ea">
                                         <dxc:AxisX2D.Label>
-                                            <dxc:AxisLabel Foreground="White" FontSize="18"/>
+                                            <dxc:AxisLabel Foreground="{DynamicResource FontColor}" FontSize="18"/>
                                         </dxc:AxisX2D.Label>
                                         <!--<dxc:AxisX2D.CustomLabels>
                             <dxc:CustomAxisLabel Content="2013" Value="2013"/>
@@ -1057,6 +1041,18 @@
                                 </ed:Arc.RenderTransform>
                             </ed:Arc>
                         </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type grid:DtaGridCommon}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type grid:DtaGridCommon}">
+                    <Viewbox>
+                        <DataGrid ItemsSource="{Binding DataTable}" DataContext="{TemplateBinding DC}"></DataGrid>
                     </Viewbox>
                 </ControlTemplate>
             </Setter.Value>

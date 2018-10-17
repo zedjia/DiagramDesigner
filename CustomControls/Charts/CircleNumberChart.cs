@@ -63,6 +63,17 @@ namespace DiagramDesigner.CustomControls.Charts
         public static readonly DependencyProperty NumberProperty =
             DependencyProperty.Register("Number", typeof(string), typeof(CircleNumberChart), new PropertyMetadata("0"));
 
+        [DisplayName("数字颜色")]
+        public Brush NumberColor
+        {
+            get { return (Brush)GetValue(NumberColorProperty); }
+            set { SetValue(NumberColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NumberColorProperty =
+            DependencyProperty.Register("NumberColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+
         [DisplayName("单位")]
         public string Unit
         {
@@ -74,6 +85,17 @@ namespace DiagramDesigner.CustomControls.Charts
         public static readonly DependencyProperty UnitProperty =
             DependencyProperty.Register("Unit", typeof(string), typeof(CircleNumberChart), new PropertyMetadata("单位"));
 
+        [DisplayName("单位颜色")]
+        public Brush UnitColor
+        {
+            get { return (Brush)GetValue(UnitColorProperty); }
+            set { SetValue(UnitColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UnitColorProperty =
+            DependencyProperty.Register("UnitColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+
         [DisplayName("名称")]
         public string TypeName
         {
@@ -84,6 +106,17 @@ namespace DiagramDesigner.CustomControls.Charts
         // Using a DependencyProperty as the backing store for TypeName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TypeNameProperty =
             DependencyProperty.Register("TypeName", typeof(string), typeof(CircleNumberChart), new PropertyMetadata("名称"));
+
+        [DisplayName("名称颜色")]
+        public Brush TypeNameColor
+        {
+            get { return (Brush)GetValue(TypeNameColorProperty); }
+            set { SetValue(TypeNameColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ForeColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TypeNameColorProperty =
+            DependencyProperty.Register("TypeNameColor", typeof(Brush), typeof(CircleNumberChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("底图颜色")]
         public Brush BackColor

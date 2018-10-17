@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiagramDesigner.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -45,35 +46,64 @@ namespace DiagramDesigner.CustomControls.Charts
     ///     <MyNamespace:DoubleHisChart/>
     ///
     /// </summary>
-    public class DoubleHisChart : Control
+    public class DoubleHisChart : Control,IChartControl
     {
         static DoubleHisChart()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DoubleHisChart), new FrameworkPropertyMetadata(typeof(DoubleHisChart)));
         }
-        [DisplayName("数据源")]
-        public object ChartSource
-        {
-            get { return (object)GetValue(ChartSourceProperty); }
-            set { SetValue(ChartSourceProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ChartSourceProperty =
-            DependencyProperty.Register("ChartSource", typeof(object), typeof(DoubleHisChart), new PropertyMetadata(null));
 
         /// <summary>
-        /// 柱状图颜色
+        /// 第一个柱状图颜色
         /// </summary>
-        public Brush ChartColor
+        public Brush ChartColor1
         {
-            get { return (Brush)GetValue(ChartColorProperty); }
-            set { SetValue(ChartColorProperty, value); }
+            get { return (Brush)GetValue(ChartColor1Property); }
+            set { SetValue(ChartColor1Property, value); }
         }
 
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ChartColorProperty =
-            DependencyProperty.Register("ChartColor", typeof(Brush), typeof(DoubleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
+        public static readonly DependencyProperty ChartColor1Property =
+            DependencyProperty.Register("ChartColor1", typeof(Brush), typeof(DoubleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#32C4FF"))));
+
+        /// <summary>
+        /// 第二个柱状图颜色
+        /// </summary>
+        public Brush ChartColor2
+        {
+            get { return (Brush)GetValue(ChartColor2Property); }
+            set { SetValue(ChartColor2Property, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartColor2Property =
+            DependencyProperty.Register("ChartColor2", typeof(Brush), typeof(DoubleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
+
+        /// <summary>
+        /// X轴文字颜色
+        /// </summary>
+        public Brush XColor
+        {
+            get { return (Brush)GetValue(XColorProperty); }
+            set { SetValue(XColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty XColorProperty =
+            DependencyProperty.Register("XColor", typeof(Brush), typeof(DoubleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+
+        /// <summary>
+        /// Y轴文字颜色
+        /// </summary>
+        public Brush YColor
+        {
+            get { return (Brush)GetValue(YColorProperty); }
+            set { SetValue(YColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty YColorProperty =
+            DependencyProperty.Register("YColor", typeof(Brush), typeof(DoubleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         /// <summary>
         /// 图例文字
@@ -87,5 +117,39 @@ namespace DiagramDesigner.CustomControls.Charts
         // Using a DependencyProperty as the backing store for DisplayName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DisplayNameProperty =
             DependencyProperty.Register("DisplayName", typeof(string), typeof(DoubleHisChart), new PropertyMetadata("图例"));
+
+        [DisplayName("数据源")]
+        public DoubleHisDataSource ChartSource
+        {
+            get { return (DoubleHisDataSource)GetValue(ChartSourceProperty); }
+            set { SetValue(ChartSourceProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartSourceProperty =
+            DependencyProperty.Register("ChartSource", typeof(DoubleHisDataSource), typeof(DoubleHisChart), new PropertyMetadata(null));
+
+
+        [DisplayName("DataContext")]
+        public IChartViewModel ChartViewModel
+        {
+            get { return (IChartViewModel)GetValue(ChartViewModelProperty); }
+            set { SetValue(ChartViewModelProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DC.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartViewModelProperty =
+            DependencyProperty.Register("ChartViewModel", typeof(IChartViewModel), typeof(DoubleHisChart), new PropertyMetadata(new DoubleHisViewModel()));
+
+        [DisplayName("是否旋转")]
+        public bool IsRotated
+        {
+            get { return (bool)GetValue(IsRotatedProperty); }
+            set { SetValue(IsRotatedProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsRotated.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsRotatedProperty =
+            DependencyProperty.Register("IsRotated", typeof(bool), typeof(DoubleHisChart), new PropertyMetadata(true));
     }
 }

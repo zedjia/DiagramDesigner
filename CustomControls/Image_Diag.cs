@@ -61,7 +61,7 @@ namespace DiagramDesigner.CustomControls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageUrlProperty =
-            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(Image_Diag), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/微信.png"))));
+            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(Image_Diag), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/preview.png"))));
 
 
     }

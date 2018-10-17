@@ -64,7 +64,7 @@ namespace DiagramDesigner.CustomControls.Buttons
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageUrlProperty =
-            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(BottomTxtImageBtn), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/微信.png"))));
+            DependencyProperty.Register("ImageUrl", typeof(ImageSource), typeof(BottomTxtImageBtn), new PropertyMetadata(new BitmapImage(new Uri("pack://application:,,,/Resources/Pictures/preview.png"))));
 
         [DisplayName("图片高度")]
         public double ImageHeight
@@ -122,7 +122,7 @@ namespace DiagramDesigner.CustomControls.Buttons
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(Brush), typeof(BottomTxtImageBtn), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(BottomTxtImageBtn), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("文字大小")]
         public double TextSize

@@ -82,7 +82,7 @@ namespace DiagramDesigner.CustomControls
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(SolidColorBrush), typeof(TextBox_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("TextColor", typeof(SolidColorBrush), typeof(TextBox_Diag), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
 
     }

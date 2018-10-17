@@ -15,4 +15,9 @@ namespace DiagramDesigner.Models
     {
 
     }
+
+    public class DoubleHisDataSource : IDataSourceModel
+    {
+
+    }
 }

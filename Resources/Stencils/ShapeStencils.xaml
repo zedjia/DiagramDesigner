@@ -10,6 +10,7 @@
                     xmlns:list="clr-namespace:DiagramDesigner.CustomControls.Lists"
                     xmlns:brs="clr-namespace:DiagramDesigner.CustomControls.Browsers"
                     xmlns:lgd="clr-namespace:DiagramDesigner.CustomControls.Legends"
+                    xmlns:grid="clr-namespace:DiagramDesigner.CustomControls.DataGrids"
                     xmlns:c="clr-namespace:DiagramDesigner.Controls">
 
   <!--<RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
@@ -99,7 +100,7 @@
     </s:Toolbox>
 
     <s:Toolbox x:Key="Button">
-        <btn:CommonButton IsHitTestVisible="False"></btn:CommonButton>
+        <!--<btn:CommonButton IsHitTestVisible="False"></btn:CommonButton>-->
         <cs:Button_Diag IsHitTestVisible="false"></cs:Button_Diag>
         <btn:BottomTxtImageBtn IsHitTestVisible="false"></btn:BottomTxtImageBtn>
         <btn:CenterTxtImageBtn IsHitTestVisible="False"></btn:CenterTxtImageBtn>
@@ -110,7 +111,7 @@
         <img:ImageCommon IsHitTestVisible="False"></img:ImageCommon>
     </s:Toolbox>
     <s:Toolbox x:Key="Table">
-        <cs:DataGrid_Diag IsHitTestVisible="false" ToolTip="DataGrid"></cs:DataGrid_Diag>
+        <grid:DtaGridCommon IsHitTestVisible="false" ToolTip="DataGrid"></grid:DtaGridCommon>
     </s:Toolbox>
     <s:Toolbox x:Key="List_Diag">
         <list:RadioButtonList IsHitTestVisible="False"></list:RadioButtonList>

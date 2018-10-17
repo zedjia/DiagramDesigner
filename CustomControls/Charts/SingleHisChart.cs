@@ -46,7 +46,7 @@ namespace DiagramDesigner.CustomControls.Charts
     ///     <MyNamespace:SingleHisChart/>
     ///
     /// </summary>
-    public class SingleHisChart : Control
+    public class SingleHisChart : Control, IChartControl
     {
         static SingleHisChart()
         {
@@ -62,6 +62,32 @@ namespace DiagramDesigner.CustomControls.Charts
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartColorProperty =
             DependencyProperty.Register("ChartColor", typeof(Brush), typeof(SingleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0084FF"))));
+
+        /// <summary>
+        /// X轴文字颜色
+        /// </summary>
+        public Brush XColor
+        {
+            get { return (Brush)GetValue(XColorProperty); }
+            set { SetValue(XColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty XColorProperty =
+            DependencyProperty.Register("XColor", typeof(Brush), typeof(SingleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+
+        /// <summary>
+        /// Y轴文字颜色
+        /// </summary>
+        public Brush YColor
+        {
+            get { return (Brush)GetValue(YColorProperty); }
+            set { SetValue(YColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty YColorProperty =
+            DependencyProperty.Register("YColor", typeof(Brush), typeof(SingleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("数据源")]
         public SingleHisDataSource ChartSource
@@ -87,14 +113,14 @@ namespace DiagramDesigner.CustomControls.Charts
 
 
         [DisplayName("DataContext")]
-        public object DC
+        public IChartViewModel ChartViewModel
         {
-            get { return (object)GetValue(DCProperty); }
-            set { SetValue(DCProperty, value); }
+            get { return (IChartViewModel)GetValue(ChartViewModelProperty); }
+            set { SetValue(ChartViewModelProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for DC.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty DCProperty =
-            DependencyProperty.Register("DC", typeof(object), typeof(SingleHisChart), new PropertyMetadata(new SingleHisViewModel()));
+        public static readonly DependencyProperty ChartViewModelProperty =
+            DependencyProperty.Register("ChartViewModel", typeof(IChartViewModel), typeof(SingleHisChart), new PropertyMetadata(new SingleHisViewModel()));
     }
 }

@@ -23,6 +23,10 @@ namespace DiagramDesigner.Windows.WindDataSource
     public partial class DataSourceConfigView : Window
     {
         private IChartViewModel ChartViewModel;
+        public DataSourceConfigView()
+        {
+            InitializeComponent();
+        }
         public DataSourceConfigView(IChartViewModel chartViewModel)
         {
             InitializeComponent();

@@ -26,20 +26,7 @@ namespace DiagramDesigner.Commands
 
         void SingleHisDS(PropertyGridControl propertyGridControl)
         {
-            if (propertyGridControl != null)
-            {
-                SingleHisChart singleHisChart = propertyGridControl.SelectedObject as SingleHisChart;
-                if (singleHisChart != null)
-                {
-                    SingleHisViewModel singleHisViewModel = singleHisChart.DC as SingleHisViewModel;
-                    DataSourceConfigView dataSourceConfigView = new DataSourceConfigView(singleHisViewModel);
-                    MainView mainWindow = ((((propertyGridControl.Parent as Grid).Parent as Grid).Parent) as Grid).Parent as MainView;
-                    //MainView mainWindow = frameworkElement.FindName("mainWindow") as MainView;
-                    dataSourceConfigView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                    dataSourceConfigView.Owner = mainWindow;
-                    dataSourceConfigView.ShowDialog();
-                }
-            }
+            ConfigDataSource(propertyGridControl);
         }
 
         /// <summary>
@@ -49,20 +36,74 @@ namespace DiagramDesigner.Commands
 
         void SingleHisDT(PropertyGridControl propertyGridControl)
         {
+            ConfigDataInterface(propertyGridControl);
+        }
+
+        /// <summary>
+        /// 双柱状图数据源配置
+        /// </summary>
+        public ICommand DoubleHisDSCmd => new DelegateCommand<PropertyGridControl>(DoubleHisDS);
+
+        void DoubleHisDS(PropertyGridControl propertyGridControl)
+        {
+            ConfigDataSource(propertyGridControl);
+        }
+
+        /// <summary>
+        /// 双柱状图数据源接口配置
+        /// </summary>
+        public ICommand DoubleHisDTCmd => new DelegateCommand<PropertyGridControl>(DoubleHisDT);
+
+        void DoubleHisDT(PropertyGridControl propertyGridControl)
+        {
+            ConfigDataInterface(propertyGridControl);
+        }
+        /// <summary>
+        /// 配置数据源
+        /// </summary>
+        /// <param name="propertyGridControl"></param>
+        private void ConfigDataSource(PropertyGridControl propertyGridControl)
+        {
             if (propertyGridControl != null)
             {
-                SingleHisChart singleHisChart = propertyGridControl.SelectedObject as SingleHisChart;
-                if (singleHisChart != null)
+                IChartControl chartControl = propertyGridControl.SelectedObject as IChartControl;
+                if (chartControl != null)
                 {
-                    SingleHisViewModel singleHisViewModel = singleHisChart.DC as SingleHisViewModel;
-                    InterfaceView interfaceView = new InterfaceView();
-                    MainView mainWindow = ((((propertyGridControl.Parent as Grid).Parent as Grid).Parent) as Grid).Parent as MainView;
-                    //MainView mainWindow = frameworkElement.FindName("mainWindow") as MainView;
-                    interfaceView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                    interfaceView.Owner = mainWindow;
-                    interfaceView.ShowDialog();
+                    IChartViewModel singleHisViewModel = chartControl.ChartViewModel;
+                    DataSourceConfigView dataSourceConfigView = new DataSourceConfigView(singleHisViewModel);
+                    OpenConfigWindow(propertyGridControl, dataSourceConfigView);
                 }
             }
+        }
+        /// <summary>
+        /// 配置数据接口
+        /// </summary>
+        /// <param name="propertyGridControl"></param>
+        private void ConfigDataInterface(PropertyGridControl propertyGridControl)
+        {
+            if (propertyGridControl != null)
+            {
+                IChartControl chartControl = propertyGridControl.SelectedObject as IChartControl;
+                if (chartControl != null)
+                {
+                    IChartViewModel singleHisViewModel = chartControl.ChartViewModel;
+                    InterfaceView interfaceView = new InterfaceView();
+                    OpenConfigWindow(propertyGridControl, interfaceView);
+                }
+            }
+        }
+        /// <summary>
+        /// 打开配置窗体
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertyGridControl"></param>
+        /// <param name="t"></param>
+        private void OpenConfigWindow(PropertyGridControl propertyGridControl, Window window)
+        {
+            MainView mainWindow = ((((propertyGridControl.Parent as Grid).Parent as Grid).Parent) as Grid).Parent as MainView;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.Owner = mainWindow;
+            window.ShowDialog();
         }
     }
 }

@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiagramDesigner.CustomControls.Charts
+namespace DiagramDesigner.CustomControls.DataGrids
 {
     [AddINotifyPropertyChangedInterface]
-    public class DoubleHisViewModel:IChartViewModel
+    public class DtaGridViewModel
     {
         public DataTable DataTable { get; set; }
 
-        public DoubleHisViewModel()
+        public DtaGridViewModel()
         {
             #region 示例数据
             DataTable = new DataTable("Datas");
@@ -25,33 +25,38 @@ namespace DiagramDesigner.CustomControls.Charts
             dc.AllowDBNull = false;//
 
             dc = DataTable.Columns.Add("Argument", Type.GetType("System.String"));
-            dc = DataTable.Columns.Add("Value1", Type.GetType("System.String"));
-            dc = DataTable.Columns.Add("Value2", Type.GetType("System.String"));
+            dc = DataTable.Columns.Add("Value", Type.GetType("System.String"));
 
 
             DataRow newRow;
             newRow = DataTable.NewRow();
-            newRow["Argument"] = "0/HR";
-            newRow["Value1"] = "3200";
-            newRow["Value2"] = "2800";
+            newRow["Argument"] = "A区";
+            newRow["Value"] = "90";
             DataTable.Rows.Add(newRow);
 
             newRow = DataTable.NewRow();
-            newRow["Argument"] = "8/HR";
-            newRow["Value1"] = "7000";
-            newRow["Value2"] = "6500";
+            newRow["Argument"] = "B区";
+            newRow["Value"] = "40";
             DataTable.Rows.Add(newRow);
 
             newRow = DataTable.NewRow();
-            newRow["Argument"] = "16/HR";
-            newRow["Value1"] = "4500";
-            newRow["Value2"] = "5000";
+            newRow["Argument"] = "C区";
+            newRow["Value"] = "75";
             DataTable.Rows.Add(newRow);
 
             newRow = DataTable.NewRow();
-            newRow["Argument"] = "24/HR";
-            newRow["Value1"] = "2000";
-            newRow["Value2"] = "3000";
+            newRow["Argument"] = "D区";
+            newRow["Value"] = "60";
+            DataTable.Rows.Add(newRow);
+
+            newRow = DataTable.NewRow();
+            newRow["Argument"] = "E区";
+            newRow["Value"] = "30";
+            DataTable.Rows.Add(newRow);
+
+            newRow = DataTable.NewRow();
+            newRow["Argument"] = "G区";
+            newRow["Value"] = "30";
             DataTable.Rows.Add(newRow);
             #endregion
         }

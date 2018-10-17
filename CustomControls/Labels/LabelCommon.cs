@@ -86,7 +86,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for TextColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(Brush), typeof(LabelCommon), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))));
+            DependencyProperty.Register("TextColor", typeof(Brush), typeof(LabelCommon), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
 
         [DisplayName("文字大小")]
         public double TextSize

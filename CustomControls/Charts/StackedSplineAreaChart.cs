@@ -52,7 +52,7 @@ namespace DiagramDesigner.CustomControls.Charts
             DefaultStyleKeyProperty.OverrideMetadata(typeof(StackedSplineAreaChart), new FrameworkPropertyMetadata(typeof(StackedSplineAreaChart)));
         }
 
-        [DisplayName("柱状图颜色")]
+        [DisplayName("面状图颜色")]
         public SolidColorBrush ChartColor
         {
             get { return (SolidColorBrush)GetValue(ChartColorProperty); }
@@ -63,6 +63,30 @@ namespace DiagramDesigner.CustomControls.Charts
         public static readonly DependencyProperty ChartColorProperty =
             DependencyProperty.Register("ChartColor", typeof(SolidColorBrush), typeof(StackedSplineAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3E9AD4"))));
 
+        /// <summary>
+        /// X轴文字颜色
+        /// </summary>
+        public Brush XColor
+        {
+            get { return (Brush)GetValue(XColorProperty); }
+            set { SetValue(XColorProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty XColorProperty =
+            DependencyProperty.Register("XColor", typeof(Brush), typeof(StackedSplineAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+
+        /// <summary>
+        /// Y轴文字颜色
+        /// </summary>
+        public Brush YColor
+        {
+            get { return (Brush)GetValue(YColorProperty); }
+            set { SetValue(YColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty YColorProperty =
+            DependencyProperty.Register("YColor", typeof(Brush), typeof(StackedSplineAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
     }
 }

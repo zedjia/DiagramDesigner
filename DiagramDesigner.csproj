@@ -171,6 +171,7 @@
     <Compile Include="CustomControls\Charts\DoubleHisChart.cs" />
     <Compile Include="CustomControls\Charts\DoubleHisViewModel.cs" />
     <Compile Include="CustomControls\Charts\HisAndAreaChart.cs" />
+    <Compile Include="CustomControls\Charts\IChartControl.cs" />
     <Compile Include="CustomControls\Charts\IChartViewModel.cs" />
     <Compile Include="CustomControls\Charts\SingleHisChart.cs" />
     <Compile Include="CustomControls\Charts\SingleHisViewModel.cs" />
@@ -182,6 +183,8 @@
     <Compile Include="CustomControls\Charts\ThreeStackedAreaViewModel.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\CustomControl2.cs" />
+    <Compile Include="CustomControls\DataGrids\DtaGridCommon.cs" />
+    <Compile Include="CustomControls\DataGrids\DtaGridViewModel.cs" />
     <Compile Include="CustomControls\DataGrid_Diag.cs" />
     <Compile Include="CustomControls\Images\ImageCommon.cs" />
     <Compile Include="CustomControls\Image_Diag.cs" />
@@ -469,7 +472,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomControls\DataGrids\" />
     <Folder Include="CustomControls\Graphs\" />
     <Folder Include="CustomControls\Splits\" />
     <Folder Include="CustomControls\TextBoxs\" />

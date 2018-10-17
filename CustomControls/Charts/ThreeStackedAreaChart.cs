@@ -50,5 +50,69 @@ namespace DiagramDesigner.CustomControls.Charts
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ThreeStackedAreaChart), new FrameworkPropertyMetadata(typeof(ThreeStackedAreaChart)));
         }
+        /// <summary>
+        /// 最上层图形颜色
+        /// </summary>
+        public Brush AreaColor1
+        {
+            get { return (Brush)GetValue(AreaColor1Property); }
+            set { SetValue(AreaColor1Property, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AreaColor1Property =
+            DependencyProperty.Register("AreaColor1", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#91E9FD"))));
+
+        /// <summary>
+        /// 中间层图形颜色
+        /// </summary>
+        public Brush AreaColor2
+        {
+            get { return (Brush)GetValue(AreaColor2Property); }
+            set { SetValue(AreaColor2Property, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AreaColor2Property =
+            DependencyProperty.Register("AreaColor2", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#38D8FD"))));
+
+        /// <summary>
+        /// 最下层图形颜色
+        /// </summary>
+        public Brush AreaColor3
+        {
+            get { return (Brush)GetValue(AreaColor3Property); }
+            set { SetValue(AreaColor3Property, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AreaColor3Property =
+            DependencyProperty.Register("AreaColor3", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00C3EE"))));
+
+        /// <summary>
+        /// X轴文字颜色
+        /// </summary>
+        public Brush XColor
+        {
+            get { return (Brush)GetValue(XColorProperty); }
+            set { SetValue(XColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty XColorProperty =
+            DependencyProperty.Register("XColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
+
+        /// <summary>
+        /// Y轴文字颜色
+        /// </summary>
+        public Brush YColor
+        {
+            get { return (Brush)GetValue(YColorProperty); }
+            set { SetValue(YColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty YColorProperty =
+            DependencyProperty.Register("YColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"))));
     }
 }
