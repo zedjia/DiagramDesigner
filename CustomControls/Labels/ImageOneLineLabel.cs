@@ -61,7 +61,7 @@ namespace DiagramDesigner.CustomControls.Labels
 
         // Using a DependencyProperty as the backing store for CrtlHeight.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CrtlHeightProperty =
-            DependencyProperty.Register("CrtlHeight", typeof(double), typeof(ImageOneLineLabel), new PropertyMetadata(50.0));
+            DependencyProperty.Register("CrtlHeight", typeof(double), typeof(ImageOneLineLabel), new PropertyMetadata(30.0));
 
 
         [DisplayName("图片路径")]

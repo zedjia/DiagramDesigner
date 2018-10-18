@@ -70,6 +70,7 @@ namespace DiagramDesigner
                 else
                 {
                     var control = designerItem.Content as Control;
+                    if (control == null) continue;
                     if (control is ImageCommon)
                     {
                         Canvas.SetZIndex(control, 1);
