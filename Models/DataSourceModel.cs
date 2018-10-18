@@ -10,14 +10,4 @@ namespace DiagramDesigner.Models
     {
 
     }
-
-    public class SingleHisDataSource : IDataSourceModel
-    {
-
-    }
-
-    public class DoubleHisDataSource : IDataSourceModel
-    {
-
-    }
 }

@@ -241,7 +241,7 @@
                         <dxprg:PropertyGridControl.DataContext>
                             <cmd:PropertyGridCommand></cmd:PropertyGridCommand>
                         </dxprg:PropertyGridControl.DataContext>
-                        <dxprg:PropertyDefinition Type="model:SingleHisDataSource">
+                        <dxprg:PropertyDefinition Type="model:IDataSourceModel">
                             <dxprg:PropertyDefinition.MenuCustomizations>
                                 <dxb:BarButtonItem  Content="数据源" dxb:CollectionAction.Index="0" Command="{Binding SingleHisDSCmd}" CommandParameter="{Binding ElementName=PropertyGridCard}">
                                 </dxb:BarButtonItem>
@@ -249,14 +249,14 @@
                                 </dxb:BarButtonItem>
                             </dxprg:PropertyDefinition.MenuCustomizations>
                         </dxprg:PropertyDefinition>
-                        <dxprg:PropertyDefinition Type="model:DoubleHisDataSource">
+                        <!--<dxprg:PropertyDefinition Type="model:IDataSourceModel">
                             <dxprg:PropertyDefinition.MenuCustomizations>
                                 <dxb:BarButtonItem  Content="数据源" dxb:CollectionAction.Index="0" Command="{Binding SingleHisDSCmd}" CommandParameter="{Binding ElementName=PropertyGridCard}">
                                 </dxb:BarButtonItem>
                                 <dxb:BarButtonItem  Content="数据接口" dxb:CollectionAction.Index="1" Command="{Binding SingleHisDTCmd}" CommandParameter="{Binding ElementName=PropertyGridCard}">
                                 </dxb:BarButtonItem>
                             </dxprg:PropertyDefinition.MenuCustomizations>
-                        </dxprg:PropertyDefinition>
+                        </dxprg:PropertyDefinition>-->
                     </dxprg:PropertyGridControl>
                 </ScrollViewer>
             </Grid>

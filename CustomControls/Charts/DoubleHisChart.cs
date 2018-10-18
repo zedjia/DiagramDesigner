@@ -119,15 +119,15 @@ namespace DiagramDesigner.CustomControls.Charts
             DependencyProperty.Register("DisplayName", typeof(string), typeof(DoubleHisChart), new PropertyMetadata("图例"));
 
         [DisplayName("数据源")]
-        public DoubleHisDataSource ChartSource
+        public IDataSourceModel ChartSource
         {
-            get { return (DoubleHisDataSource)GetValue(ChartSourceProperty); }
+            get { return (IDataSourceModel)GetValue(ChartSourceProperty); }
             set { SetValue(ChartSourceProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartSourceProperty =
-            DependencyProperty.Register("ChartSource", typeof(DoubleHisDataSource), typeof(DoubleHisChart), new PropertyMetadata(null));
+            DependencyProperty.Register("ChartSource", typeof(IDataSourceModel), typeof(DoubleHisChart), new PropertyMetadata(null));
 
 
         [DisplayName("DataContext")]

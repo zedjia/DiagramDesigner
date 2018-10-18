@@ -15,7 +15,7 @@
     <StackPanel>
         <Grid Margin="10 10 10 0">
             <StackPanel Orientation="Horizontal">
-                <TabControl Height="200" x:Name="dataSourceTabContrl" Background="#222528" TabStripPlacement="Left">
+                <TabControl Height="200" x:Name="dataSourceTabContrl" Background="#222528" TabStripPlacement="Left" Loaded="dataSourceTabContrl_Loaded">
                     <!--<uc:DataItemView></uc:DataItemView>-->
                 </TabControl>
             </StackPanel>

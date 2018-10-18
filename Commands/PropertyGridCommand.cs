@@ -38,26 +38,6 @@ namespace DiagramDesigner.Commands
         {
             ConfigDataInterface(propertyGridControl);
         }
-
-        /// <summary>
-        /// 双柱状图数据源配置
-        /// </summary>
-        public ICommand DoubleHisDSCmd => new DelegateCommand<PropertyGridControl>(DoubleHisDS);
-
-        void DoubleHisDS(PropertyGridControl propertyGridControl)
-        {
-            ConfigDataSource(propertyGridControl);
-        }
-
-        /// <summary>
-        /// 双柱状图数据源接口配置
-        /// </summary>
-        public ICommand DoubleHisDTCmd => new DelegateCommand<PropertyGridControl>(DoubleHisDT);
-
-        void DoubleHisDT(PropertyGridControl propertyGridControl)
-        {
-            ConfigDataInterface(propertyGridControl);
-        }
         /// <summary>
         /// 配置数据源
         /// </summary>
@@ -100,7 +80,7 @@ namespace DiagramDesigner.Commands
         /// <param name="t"></param>
         private void OpenConfigWindow(PropertyGridControl propertyGridControl, Window window)
         {
-            MainView mainWindow = ((((propertyGridControl.Parent as Grid).Parent as Grid).Parent) as Grid).Parent as MainView;
+            MainView mainWindow = (((((propertyGridControl.Parent as ScrollViewer).Parent as Grid).Parent) as Grid).Parent as Grid).Parent as MainView;
             window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             window.Owner = mainWindow;
             window.ShowDialog();

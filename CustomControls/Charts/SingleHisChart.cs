@@ -90,15 +90,15 @@ namespace DiagramDesigner.CustomControls.Charts
             DependencyProperty.Register("YColor", typeof(Brush), typeof(SingleHisChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
 
         [DisplayName("数据源")]
-        public SingleHisDataSource ChartSource
+        public IDataSourceModel ChartSource
         {
-            get { return (SingleHisDataSource)GetValue(ChartSourceProperty); }
+            get { return (IDataSourceModel)GetValue(ChartSourceProperty); }
             set { SetValue(ChartSourceProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartSourceProperty =
-            DependencyProperty.Register("ChartSource", typeof(SingleHisDataSource), typeof(SingleHisChart), new PropertyMetadata(null));
+            DependencyProperty.Register("ChartSource", typeof(IDataSourceModel), typeof(SingleHisChart), new PropertyMetadata(null));
 
         [DisplayName("图例文字")]
         public string DisplayName
