@@ -1,4 +1,5 @@
-﻿using DiagramDesigner.CustomControls.Charts;
+﻿using DevExpress.Xpf.Core;
+using DiagramDesigner.CustomControls.Charts;
 using DiagramDesigner.UserControls;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace DiagramDesigner.Windows.WindDataSource
     /// <summary>
     /// DataSourceConfigView.xaml 的交互逻辑
     /// </summary>
-    public partial class DataSourceSelectView : Window
+    public partial class DataSourceSelectView : DXWindow
     {
         private IChartViewModel ChartViewModel;
         public DataSourceSelectView()

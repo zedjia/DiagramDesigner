@@ -1,12 +1,13 @@
-﻿<Window x:Class="DiagramDesigner.Windows.WindInterface.InterfaceView"
+﻿<dx:DXWindow x:Class="DiagramDesigner.Windows.WindInterface.InterfaceView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
         xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
         mc:Ignorable="d"
-        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
+        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico" dx:ThemeManager.ThemeName="VS2017Dark">
     <Window.DataContext>
         <local:InterfaceViewModel></local:InterfaceViewModel>
     </Window.DataContext>
@@ -54,10 +55,10 @@
             <!--<TextBox Width="650" Height="55"  Text="{Binding TestResult}" HorizontalAlignment="Left" Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>-->
             <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Auto" Margin="0 10 0 0" Height="160" Background="#222528"></DataGrid>
         </StackPanel>
-        <StackPanel Grid.Row="4" Margin="10">
+        <StackPanel Grid.Row="4" Margin="10 0 10 0" Height="170">
             <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
             <Label Content="接口列表:" Margin="0 0 0 10" Foreground="{DynamicResource FontColor}"></Label>
-            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" Background="#222528" VerticalScrollBarVisibility="Auto" RowHeight="30" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
+            <DataGrid Name="dataGrid1" Height="122" AutoGenerateColumns="False" Background="#222528" VerticalScrollBarVisibility="Auto" RowHeight="30" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
                     <!--<DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
@@ -100,4 +101,4 @@
         </StackPanel>
 
     </Grid>
-</Window>
+</dx:DXWindow>

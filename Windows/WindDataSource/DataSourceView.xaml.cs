@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using DevExpress.Xpf.Core;
 using DiagramDesigner.UserControls;
 
 namespace DiagramDesigner.Windows.WindDataSource
@@ -22,7 +23,7 @@ namespace DiagramDesigner.Windows.WindDataSource
     /// <summary>
     /// WDataSource.xaml 的交互逻辑
     /// </summary>
-    public partial class DataSourceView : Window
+    public partial class DataSourceView : DXWindow
     {
         public DataSourceView()
         {

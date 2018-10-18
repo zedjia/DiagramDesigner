@@ -1,13 +1,14 @@
-﻿<Window x:Class="DiagramDesigner.Windows.WindDataSource.DataSourceSelectView"
+﻿<dx:DXWindow x:Class="DiagramDesigner.Windows.WindDataSource.DataSourceSelectView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:DiagramDesigner.UserControls"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         mc:Ignorable="d"
-        Title="选择数据源" Height="450" Width="750" Background="#222528">
+        Title="选择数据源" Height="450" Width="750" Background="#222528" dx:ThemeManager.ThemeName="VS2017Dark">
     <Window.DataContext>
         <local:DataSourceSelectViewModel></local:DataSourceSelectViewModel>
     </Window.DataContext>
@@ -20,6 +21,6 @@
             </StackPanel>
         </Grid>
         <!--<DataGrid></DataGrid>-->
-        <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Auto" Margin="10" Height="190" Background="#222528" CanUserAddRows="False" RowHeight="30"></DataGrid>
+        <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Auto" Margin="10" Height="190" Background="#222528" CanUserAddRows="False"></DataGrid>
     </StackPanel>
-</Window>
+</dx:DXWindow>

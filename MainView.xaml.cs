@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpf.Bars;
+using DevExpress.Xpf.Core;
 using DiagramDesigner.CustomControls.Browsers;
 using DiagramDesigner.CustomControls.Charts;
 using DiagramDesigner.CustomControls.Images;
@@ -10,7 +11,7 @@ using System.Windows.Media;
 
 namespace DiagramDesigner
 {
-    public partial class MainView : Window
+    public partial class MainView : DXWindow
     {
         private DesignerCanvas DesignerCanvas;
         private PreviewView previewView;
@@ -104,7 +105,7 @@ namespace DiagramDesigner
         {
             if(this.ModuleLabel.Content.Equals("透明"))
             {
-                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(0, 255, 255, 255));
+                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(0, 170, 170, 170));
                 this.ModuleLabel.Content = "常规";
             }
             else

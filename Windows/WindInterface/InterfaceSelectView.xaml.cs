@@ -1,4 +1,5 @@
-﻿using DiagramDesigner.CustomControls.Charts;
+﻿using DevExpress.Xpf.Core;
+using DiagramDesigner.CustomControls.Charts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace DiagramDesigner.Windows.WindInterface
     /// <summary>
     /// InterfaceSelectView.xaml 的交互逻辑
     /// </summary>
-    public partial class InterfaceSelectView : Window
+    public partial class InterfaceSelectView : DXWindow
     {
         private IChartViewModel ChartViewModel;
         public InterfaceSelectView()

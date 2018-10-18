@@ -1,4 +1,4 @@
-﻿<Window
+﻿<dx:DXWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:s="clr-namespace:DiagramDesigner"
@@ -12,7 +12,7 @@
         xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
         x:Class="DiagramDesigner.MainView"
         WindowStartupLocation="CenterScreen"
-        Title="智慧园区可视化" x:Name="MainWindow"
+        Title="瀚涛天图-大数据可视化设计系统" x:Name="MainWindow"
         Height="1080" Width="1920" Background="#222528" KeyDown="Window_KeyDown" WindowState="Maximized" dx:ThemeManager.ThemeName="VS2017Dark">
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">
@@ -33,7 +33,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="#AAAAAA" BorderThickness="0 0 0 2"></Border>
         <!--<ContentControl Content="{StaticResource MyToolbar}"/>-->
         <Label Content="{StaticResource MyToolbar}" Grid.ColumnSpan="2"></Label>
 
@@ -70,7 +70,7 @@
             </Grid>
         </GroupBox>
 
-        <GroupBox Header="其它" Style="{StaticResource ToolbarGroup}" Margin="1136,10,344,10" Width="100" Height="110">
+        <GroupBox Header="其它" Style="{StaticResource ToolbarGroup}" Margin="1136,10,244,10" Height="110">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -81,30 +81,22 @@
                             Style="{StaticResource ToolBarButtonBaseStyle}"
                             Click="ModuleChange_Click">
                         <Button.Content>
-                            <Grid Margin="0 20 0 0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="2*"></RowDefinition>
-                                    <RowDefinition Height="1*"></RowDefinition>
-                                </Grid.RowDefinitions>
+                            <StackPanel Margin="0 20 0 0" Orientation="Horizontal">
                                 <Image Source="Resources/Pictures/模式.png" Height="30" Width="30"></Image>
-                                <Label x:Name="ModuleLabel" Grid.Row="1" Content="透明" HorizontalAlignment="Center" FontSize="12" Foreground="#B7C4CF"></Label>
-                            </Grid>
+                                <Label x:Name="ModuleLabel" Content="透明" Margin="10 0 0 0" VerticalAlignment="Center" FontSize="12" Foreground="#B7C4CF"></Label>
+                            </StackPanel>
                         </Button.Content>
                     </Button>
                 </StackPanel>
-                <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                <StackPanel Grid.Column="1" Margin="20 0 0 0">
                     <Button Grid.Column="0" HorizontalContentAlignment="Center"
                             Style="{StaticResource ToolBarButtonBaseStyle}"
                             Click="Button_Click">
                         <Button.Content>
-                            <Grid Margin="0 20 0 0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="2*"></RowDefinition>
-                                    <RowDefinition Height="1*"></RowDefinition>
-                                </Grid.RowDefinitions>
+                            <StackPanel Margin="0 20 0 0" Orientation="Horizontal">
                                 <Image Source="Resources/Pictures/预览.png" Height="30" Width="30"></Image>
-                                <Label Grid.Row="1" Content="预览" HorizontalAlignment="Center" FontSize="12" Foreground="#B7C4CF"></Label>
-                            </Grid>
+                                <Label Grid.Row="1" Content="预览" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="12" Foreground="#B7C4CF"></Label>
+                            </StackPanel>
                         </Button.Content>
                     </Button>
                 </StackPanel>
@@ -125,7 +117,7 @@
             </Button.Template>
         </Button>-->
 
-        <Grid Grid.Row="1" Margin="0,0,0,0" Grid.ColumnSpan="2">
+        <Grid Grid.Row="1" Margin="0,2,0,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="265"/>
                 <ColumnDefinition/>
@@ -193,4 +185,4 @@
             </Grid>
         </Grid>
     </Grid>
-</Window>
+</dx:DXWindow>

@@ -1,13 +1,14 @@
-﻿<Window x:Class="DiagramDesigner.Windows.WindDataSource.DataSourceView"
+﻿<dx:DXWindow x:Class="DiagramDesigner.Windows.WindDataSource.DataSourceView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:DiagramDesigner.UserControls"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         mc:Ignorable="d"
-        Title="数据源配置" Height="580" Width="750" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" x:Name="wDataSource" Icon="../../Resources/Images/DataSource.ico">
+        Title="数据源配置" Height="580" Width="750" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" x:Name="wDataSource" Icon="../../Resources/Images/DataSource.ico" dx:ThemeManager.ThemeName="VS2017Dark">
     <Window.DataContext>
         <local:DataSourceViewBindingModel/>
     </Window.DataContext>
@@ -94,7 +95,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
                     <Label Content="已配置列表" Width="220" HorizontalAlignment="Left" Margin="8 5" FontSize="16" Foreground="{DynamicResource FontColor}"></Label>
-                    <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Height="140">
+                    <DataGrid Name="DataGrid"  AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=dataSourceModels}" CanUserAddRows="False" Height="122">
                         <DataGrid.Columns>
                             <!--<DataGridTemplateColumn Header="序号" Width="60">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -186,8 +187,8 @@
                 </TabItem>-->
                 </TabControl>
                 <!--<DataGrid></DataGrid>-->
-                <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Auto" Margin="0 10 0 0" Height="290"  RowHeight="30"></DataGrid>
+                <DataGrid ItemsSource="{Binding SqlExecResult}" CanUserAddRows="False" VerticalScrollBarVisibility="Auto" Margin="0 10 0 0" Height="290"  RowHeight="30"></DataGrid>
             </StackPanel>
         </TabItem>
     </TabControl>
-</Window>
+</dx:DXWindow>
