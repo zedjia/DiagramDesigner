@@ -1,7 +1,10 @@
-﻿using Prism.Commands;
+﻿using DiagramDesigner.Services;
+using DiagramDesigner.Windows.WindDataSource;
+using Prism.Commands;
 using Stylet;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,14 @@ namespace DiagramDesigner
 {
     public class MainViewModel
     {
+        public ObservableCollection<DataSourceModel> DataSourceModels { get; set; }
+
+        public MainViewModel()
+        {
+            DataSourceModels = FileDataServices.GetDataModelFromFile<ObservableCollection<DataSourceModel>>();
+            DataSourceModels = DataSourceModels ?? new ObservableCollection<DataSourceModel>();
+        }
+
         /// <summary>
         /// 分辨率宽度设置
         /// </summary>

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
         xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
         mc:Ignorable="d"
-        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico" dx:ThemeManager.ThemeName="VS2017Dark">
+        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.png" dx:ThemeManager.ThemeName="VS2017Dark">
     <Window.DataContext>
         <local:InterfaceViewModel></local:InterfaceViewModel>
     </Window.DataContext>
@@ -21,11 +21,11 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 10 10 0">
             <Label Content="别       名：" Foreground="{DynamicResource FontColor}"></Label>
-            <TextBox Width="100" Text="{Binding SelectedInterfaceModel.IFAlias}"></TextBox>
+            <TextBox Width="100" Background="#222528" Foreground="#B7C4CF"  Text="{Binding SelectedInterfaceModel.IFAlias}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 10 0">
             <Label Content="接口地址：" Foreground="{DynamicResource FontColor}"></Label>
-            <TextBox Width="500" Text="{Binding SelectedInterfaceModel.IFUrl}"></TextBox>
+            <TextBox Width="500" Background="#222528" Foreground="#B7C4CF"  Text="{Binding SelectedInterfaceModel.IFUrl}"></TextBox>
             <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
         </StackPanel>
 

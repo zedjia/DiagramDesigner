@@ -12,12 +12,13 @@
         <!-- 设置触发器 -->
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="#efefef"/>
-                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Background" Value="#007ACC"/>
             </Trigger>
             <Trigger Property="IsFocused" Value="true">
-                <Setter Property="Background" Value="Coral"/>
-                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Background" Value="#007ACC"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="true">
+                <Setter Property="Background" Value="#007ACC"/>
             </Trigger>
         </Style.Triggers>
     </Style>

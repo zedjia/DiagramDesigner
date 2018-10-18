@@ -8,6 +8,7 @@ using DiagramDesigner.Windows.DataSourceWD;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Utility.Controls;
 
 namespace DiagramDesigner
 {
@@ -34,7 +35,7 @@ namespace DiagramDesigner
             this.ScrollViewer.Content = DesignerCanvas;
             DesignerCanvas.SetValue(System.Windows.Controls.Grid.RowProperty, 0);
             DesignerCanvas.SetValue(System.Windows.Controls.Grid.ColumnProperty, 0);
-            
+
         }
 
         private void OpenPreviewView()
@@ -45,13 +46,13 @@ namespace DiagramDesigner
             //this.ScrollViewer.Content = null;
             //previewView.GridContent.Children.Add(DesignerCanvas);//Content = DesignerCanvas;
             //DesignerCanvas.SetValue(DesignerCanvas.NameProperty, "MyDesigner");
-            
 
-            
+
+
             var uiCollection = this.MyDesigner.Children;
             foreach (var ui in uiCollection)
             {
-                
+
                 var designerItem = ui as DesignerItem;
                 Vector vector = VisualTreeHelper.GetOffset(designerItem);//获取相对位置
                 if (designerItem.Content is CefSharpBrowser)
@@ -87,6 +88,7 @@ namespace DiagramDesigner
             }
             previewView.Height = this.MyDesigner.Height;
             previewView.Width = this.MyDesigner.Width;
+            previewView.Background = this.MyDesigner.Background;
             previewView.WindowStartupLocation = WindowStartupLocation.Manual;
             previewView.Left = 0;
             previewView.Top = 0;
@@ -103,15 +105,25 @@ namespace DiagramDesigner
 
         private void ModuleChange_Click(object sender, RoutedEventArgs e)
         {
-            if(this.ModuleLabel.Content.Equals("透明"))
+            if (this.ModuleLabel.Content.Equals("透明"))
             {
-                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(0, 170, 170, 170));
+                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(0, 255, 255, 255));
                 this.ModuleLabel.Content = "常规";
             }
             else
             {
-                this.MyDesigner.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                this.MyDesigner.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2A2E33"));
                 this.ModuleLabel.Content = "透明";
+            }
+        }
+
+        private void ColorSelector_Click(object sender, RoutedEventArgs e)
+        {
+            FrmColorSelector frmColorSelector = new FrmColorSelector();
+            frmColorSelector.ShowDialog();
+            if (frmColorSelector.DialogResult.Value == true && frmColorSelector.SelectedColor != null)
+            {
+                this.MyDesigner.Background = new SolidColorBrush(frmColorSelector.SelectedColor);
             }
         }
     }

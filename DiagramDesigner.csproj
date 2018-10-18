@@ -548,6 +548,10 @@
     <Resource Include="Resources\icons\选择.png" />
     <Resource Include="Resources\icons\删除.png" />
     <Resource Include="Resources\icons\编辑.png" />
+    <Resource Include="Resources\icons\宽度.png" />
+    <Resource Include="Resources\icons\高度.png" />
+    <Resource Include="Resources\icons\bigdata.png" />
+    <Resource Include="Resources\icons\ColorSelect.png" />
     <Content Include="Resources\Images\ApiEdit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -558,6 +562,12 @@
     <Resource Include="Resources\Images\Interface.ico" />
     <Resource Include="Resources\Images\Interface.png" />
     <Resource Include="Resources\Pictures\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\Code\WPF\Utility.Controls\Utility.Controls.csproj">
+      <Project>{98e2d84d-f5e2-4a6e-b60c-d27f699f9d7d}</Project>
+      <Name>Utility.Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Fody.3.2.9\build\Fody.targets" Condition="Exists('packages\Fody.3.2.9\build\Fody.targets')" />

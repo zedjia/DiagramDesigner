@@ -25,7 +25,7 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Image Source="Images/GenericDocument.png" Width="45"/>
-                            <TextBlock Grid.Row="1" Text="New" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Text="新建" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
                         </Grid>
                     </Button.Content>
                 </Button>
@@ -41,7 +41,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/OpenFolder.png" Width="16"/>
-                                <TextBlock Margin="3,0,3,0" Text="Open" VerticalAlignment="Center"  Grid.Column="1"/>
+                                <TextBlock Margin="3,0,3,0" Text="打开" VerticalAlignment="Center"  Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -56,7 +56,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Save.png" Width="16"/>
-                                <TextBlock Margin="3,0,3,0" Text="Save" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3,0,3,0" Text="保存" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -71,7 +71,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Print.png" Width="16"/>
-                                <TextBlock Margin="3,0,3,0" Text="Print" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3,0,3,0" Text="打印" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -93,7 +93,7 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Image Source="Images/PasteBig.png" Width="45"/>
-                            <TextBlock Grid.Row="1" Text="Paste" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Text="粘贴" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
                         </Grid>
                     </Button.Content>
                 </Button>
@@ -109,7 +109,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Cut.png" Width="16"/>
-                                <TextBlock Margin="3,0,3,0" Text="Cut" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3,0,3,0" Text="剪切" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -124,7 +124,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Copy.png" Width="16"/>
-                                <TextBlock Margin="3,0,3,0" Text="Copy" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3,0,3,0" Text="复制" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -139,7 +139,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Delete.png" Width="16"/>
-                                <TextBlock Margin="3,0,3,0" Text="Delete" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3,0,3,0" Text="删除" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -161,21 +161,21 @@
                                     Command="{x:Static s:DesignerCanvas.AlignLeft}"
                                     CommandTarget="{Binding ElementName=MyDesigner}">
                                 <Button.Content>
-                                    <Image Source="Images/AlignObjectsLeft.png" Width="16"/>
+                                    <Image Source="Images/AlignObjectsLeft.png" Width="16" ToolTip="靠左"/>
                                 </Button.Content>
                             </Button>
                             <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}"
                                     Command="{x:Static s:DesignerCanvas.AlignHorizontalCenters}"
                                     CommandTarget="{Binding ElementName=MyDesigner}">
                                 <Button.Content>
-                                    <Image Source="Images/AlignObjectsCenteredHorizontal.png" Width="16"/>
+                                    <Image Source="Images/AlignObjectsCenteredHorizontal.png" Width="16" ToolTip="横向居中"/>
                                 </Button.Content>
                             </Button>
                             <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}"
                                     Command="{x:Static s:DesignerCanvas.AlignRight}"
                                     CommandTarget="{Binding ElementName=MyDesigner}">
                                 <Button.Content>
-                                    <Image Source="Images/AlignObjectsRight.png" Width="16"/>
+                                    <Image Source="Images/AlignObjectsRight.png" Width="16" ToolTip="靠右"/>
                                 </Button.Content>
                             </Button>
                         </StackPanel>
@@ -186,21 +186,21 @@
                                     Command="{x:Static s:DesignerCanvas.AlignTop}"
                                     CommandTarget="{Binding ElementName=MyDesigner}">
                                 <Button.Content>
-                                    <Image Source="Images/AlignObjectsTop.png" Width="16"/>
+                                    <Image Source="Images/AlignObjectsTop.png" Width="16" ToolTip="顶部"/>
                                 </Button.Content>
                             </Button>
                             <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}"
                                     Command="{x:Static s:DesignerCanvas.AlignVerticalCenters}"
                                     CommandTarget="{Binding ElementName=MyDesigner}">
                                 <Button.Content>
-                                    <Image Source="Images/AlignObjectsCenteredVertical.png" Width="16"/>
+                                    <Image Source="Images/AlignObjectsCenteredVertical.png" Width="16" ToolTip="垂直居中"/>
                                 </Button.Content>
                             </Button>
                             <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}"
                                     Command="{x:Static s:DesignerCanvas.AlignBottom}"
                                     CommandTarget="{Binding ElementName=MyDesigner}">
                                 <Button.Content>
-                                    <Image Source="Images/AlignObjectsBottom.png" Width="16"/>
+                                    <Image Source="Images/AlignObjectsBottom.png" Width="16" ToolTip="底部"/>
                                 </Button.Content>
                             </Button>
                         </StackPanel>
@@ -218,7 +218,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/DistributeObjectsHorizontal.png" Width="16"/>
-                                <TextBlock Margin="3" Text="Horizontal" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="横向等距" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -233,7 +233,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/DistributeObjectsVertical.png" Width="16"/>
-                                <TextBlock Margin="3" Text="Vertical" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="纵向等距" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -263,7 +263,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Group.png" Width="16"/>
-                                <TextBlock Margin="3" Text="Group" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="组合" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -278,7 +278,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/Ungroup.png" Width="16"/>
-                                <TextBlock Margin="3" Text="Ungroup" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="拆分" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -295,7 +295,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/BringForward.png" Width="16"/>
-                                <TextBlock Margin="3" Text="Forward" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="上一层" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -310,7 +310,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/BringToFront.png" Width="16"/>
-                                <TextBlock Margin="3" Text="To Front" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="最上层" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -331,7 +331,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/SendBackward.png" Width="16"/>
-                                <TextBlock Margin="3" Text="Backward" VerticalAlignment="Center"  Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="下一层" VerticalAlignment="Center"  Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -346,7 +346,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Images/SendToBack.png" Width="16"/>
-                                <TextBlock Margin="3" Text="To Back" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Margin="3" Text="最下层" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Button.Content>
                     </Button>
