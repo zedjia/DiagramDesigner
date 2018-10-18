@@ -41,5 +41,10 @@ namespace DiagramDesigner.Windows.WindInterface
             var dc = this.DataContext as InterfaceSelectViewModel;
             dc.ChartViewModel = ChartViewModel;
         }
+
+        private void dataGrid1_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
+        }
     }
 }

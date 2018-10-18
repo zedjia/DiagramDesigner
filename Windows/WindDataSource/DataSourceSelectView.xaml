@@ -7,19 +7,19 @@
         xmlns:uc="clr-namespace:DiagramDesigner.UserControls"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindDataSource"
         mc:Ignorable="d"
-        Title="选择数据源" Height="450" Width="750">
+        Title="选择数据源" Height="450" Width="750" Background="#222528">
     <Window.DataContext>
         <local:DataSourceSelectViewModel></local:DataSourceSelectViewModel>
     </Window.DataContext>
     <StackPanel>
         <Grid Margin="10 10 10 0">
             <StackPanel Orientation="Horizontal">
-                <TabControl Height="200" x:Name="dataSourceTabContrl" TabStripPlacement="Left" Loaded="dataSourceTabContrl_Loaded">
+                <TabControl Height="200" x:Name="dataSourceTabContrl" Background="#222528" TabStripPlacement="Left">
                     <!--<uc:DataItemView></uc:DataItemView>-->
                 </TabControl>
             </StackPanel>
         </Grid>
         <!--<DataGrid></DataGrid>-->
-        <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="290" CanUserAddRows="False"></DataGrid>
+        <DataGrid ItemsSource="{Binding SqlExecResult}" VerticalScrollBarVisibility="Auto" Margin="10" Height="190" Background="#222528" CanUserAddRows="False" RowHeight="30"></DataGrid>
     </StackPanel>
 </Window>

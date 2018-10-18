@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
         xmlns:btn="clr-namespace:DiagramDesigner.CustomControls.Buttons"
         mc:Ignorable="d"
-        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
+        Title="数据接口配置" Height="520" Width="680" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
     <Window.DataContext>
         <local:InterfaceViewModel></local:InterfaceViewModel>
     </Window.DataContext>
@@ -19,26 +19,21 @@
             <RowDefinition Height="200"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 10 10 0">
-            <Label Content="别       名："></Label>
+            <Label Content="别       名：" Foreground="{DynamicResource FontColor}"></Label>
             <TextBox Width="100" Text="{Binding SelectedInterfaceModel.IFAlias}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 10 0">
-            <Label Content="接口地址："></Label>
+            <Label Content="接口地址：" Foreground="{DynamicResource FontColor}"></Label>
             <TextBox Width="500" Text="{Binding SelectedInterfaceModel.IFUrl}"></TextBox>
             <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
         </StackPanel>
 
 
-        <Grid Margin="6 5" Grid.Row="2" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".3*"></ColumnDefinition>
-                <ColumnDefinition Width=".4*"></ColumnDefinition>
-                <ColumnDefinition Width=".3*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="新增" HorizontalAlignment="Left" Width="60"   Command="{Binding AddConfigCmd}"></Button>
-            <Button Grid.Column="1" Content="保存" HorizontalAlignment="Center" Width="60"  Command="{Binding SaveConfigCmd}"></Button>
+        <StackPanel Margin="6 5" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Grid.Column="1" Content="新增" Width="60"  Command="{Binding AddConfigCmd}"></Button>
+            <Button Grid.Column="1" Content="保存" Width="60" Margin="20 0 0 0" Command="{Binding SaveConfigCmd}"></Button>
             <!--<Button Grid.Column="1" Content="删除" HorizontalAlignment="Right" Width="60"  Command="{Binding DeleteConfigCmd}"  CommandParameter="{Binding ElementName=DataGrid}"></Button>-->
-        </Grid>
+        </StackPanel>
 
 
         <!--<StackPanel Grid.Row="2" Orientation="Horizontal" Height="40" Margin="0 5 0 0">
@@ -55,23 +50,23 @@
         <!--暂时只做Get请求，参数可写在ur中-->
         <StackPanel Grid.Row="3" Margin="10">
             <Border></Border>
-            <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
+            <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0" Foreground="{DynamicResource FontColor}"></Label>
             <!--<TextBox Width="650" Height="55"  Text="{Binding TestResult}" HorizontalAlignment="Left" Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>-->
-            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="170"></DataGrid>
+            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Auto" Margin="0 10 0 0" Height="160" Background="#222528"></DataGrid>
         </StackPanel>
         <StackPanel Grid.Row="4" Margin="10">
             <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
-            <Label Content="接口列表:" Margin="0 0 0 10"></Label>
-            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
+            <Label Content="接口列表:" Margin="0 0 0 10" Foreground="{DynamicResource FontColor}"></Label>
+            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" Background="#222528" VerticalScrollBarVisibility="Auto" RowHeight="30" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="序号" Width="60">
+                    <!--<DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <!--上面可加上选择框-->
+                                --><!--上面可加上选择框--><!--
                                 <Label ></Label>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
                     <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding IFAlias}"/>
                     <DataGridTextColumn Header="接口地址" Width="*" Binding="{Binding IFUrl}"/>
                     <DataGridTemplateColumn Header="编辑" Width="40">

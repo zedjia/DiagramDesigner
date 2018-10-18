@@ -62,10 +62,16 @@ namespace DiagramDesigner.Windows.WindDataSource
                 DataItemView uc = new DataItemView();
                 uc.DataContext = new DataItemViewModel() {TabDataSourceModel = dataSourceModel,SetSqlExecResult = Context.SetSqlExecResult};
                 TabItem tabItem = new TabItem() {Header = $"{dataSourceModel.DBAlias}({dataSourceModel.DBType})"};
+                tabItem.Style = (Style)this.FindResource("TabItemStyle");
                 //tabItem.RegisterName($"uc{dataSourceModel.Id}", uc);
                 tabItem.Content = uc;
                 dataSourceTabContrl.Items.Add(tabItem);
             }
+        }
+
+        private void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
         }
     }
 }

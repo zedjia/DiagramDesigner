@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiagramDesigner.Windows.WindInterface"
         mc:Ignorable="d"
-        Title="选择数据接口"  Height="520" Width="680" Top="360" Left="600" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
+        Title="选择数据接口"  Height="520" Width="680" Top="360" Left="600" Background="#222528" ResizeMode="NoResize" Icon="../../Resources/Images/Interface.ico">
     <Window.DataContext>
         <local:InterfaceSelectViewModel></local:InterfaceSelectViewModel>
     </Window.DataContext>
@@ -18,11 +18,11 @@
             <RowDefinition Height="200"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
-            <Label Content="别       名："></Label>
+            <Label Content="别       名：" Foreground="{DynamicResource FontColor}"></Label>
             <TextBox Width="100" Text="{Binding SelectedInterfaceModel.IFAlias}" IsEnabled="False"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 0 0">
-            <Label Content="接口地址："></Label>
+            <Label Content="接口地址：" Foreground="{DynamicResource FontColor}"></Label>
             <TextBox Width="500" Text="{Binding SelectedInterfaceModel.IFUrl}" IsEnabled="False"></TextBox>
             <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
         </StackPanel>
@@ -38,22 +38,22 @@
         <!--暂时只做Get请求，参数可写在ur中-->
         <StackPanel Grid.Row="3" Margin="10">
             <Border></Border>
-            <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0"></Label>
-            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Visible" Margin="0 10 0 0" Height="170" CanUserAddRows="False" IsReadOnly="True"></DataGrid>
+            <Label Content="测试输出:" Width="120" HorizontalAlignment="Left" Margin="5 0" Foreground="{DynamicResource FontColor}"></Label>
+            <DataGrid ItemsSource="{Binding TestResult}" VerticalScrollBarVisibility="Auto" Background="#222528" RowHeight="30" Margin="0 10 0 0" Height="170" CanUserAddRows="False" IsReadOnly="True"></DataGrid>
         </StackPanel>
         <StackPanel Grid.Row="4" Margin="10">
             <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
-            <Label Content="接口列表:" Margin="0 0 0 10"></Label>
-            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}" IsReadOnly="True">
+            <Label Content="接口列表:" Margin="0 0 0 10" Foreground="{DynamicResource FontColor}"></Label>
+            <DataGrid Name="dataGrid1" Height="135" AutoGenerateColumns="False" Background="#222528" VerticalScrollBarVisibility="Auto" RowHeight="30" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="序号" Width="60">
+                    <!--<DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <!--上面可加上选择框-->
+                                --><!--上面可加上选择框--><!--
                                 <Label ></Label>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
                     <DataGridTextColumn Header="接口别名" Width="160" Binding="{Binding IFAlias}"/>
                     <DataGridTextColumn Header="接口地址" Width="*" Binding="{Binding IFUrl}"/>
                     <DataGridTemplateColumn Header="选择" Width="40">

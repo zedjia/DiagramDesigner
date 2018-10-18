@@ -6,13 +6,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DiagramDesigner.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="550">
+             d:DesignHeight="200" d:DesignWidth="550" Background="#222528">
     <!--<UserControl.DataContext>
         <local:DataItemViewModel></local:DataItemViewModel>
     </UserControl.DataContext>-->
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <ListBox x:Name="List" Width="120" HorizontalAlignment="Left" ItemsSource="{Binding TabDataSourceModel.DataItems}">
+            <ListBox x:Name="List" Width="120" HorizontalAlignment="Left" Background="#222528" Foreground="{DynamicResource FontColor}" ItemsSource="{Binding TabDataSourceModel.DataItems}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SelectionDataItemChangedCmd}" CommandParameter="{Binding ElementName=List}" />
@@ -21,18 +21,18 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Width="100" Height="30">
-                            <Label Content="{Binding Alias}" HorizontalAlignment="Left"></Label>
+                            <Label Content="{Binding Alias}" HorizontalAlignment="Left" Foreground="{DynamicResource FontColor}"></Label>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Margin="10 0 0 0">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="别名："></Label>
+                    <Label Content="别名：" Foreground="{DynamicResource FontColor}"></Label>
                     <TextBox Width="150" Text="{Binding Path=SelectedDataItemModel.Alias}"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
-                    <Label Content="SQL："></Label>
+                    <Label Content="SQL：" Foreground="{DynamicResource FontColor}"></Label>
                     <TextBox Width="340" Height="100" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding SelectedDataItemModel.SqlStr}"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="40 10 0 0">
