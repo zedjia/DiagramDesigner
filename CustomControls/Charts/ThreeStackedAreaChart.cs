@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DiagramDesigner.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +55,7 @@ namespace DiagramDesigner.CustomControls.Charts
         /// <summary>
         /// 最上层图形颜色
         /// </summary>
+        [DisplayName("最上层图形颜色")]
         public Brush AreaColor1
         {
             get { return (Brush)GetValue(AreaColor1Property); }
@@ -66,6 +69,7 @@ namespace DiagramDesigner.CustomControls.Charts
         /// <summary>
         /// 中间层图形颜色
         /// </summary>
+        [DisplayName("中间层图形颜色")]
         public Brush AreaColor2
         {
             get { return (Brush)GetValue(AreaColor2Property); }
@@ -79,6 +83,7 @@ namespace DiagramDesigner.CustomControls.Charts
         /// <summary>
         /// 最下层图形颜色
         /// </summary>
+        [DisplayName("最下层图形颜色")]
         public Brush AreaColor3
         {
             get { return (Brush)GetValue(AreaColor3Property); }
@@ -92,6 +97,7 @@ namespace DiagramDesigner.CustomControls.Charts
         /// <summary>
         /// X轴文字颜色
         /// </summary>
+        [DisplayName("X轴文字颜色")]
         public Brush XColor
         {
             get { return (Brush)GetValue(XColorProperty); }
@@ -105,6 +111,7 @@ namespace DiagramDesigner.CustomControls.Charts
         /// <summary>
         /// Y轴文字颜色
         /// </summary>
+        [DisplayName("Y轴文字颜色")]
         public Brush YColor
         {
             get { return (Brush)GetValue(YColorProperty); }
@@ -114,5 +121,28 @@ namespace DiagramDesigner.CustomControls.Charts
         // Using a DependencyProperty as the backing store for ChartColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty YColorProperty =
             DependencyProperty.Register("YColor", typeof(Brush), typeof(ThreeStackedAreaChart), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B7C4CF"))));
+
+        [DisplayName("数据源")]
+        public IDataSourceModel ChartSource
+        {
+            get { return (IDataSourceModel)GetValue(ChartSourceProperty); }
+            set { SetValue(ChartSourceProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartSourceProperty =
+            DependencyProperty.Register("ChartSource", typeof(IDataSourceModel), typeof(ThreeStackedAreaChart), new PropertyMetadata(null));
+
+
+        [DisplayName("DataContext")]
+        public IChartViewModel ChartViewModel
+        {
+            get { return (IChartViewModel)GetValue(ChartViewModelProperty); }
+            set { SetValue(ChartViewModelProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DC.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartViewModelProperty =
+            DependencyProperty.Register("ChartViewModel", typeof(IChartViewModel), typeof(ThreeStackedAreaChart), new PropertyMetadata(new StackedAreaViewModel()));
     }
 }

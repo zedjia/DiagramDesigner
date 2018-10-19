@@ -21,11 +21,11 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 10 10 0">
             <Label Content="别       名：" Foreground="{DynamicResource FontColor}"></Label>
-            <TextBox Width="100" Background="#222528" Foreground="#B7C4CF"  Text="{Binding SelectedInterfaceModel.IFAlias}"></TextBox>
+            <TextBox Width="100" Background="#222528" Foreground="#B7C4CF"  Text="{Binding SelectedInterfaceModel.IFAlias}" VerticalContentAlignment="Center"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 10 0">
             <Label Content="接口地址：" Foreground="{DynamicResource FontColor}"></Label>
-            <TextBox Width="500" Background="#222528" Foreground="#B7C4CF"  Text="{Binding SelectedInterfaceModel.IFUrl}"></TextBox>
+            <TextBox Width="500" Background="#222528" Foreground="#B7C4CF"  Text="{Binding SelectedInterfaceModel.IFUrl}" VerticalContentAlignment="Center"></TextBox>
             <Button Content="测试接口" Margin="15 0 5 0" Command="{Binding TestConnectionCmd}"></Button>
         </StackPanel>
 
@@ -58,7 +58,7 @@
         <StackPanel Grid.Row="4" Margin="10 0 10 0" Height="170">
             <!--<ContentControl Content="{StaticResource ApiToolbar}"/>-->
             <Label Content="接口列表:" Margin="0 0 0 10" Foreground="{DynamicResource FontColor}"></Label>
-            <DataGrid Name="dataGrid1" Height="122" AutoGenerateColumns="False" Background="#222528" VerticalScrollBarVisibility="Auto" RowHeight="30" ScrollViewer.HorizontalScrollBarVisibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding InterfaceModels}">
+            <DataGrid Name="dataGrid1" Height="122" AutoGenerateColumns="False" Background="#222528" VerticalScrollBarVisibility="Auto" RowHeight="30" IsReadOnly='True' CanUserAddRows="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding InterfaceModels}">
                 <DataGrid.Columns>
                     <!--<DataGridTemplateColumn Header="序号" Width="60">
                         <DataGridTemplateColumn.CellTemplate>

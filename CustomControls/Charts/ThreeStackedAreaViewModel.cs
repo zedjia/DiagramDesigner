@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DiagramDesigner.CustomControls.Charts
 {
     [AddINotifyPropertyChangedInterface]
-    public class ThreeStackedAreaViewModel
+    public class ThreeStackedAreaViewModel: IChartViewModel
     {
         public DataTable DataTable { get; set; }
 

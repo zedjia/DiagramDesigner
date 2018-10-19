@@ -171,6 +171,7 @@
     <Compile Include="CustomControls\Charts\DoubleHisChart.cs" />
     <Compile Include="CustomControls\Charts\DoubleHisViewModel.cs" />
     <Compile Include="CustomControls\Charts\HisAndAreaChart.cs" />
+    <Compile Include="CustomControls\Charts\HisAndAreaViewModel.cs" />
     <Compile Include="CustomControls\Charts\IChartControl.cs" />
     <Compile Include="CustomControls\Charts\IChartViewModel.cs" />
     <Compile Include="CustomControls\Charts\SingleHisChart.cs" />

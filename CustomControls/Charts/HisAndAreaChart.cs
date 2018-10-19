@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiagramDesigner.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -53,15 +54,26 @@ namespace DiagramDesigner.CustomControls.Charts
         }
 
         [DisplayName("数据源")]
-        public object ChartSource
+        public IDataSourceModel ChartSource
         {
-            get { return (object)GetValue(ChartSourceProperty); }
+            get { return (IDataSourceModel)GetValue(ChartSourceProperty); }
             set { SetValue(ChartSourceProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ChartSource.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ChartSourceProperty =
-            DependencyProperty.Register("ChartSource", typeof(object), typeof(HisAndAreaChart), new PropertyMetadata(null));
+            DependencyProperty.Register("ChartSource", typeof(IDataSourceModel), typeof(HisAndAreaChart), new PropertyMetadata(null));
+
+        [DisplayName("DataContext")]
+        public IChartViewModel ChartViewModel
+        {
+            get { return (IChartViewModel)GetValue(ChartViewModelProperty); }
+            set { SetValue(ChartViewModelProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DC.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartViewModelProperty =
+            DependencyProperty.Register("ChartViewModel", typeof(IChartViewModel), typeof(DoubleHisChart), new PropertyMetadata(new HisAndAreaViewModel()));
 
         /// <summary>
         /// 柱状图颜色
