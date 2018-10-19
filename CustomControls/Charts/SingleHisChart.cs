@@ -1,4 +1,5 @@
-﻿using DiagramDesigner.Models;
+﻿using DevExpress.Xpf.Charts;
+using DiagramDesigner.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,24 @@ namespace DiagramDesigner.CustomControls.Charts
     /// </summary>
     public class SingleHisChart : Control, IChartControl
     {
+        //public SingleHisChart()
+        //{
+        //    base.MouseMove += SingleHisChart_MouseMove;
+        //}
+
+        //private void SingleHisChart_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    var child = this.GetTemplateChild("chart") as ChartControl;
+        //    if (child != null)
+        //    {
+        //        ChartHitInfo hitInfo = child.CalcHitInfo(e.GetPosition(child));
+        //        if (hitInfo.SeriesPoint != null)
+        //        {
+        //            MessageBox.Show(hitInfo.SeriesPoint.Value.ToString());
+        //        }
+        //    }
+        //}
+
         static SingleHisChart()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(SingleHisChart), new FrameworkPropertyMetadata(typeof(SingleHisChart)));
