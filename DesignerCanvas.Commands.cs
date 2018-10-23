@@ -755,7 +755,22 @@ namespace DiagramDesigner
         #endregion
 
         #region Helper Methods
+        private XElement LoadSerializedDataFromFile(string fileName)
+        {
+            if(fileName!=null)
+            {
+                try
+                {
+                    return XElement.Load(fileName);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace, e.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            return null;
 
+        }
         private XElement LoadSerializedDataFromFile()
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -1033,6 +1048,47 @@ namespace DiagramDesigner
             interfe.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             interfe.Owner = mainWindow;
             interfe.ShowDialog();
+        }
+        #endregion
+
+        #region 公共方法,对外提供解析本地XML文件的方法，通过该方法不用再进行手动打开文件然后进行预览，可通过Main函数传参直接打开文件进行预览
+        public void OpenXML(string fileName)
+        {
+            XElement root = LoadSerializedDataFromFile(fileName);
+
+            if (root == null)
+                return;
+
+            this.Children.Clear();
+            this.SelectionService.ClearSelection();
+
+            IEnumerable<XElement> itemsXML = root.Elements("DesignerItems").Elements("DesignerItem");
+            foreach (XElement itemXML in itemsXML)
+            {
+                Guid id = new Guid(itemXML.Element("ID").Value);
+                DesignerItem item = DeserializeDesignerItem(itemXML, id, 0, 0);
+                this.Children.Add(item);
+                SetConnectorDecoratorTemplate(item);
+            }
+
+            this.InvalidateVisual();
+
+            IEnumerable<XElement> connectionsXML = root.Elements("Connections").Elements("Connection");
+            foreach (XElement connectionXML in connectionsXML)
+            {
+                Guid sourceID = new Guid(connectionXML.Element("SourceID").Value);
+                Guid sinkID = new Guid(connectionXML.Element("SinkID").Value);
+
+                String sourceConnectorName = connectionXML.Element("SourceConnectorName").Value;
+                String sinkConnectorName = connectionXML.Element("SinkConnectorName").Value;
+
+                Connector sourceConnector = GetConnector(sourceID, sourceConnectorName);
+                Connector sinkConnector = GetConnector(sinkID, sinkConnectorName);
+
+                Connection connection = new Connection(sourceConnector, sinkConnector);
+                Canvas.SetZIndex(connection, Int32.Parse(connectionXML.Element("zIndex").Value));
+                this.Children.Add(connection);
+            }
         }
         #endregion
     }

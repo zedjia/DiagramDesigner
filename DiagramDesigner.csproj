@@ -79,6 +79,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DiagramDesigner.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -209,6 +212,7 @@
       <DependentUpon>PreviewView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PreviewViewModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Services\DbServices.cs" />
     <Compile Include="Services\FileDataServices.cs" />
     <Compile Include="Tools\ControlUtility.cs" />
@@ -553,6 +557,7 @@
     <Resource Include="Resources\icons\高度.png" />
     <Resource Include="Resources\icons\bigdata.png" />
     <Resource Include="Resources\icons\ColorSelect.png" />
+    <Resource Include="Resources\icons\导出.png" />
     <Content Include="Resources\Images\ApiEdit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

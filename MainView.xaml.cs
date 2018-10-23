@@ -5,6 +5,8 @@ using DiagramDesigner.CustomControls.Charts;
 using DiagramDesigner.CustomControls.Images;
 using DiagramDesigner.Tools;
 using DiagramDesigner.Windows.DataSourceWD;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -14,11 +16,24 @@ namespace DiagramDesigner
 {
     public partial class MainView : DXWindow
     {
+        public string FileName { get; set; }
         private DesignerCanvas DesignerCanvas;
         private PreviewView previewView;
         public MainView()
         {
             InitializeComponent();
+
+            this.Loaded += MainView_Loaded;
+        }
+
+        private void MainView_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (FileName == null) return;
+            if (File.Exists(FileName))
+            {
+                this.MyDesigner.OpenXML(FileName);
+            }
+            //OpenPreviewView();
         }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -46,9 +61,6 @@ namespace DiagramDesigner
             //this.ScrollViewer.Content = null;
             //previewView.GridContent.Children.Add(DesignerCanvas);//Content = DesignerCanvas;
             //DesignerCanvas.SetValue(DesignerCanvas.NameProperty, "MyDesigner");
-
-
-
             var uiCollection = this.MyDesigner.Children;
             foreach (var ui in uiCollection)
             {
@@ -126,6 +138,11 @@ namespace DiagramDesigner
             {
                 this.MyDesigner.Background = new SolidColorBrush(frmColorSelector.SelectedColor);
             }
+        }
+
+        private void CreateExe_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
