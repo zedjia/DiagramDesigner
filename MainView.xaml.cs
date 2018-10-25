@@ -32,8 +32,8 @@ namespace DiagramDesigner
             if (File.Exists(FileName))
             {
                 this.MyDesigner.OpenXML(FileName);
+                OpenPreviewView();
             }
-            //OpenPreviewView();
         }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
